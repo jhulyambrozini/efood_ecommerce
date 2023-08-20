@@ -10,11 +10,8 @@ export const HeaderContainer = styled.header`
   height: 24rem;
   width: 100vw;
 
-  img {
-    width: 7.8rem;
-    height: 3.6rem;
-    margin-top: 4rem;
-    margin-bottom: 8.6rem;
+  h1 {
+    line-height: 0;
   }
 
   h2 {
@@ -22,4 +19,10 @@ export const HeaderContainer = styled.header`
     font-size: 2.25rem;
     font-weight: bold;
   }
+`
+export const Logo = styled.img`
+  width: 7.8rem;
+  height: 3.6rem;
+  margin-top: 4rem;
+  margin-bottom: 8.6rem;
 `

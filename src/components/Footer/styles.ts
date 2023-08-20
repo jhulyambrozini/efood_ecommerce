@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { colors } from "../../styles";
+import { Logo } from "../Header/styles";
 
 export const FooterContainer = styled.footer`
   width: 100vw;
   background-color: ${colors.primaryLight};
   text-align: center;
 
-   > img {
-    width: 7.8rem;
-    height: 3.6rem;
+  ${Logo} {
     margin-top: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   p {
@@ -20,12 +20,11 @@ export const FooterContainer = styled.footer`
 `
 
 export const SocialMedia = styled.div`
- display: flex;
- gap: .5rem;
- justify-content: center;
- align-items: center;
- margin-top: 2rem;
- margin-bottom: 5rem;
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
 
   img {
     width: 1.5rem;
