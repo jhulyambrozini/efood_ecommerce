@@ -4,8 +4,13 @@ export const colors = {
   primaryDark: '#E66767',
   primaryLight: '#FFEBD9',
   secundary: '#FFF8F2',
-  white: '#FFF',
   grayDark: '#4B4B4B'
+}
+
+export const breakpoints = {
+  desktop: '1024px',
+  tablet: '768px',
+  mobile: '426px'
 }
 
 const GlobalStyle = createGlobalStyle`

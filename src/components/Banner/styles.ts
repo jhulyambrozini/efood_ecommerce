@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { breakpoints } from "../../styles"
 
 export const Image = styled.div`
   background-repeat: no-repeat;
@@ -27,7 +28,7 @@ export const Titles = styled.div`
   gap: 9.78rem;
   color: #FFF;
   font-size: 2rem;
-  padding: 1.5rem 0 2rem 10.68rem;
+  padding: 1.5rem 0 2rem 10.7rem;
 
   span {
     font-weight: 100;
@@ -35,5 +36,13 @@ export const Titles = styled.div`
 
   h2 {
     font-weight: 900;
+  }
+
+  @media (max-width: ${breakpoints.tablet}){
+    padding-left: 2.7rem;
+  }
+
+  @media (max-width: ${breakpoints.mobile}){
+    font-size: 1.5rem;
   }
 `

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors } from "../../styles"
+import { breakpoints, colors } from "../../styles"
 import { Logo } from "../../styles"
 
 export const FooterContainer = styled.footer`
@@ -14,6 +14,10 @@ export const FooterContainer = styled.footer`
   p {
     color: ${colors.primaryDark};
     font-size: 0.625rem;
+
+    @media (max-width: ${breakpoints.mobile}){
+      padding: 0 2rem;
+    }
   }
 
 `
@@ -29,5 +33,10 @@ export const SocialMedia = styled.div`
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
+
+    @media (max-width: ${breakpoints.mobile}){
+      width: 2rem;
+      height: 2rem;
+    }
  }
 `

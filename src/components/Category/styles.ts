@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors } from "../../styles"
+import { breakpoints, colors } from "../../styles"
 import { ButtonContainer } from "../Button/styles"
 
 export const CardContainer = styled.div`
@@ -26,6 +26,15 @@ export const CardContainer = styled.div`
     width: 100%;
     height: 13.5rem;
     object-fit: cover;
+  }
+
+  @media (max-width: ${breakpoints.desktop}){
+    width: 25rem;
+  }
+
+  @media (max-width: ${breakpoints.mobile}){
+    width: 18rem;
+    height: 27rem;
   }
 `
 

@@ -14,6 +14,13 @@ type Props = {
 }
 
 const Category = ({detach, type, title, evaluation, description, image}: Props) => {
+
+  const getDescription = (description: string) => {
+    if (description.length > 210) {
+      return description.slice(0, 207) + '...'
+    }
+  }
+
   return (
     <CardContainer>
       <img src={image} alt={title} />
@@ -28,7 +35,7 @@ const Category = ({detach, type, title, evaluation, description, image}: Props) 
             <img src={starIcon} alt="estrela de avaliação" />
           </div>
         </Infos>
-        <Desc>{description}</Desc>
+        <Desc>{getDescription(description)}</Desc>
         <Link to='/perfil'>
           <Button title='Saiba mais' background='primary' type='button' />
         </Link>
