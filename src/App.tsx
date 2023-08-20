@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom"
 import RoutesProvider from "./routes"
-import GlobalStyle from "./styles"
 import Footer from "./components/Footer/Footer"
+import GlobalStyle from "./styles"
 
 function App() {
 

@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom"
-import { Logo } from "../../styles"
-import logoImage from '../../assets/images/logo.png'
-import {HeaderContainer } from "./styles"
+
 import Banner from "../../components/Banner/Banner"
 import ProductsList from "../../components/ProductsList/ProductsList"
+
+import { Logo } from "../../styles"
+import {HeaderContainer } from "./styles"
+import logoImage from '../../assets/images/logo.png'
 
 const Perfil = () => (
   <>

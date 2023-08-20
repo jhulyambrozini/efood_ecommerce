@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom"
 import CategorytList from "../../components/CategoryList/CategoryList"
 import { Restaurant } from "../../models/Restaurants"
+
+import { HeaderContainer } from "./styles"
+import { Logo } from "../../styles"
+
 import japanese from '../../assets/images/imagem.png'
 import italian from '../../assets/images/image-1.png'
 import logoImage from '../../assets/images/logo.png'
-import { HeaderContainer } from "./styles"
-import { Link } from "react-router-dom"
-import { Logo } from "../../styles"
+
 
 const restaurant: Restaurant[] = [
   {

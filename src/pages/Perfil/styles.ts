@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import backgroundHeader from '../../assets/images/background-header.png'
 import { breakpoints, colors } from "../../styles"
+import backgroundHeader from '../../assets/images/background-header.png'
 
 export const HeaderContainer = styled.header`
   background-image: url(${backgroundHeader});

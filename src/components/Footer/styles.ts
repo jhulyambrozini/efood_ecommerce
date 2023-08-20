@@ -19,12 +19,11 @@ export const FooterContainer = styled.footer`
       padding: 0 2rem;
     }
   }
-
 `
 
 export const SocialMedia = styled.div`
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;

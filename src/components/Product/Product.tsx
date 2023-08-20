@@ -1,6 +1,6 @@
 import Button from "../Button/Button"
-import food from '../../assets/images/image-3.png'
 import { CardContainer } from "./styles"
+import food from '../../assets/images/image-3.png'
 
 const Product = () => (
   <CardContainer>
@@ -10,7 +10,8 @@ const Product = () => (
     <Button
       type="button"
       title="Adicionar ao carrinho"
-      background="secundary" />
+      background="secundary"
+    />
   </CardContainer>
 )
 
