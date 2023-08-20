@@ -19,7 +19,6 @@ const GlobalStyle = createGlobalStyle`
  body {
   background-color: ${colors.secundary};
  }
-
 `
 export default GlobalStyle
 

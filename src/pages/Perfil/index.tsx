@@ -3,6 +3,7 @@ import { Logo } from "../../styles"
 import logoImage from '../../assets/images/logo.png'
 import {HeaderContainer } from "./styles"
 import Banner from "../../components/Banner/Banner"
+import ProductsList from "../../components/ProductsList/ProductsList"
 
 const Perfil = () => (
   <>
@@ -18,6 +19,7 @@ const Perfil = () => (
       </span>
     </HeaderContainer>
     <Banner />
+    <ProductsList />
   </>
 )
 

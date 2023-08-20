@@ -1,8 +1,6 @@
 import styled from "styled-components"
 import backgroundHeader from '../../assets/images/background-header.png'
 
-import banner from '../../assets/images/image-1.png'
-
 export const HeaderContainer = styled.header`
   background-image: url(${backgroundHeader});
   background-repeat: no-repeat;
