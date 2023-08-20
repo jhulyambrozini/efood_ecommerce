@@ -13,10 +13,10 @@ type Props = {
   evaluation: number
 }
 
-const Category = ({detach = true, type, title, evaluation, description, image}: Props) => {
+const Category = ({detach, type, title, evaluation, description, image}: Props) => {
   return (
     <CardContainer>
-      <img src={image} alt='' />
+      <img src={image} alt={title} />
       <div className='tags'>
         {detach && <Tag>Destaque da semana</Tag>}
         <Tag>{type}</Tag>
