@@ -1,3 +1,5 @@
+import Footer from "./components/Footer/Footer"
+import Home from "./pages/Home"
 import GlobalStyle from "./styles"
 
 function App() {
@@ -5,7 +7,8 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <div>efood</div>
+      <Home />
+      <Footer />
     </>
   )
 }
