@@ -2,6 +2,7 @@ import Button from '../Button/Button'
 import { CardContainer, Desc,  Infos,  Title } from './styles'
 import starIcon from '../../assets/images/estrela-icon.svg'
 import Tag from '../Tag/Tag'
+import { Link } from 'react-router-dom'
 
 type Props = {
   image: string
@@ -28,7 +29,9 @@ const Category = ({detach = true, type, title, evaluation, description, image}: 
           </div>
         </Infos>
         <Desc>{description}</Desc>
-        <Button title='Saiba mais' background='primary' type='button' />
+        <Link to='/perfil'>
+          <Button title='Saiba mais' background='primary' type='button' />
+        </Link>
     </CardContainer>
   )
 }

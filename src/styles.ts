@@ -26,5 +26,5 @@ export default GlobalStyle
 export const Logo = styled.img`
   width: 7.8rem;
   height: 3.6rem;
-
+  cursor: pointer;
 `

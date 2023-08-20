@@ -5,14 +5,23 @@ import twitterIcon from '../../assets/images/twitter-icon.svg'
 
 import { FooterContainer, SocialMedia } from './styles'
 import { Logo } from '../../styles'
+import { Link } from 'react-router-dom'
 
 const Footer = () => (
   <FooterContainer>
-    <Logo src={logoImage} alt="EFOOD" />
+    <Link to='/'>
+      <Logo src={logoImage} alt="EFOOD" />
+    </Link>
     <SocialMedia>
-      <img src={instagramIcon} alt="Icone do instagram" />
-      <img src={facebookIcon} alt="Icone do facebook" />
-      <img src={twitterIcon} alt="Icone do twitter" />
+      <a href="#">
+        <img src={instagramIcon} alt="Icone do instagram" />
+      </a>
+      <a href="#">
+        <img src={facebookIcon} alt="Icone do facebook" />
+      </a>
+      <a href="#">
+        <img src={twitterIcon} alt="Icone do twitter" />
+      </a>
     </SocialMedia>
     <p>
       A efood é uma plataforma para divulgação de estabelecimentos responsabilidade pela entrega, qualidade <br/> dos produtos é toda do estabelecimento contratado.{' '}
