@@ -1,14 +1,13 @@
-import styled from "styled-components";
-import { colors } from "../../styles";
-import { Logo } from "../Header/styles";
+import styled from "styled-components"
+import { colors } from "../../styles"
+import { Logo } from "../../styles"
 
 export const FooterContainer = styled.footer`
-  width: 100vw;
   background-color: ${colors.primaryLight};
   text-align: center;
+  padding: 2.5rem 0;
 
   ${Logo} {
-    margin-top: 2.5rem;
     margin-bottom: 2rem;
   }
 

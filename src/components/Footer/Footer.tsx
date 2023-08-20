@@ -4,7 +4,7 @@ import facebookIcon from '../../assets/images/facebook-icon.svg'
 import twitterIcon from '../../assets/images/twitter-icon.svg'
 
 import { FooterContainer, SocialMedia } from './styles'
-import { Logo } from '../Header/styles'
+import { Logo } from '../../styles'
 
 const Footer = () => (
   <FooterContainer>
@@ -15,9 +15,7 @@ const Footer = () => (
       <img src={twitterIcon} alt="Icone do twitter" />
     </SocialMedia>
     <p>
-      A efood é uma plataforma para divulgação de estabelecimentos, a
-      responsabilidade pela entrega, qualidade <br/>
-      dos produtos é toda do estabelecimento contratado.{' '}
+      A efood é uma plataforma para divulgação de estabelecimentos responsabilidade pela entrega, qualidade <br/> dos produtos é toda do estabelecimento contratado.{' '}
     </p>
   </FooterContainer>
 )

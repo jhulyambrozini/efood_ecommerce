@@ -1,5 +1,6 @@
 import logoImage from '../../assets/images/logo.png'
-import { HeaderContainer, Logo } from './styles'
+import { Logo } from '../../styles'
+import { HeaderContainer} from './styles'
 
 const Header = () => {
   return (

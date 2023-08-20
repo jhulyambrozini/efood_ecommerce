@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 export const colors = {
   primaryDark: '#E66767',
@@ -17,7 +17,14 @@ const GlobalStyle = createGlobalStyle`
  }
 
  body {
-  backgorund-color: ${colors.secundary};
+  background-color: ${colors.secundary};
  }
+
 `
 export default GlobalStyle
+
+export const Logo = styled.img`
+  width: 7.8rem;
+  height: 3.6rem;
+
+`

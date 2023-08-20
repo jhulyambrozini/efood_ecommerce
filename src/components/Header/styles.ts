@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 import backgroundHeader from '../../assets/images/background-header.png'
-import { colors } from "../../styles";
+import { Logo, colors } from "../../styles"
 
 export const HeaderContainer = styled.header`
   background-image: url(${backgroundHeader});
@@ -14,15 +14,15 @@ export const HeaderContainer = styled.header`
     line-height: 0;
   }
 
+  ${Logo} {
+    margin-top: 4rem;
+    margin-bottom: 8.6rem;
+  }
+
   h2 {
     color: ${colors.primaryDark};
     font-size: 2.25rem;
-    font-weight: bold;
+    font-weight: 900;
   }
-`
-export const Logo = styled.img`
-  width: 7.8rem;
-  height: 3.6rem;
-  margin-top: 4rem;
-  margin-bottom: 8.6rem;
+
 `
