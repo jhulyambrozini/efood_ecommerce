@@ -3,6 +3,7 @@ import Button from '../Button/Button'
 import Tag from '../Tag/Tag'
 import * as Style from './styles'
 import starIcon from '../../assets/images/estrela-icon.svg'
+import { getDescription } from '../../utils'
 
 type Props = {
   image: string
@@ -15,12 +16,6 @@ type Props = {
 }
 
 const Category = ({detach, type, title, evaluation, description, image, id}: Props) => {
-
-  const getDescription = (desc: string) => {
-    if (desc.length > 210) {
-      return desc.slice(0, 207) + '...'
-    }
-  }
 
   return (
     <Style.CardContainer>

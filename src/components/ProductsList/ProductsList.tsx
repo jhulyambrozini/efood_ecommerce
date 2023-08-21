@@ -2,6 +2,7 @@ import { useState } from "react"
 import Button from "../Button/Button"
 import * as Style from "./styles"
 import closeIcon from '../../assets/images/close.png'
+import { getDescription } from "../../utils"
 
 type Props = {
   foods: Restaurants
@@ -17,6 +18,13 @@ const ProductsList = ({foods}: Props) => {
     setProduct(products)
   }
 
+  const formatPrice = (price = 0) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(price)
+  }
+
   return (
     <>
       <Style.ListContainer className="container">
@@ -25,7 +33,7 @@ const ProductsList = ({foods}: Props) => {
               <Style.CardContainer>
                 <img src={f.foto} alt={f.nome} />
                 <h3>{f.nome}</h3>
-                <p>{f.descricao}</p>
+                <p>{getDescription(f.descricao)}</p>
                 <Button
                   type="button"
                   title="Adicionar ao carrinho"
@@ -45,7 +53,7 @@ const ProductsList = ({foods}: Props) => {
               <h3>{product?.nome}</h3>
               <p>{product?.descricao}</p>
               <span>Serve: de {product?.porcao}</span>
-              <Button title='Adicionar ao carrinho - R$ 60,90' background='secundary' type='button'/>
+              <Button title={`Adicionar ao carrinho - ${formatPrice(product?.preco)}`} background='secundary' type='button'/>
             </Style.Infos>
             <Style.Close onClick={closeModal}>
               <img src={closeIcon} alt="Icone de fechar" />
