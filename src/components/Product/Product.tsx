@@ -3,6 +3,7 @@ import { CardContainer } from "./styles"
 import food from '../../assets/images/image-3.png'
 
 const Product = () => (
+  <>
   <CardContainer>
     <img src={food} alt="" />
     <h3>Pizza Marguerita</h3>
@@ -13,6 +14,8 @@ const Product = () => (
       background="secundary"
     />
   </CardContainer>
+
+  </>
 )
 
 export default Product
