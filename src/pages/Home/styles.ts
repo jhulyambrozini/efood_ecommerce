@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import backgroundHeader from '../../assets/images/background-header.png'
 import { Logo, breakpoints, colors } from "../../styles"
+import backgroundHeader from '../../assets/images/background-header.png'
 
 export const HeaderContainer = styled.header`
   background-image: url(${backgroundHeader});
@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   background-size: cover;
   text-align: center;
   height: 24rem;
-  width: 100vw;
+  width: 100%;
 
   h1 {
     line-height: 0;

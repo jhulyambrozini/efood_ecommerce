@@ -1,11 +1,16 @@
 import { Image, Titles } from "./styles"
-import bannerImg from '../../assets/images/image-1.png'
 
-const Banner = () => (
-  <Image style={{backgroundImage: `url(${bannerImg})`}}>
+type Props = {
+  image: string
+  type: string
+  title: string
+}
+
+const Banner = ({image, type, title}: Props) => (
+  <Image style={{backgroundImage: `url(${image})`}}>
     <Titles>
-      <span>Italiana</span>
-      <h2>La Dolce Vita Trattoria</h2>
+      <span>{type}</span>
+      <h2>{title}</h2>
     </Titles>
   </Image>
 )

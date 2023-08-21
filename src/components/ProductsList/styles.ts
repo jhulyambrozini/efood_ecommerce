@@ -2,9 +2,9 @@ import styled from "styled-components"
 import { breakpoints, colors } from "../../styles"
 import { ButtonContainer } from "../Button/styles"
 
-export const ListContainer = styled.div`
+export const ListContainer = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   justify-content: center;
   padding: 2.5rem 10.7rem 7.5rem 10.7rem;
@@ -32,7 +32,7 @@ export const Modal = styled.div`
 
   .overlay {
     position: absolute;
-    top: o;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -88,5 +88,35 @@ export const Infos = styled.div`
 
   ${ButtonContainer} {
     width: 13.625rem;
+  }
+`
+
+export const CardContainer = styled.div`
+  background-color: ${colors.primaryDark};
+  width: 20rem;
+  padding: 0.5rem;
+  color: ${colors.primaryLight};
+
+  img {
+    width: 100%;
+    height: 10.4375rem;
+    object-fit: cover;
+  }
+
+  h3 {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    padding-bottom: 0.5rem;
+  }
+
+  ${ButtonContainer} {
+    width: 100%;
+    padding: 0.25rem 0;
   }
 `

@@ -11,13 +11,14 @@ type Props = {
   detach?: boolean
   type: string
   evaluation: number
+  id: number
 }
 
-const Category = ({detach, type, title, evaluation, description, image}: Props) => {
+const Category = ({detach, type, title, evaluation, description, image, id}: Props) => {
 
-  const getDescription = (description: string) => {
-    if (description.length > 210) {
-      return description.slice(0, 207) + '...'
+  const getDescription = (desc: string) => {
+    if (desc.length > 210) {
+      return desc.slice(0, 207) + '...'
     }
   }
 
@@ -36,7 +37,7 @@ const Category = ({detach, type, title, evaluation, description, image}: Props) 
           </div>
         </Style.Infos>
         <Style.Desc>{getDescription(description)}</Style.Desc>
-        <Link to='/perfil'>
+        <Link to={`/perfil/${id}`} >
           <Button title='Saiba mais' background='primary' type='button' />
         </Link>
     </Style.CardContainer>

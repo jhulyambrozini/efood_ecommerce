@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: Roboto, san-serif;
+    list-style: none;
  }
 
  body {

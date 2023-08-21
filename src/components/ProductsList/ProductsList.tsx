@@ -1,42 +1,58 @@
-import Product from "../Product/Product"
-import { Close, Infos, ListContainer, Modal, ModalContainer } from "./styles"
-import closeIcon from '../../assets/images/close.png'
-import food from '../../assets/images/image-3.png'
-import Button from "../Button/Button"
 import { useState } from "react"
+import Button from "../Button/Button"
+import * as Style from "./styles"
+import closeIcon from '../../assets/images/close.png'
 
-const ProductsList = () => {
-  const [modal, setModal] = useState(true)
+type Props = {
+  foods: Restaurants
+}
+
+const ProductsList = ({foods}: Props) => {
+  const [modal, setModal] = useState(false)
+  const [product, setProduct] = useState<Menu>()
 
   const closeModal = () => setModal(false)
+  const openModal = (products: Menu) => {
+    setModal(true)
+    setProduct(products)
+  }
 
   return (
     <>
-      <ListContainer className="container">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-      </ListContainer>
+      <Style.ListContainer className="container">
+        {foods.cardapio && foods.cardapio.map((f) => (
+          <li key={f.id}>
+              <Style.CardContainer>
+                <img src={f.foto} alt={f.nome} />
+                <h3>{f.nome}</h3>
+                <p>{f.descricao}</p>
+                <Button
+                  type="button"
+                  title="Adicionar ao carrinho"
+                  background="secundary"
+                  onClick={() => openModal(f)}
+                />
+              </Style.CardContainer>
+          </li>
+        ))}
+      </Style.ListContainer>
 
       {modal && (
-        <Modal>
-          <ModalContainer>
-            <img src={food} alt="" />
-            <Infos>
-              <h3>Nome da comida</h3>
-              <p>A pizza Margherita é uma pizza clássica da culinária italiana, reconhecida por sua simplicidade e sabor inigualável. Ela é feita com uma base de massa fina e crocante, coberta com molho de tomate fresco, queijo mussarela de alta qualidade, manjericão fresco e azeite de oliva extra-virgem. A combinação de sabores é perfeita, com o molho de tomate suculento e ligeiramente ácido, o queijo derretido e cremoso e as folhas de manjericão frescas, que adicionam um toque de sabor herbáceo. É uma pizza simples, mas deliciosa, que agrada a todos os paladares e é uma ótima opção para qualquer ocasião.</p>
-              <span>Serve: de 2 a 3 pessoas</span>
+        <Style.Modal>
+          <Style.ModalContainer>
+            <img src={product?.foto} alt={product?.foto} />
+            <Style.Infos>
+              <h3>{product?.nome}</h3>
+              <p>{product?.descricao}</p>
+              <span>Serve: de {product?.porcao}</span>
               <Button title='Adicionar ao carrinho - R$ 60,90' background='secundary' type='button'/>
-            </Infos>
-            <Close onClick={closeModal}>
-              <img src={closeIcon} alt="" />
-            </Close>
-          </ModalContainer>
+            </Style.Infos>
+            <Style.Close onClick={closeModal}>
+              <img src={closeIcon} alt="Icone de fechar" />
+            </Style.Close>
+          </Style.ModalContainer>
           <div className="overlay" onClick={closeModal}></div>
-        </Modal>
+        </Style.Modal>
       )}
     </>
   )

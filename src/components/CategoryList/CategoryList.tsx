@@ -1,25 +1,25 @@
 import Category from "../Category/Category"
+import { useGetRestaurantsListQuery } from "../../services/api"
 import { Container } from "./styles"
 
-import { Restaurant } from "../../models/Restaurants"
+const CategorytList = () => {
+  const {data} = useGetRestaurantsListQuery()
 
-type Props = {
-  restaurants: Restaurant[]
-}
-
-const CategorytList = ({restaurants}: Props) => {
   return (
     <Container>
-      {restaurants.map(r => (
-      <Category
-        key={r.id}
-        description={r.description}
-        image={r.image}
-        title={r.title}
-        detach={r.detach}
-        evaluation={r.evaluation}
-        type={r.type}
-      />
+      {data && data.map(r => (
+        <li>
+          <Category
+            key={r.id}
+            description={r.descricao}
+            image={r.capa}
+            title={r.titulo}
+            detach={r.destacado}
+            evaluation={r.avaliacao}
+            type={r.tipo}
+            id={r.id}
+          />
+        </li>
       ))}
     </Container>
   )
