@@ -6,9 +6,9 @@ const CategorytList = () => {
   const {data} = useGetRestaurantsListQuery()
 
   return (
-    <Container>
+    <Container className="container">
       {data && data.map(r => (
-        <li>
+        <li key={r.id}>
           <Category
             key={r.id}
             description={r.descricao}

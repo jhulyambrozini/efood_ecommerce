@@ -8,9 +8,12 @@ export const Container = styled.ul`
   row-gap: 3rem;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0 7.5rem 10.7rem;
 
-  @media (max-width: ${breakpoints.tablet}){
+  @media (max-width: ${breakpoints.desktop}){
+    max-width: 50%;
+  }
+
+  @media (max-width: ${breakpoints.mobile}){
     grid-template-columns: 1fr;
   }
 `

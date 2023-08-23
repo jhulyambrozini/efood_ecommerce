@@ -2,7 +2,10 @@ import { useState } from "react"
 import Button from "../Button/Button"
 import * as Style from "./styles"
 import closeIcon from '../../assets/images/close.png'
-import { getDescription } from "../../utils"
+import { formatPrice, getDescription } from "../../utils"
+import { Overlay } from "../../styles"
+import { useDispatch } from "react-redux"
+import { add, open } from "../../store/reducers/cart"
 
 type Props = {
   foods: Restaurants
@@ -11,6 +14,7 @@ type Props = {
 const ProductsList = ({foods}: Props) => {
   const [modal, setModal] = useState(false)
   const [product, setProduct] = useState<Menu>()
+  const dispatch = useDispatch()
 
   const closeModal = () => setModal(false)
   const openModal = (products: Menu) => {
@@ -18,11 +22,14 @@ const ProductsList = ({foods}: Props) => {
     setProduct(products)
   }
 
-  const formatPrice = (price = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(price)
+  const addToCart = () => {
+    if(product) {
+      dispatch(add(product))
+      closeModal()
+      dispatch(open())
+    } else {
+      alert('Algo deu errado, tente novamente')
+    }
   }
 
   return (
@@ -36,10 +43,10 @@ const ProductsList = ({foods}: Props) => {
                 <p>{getDescription(f.descricao)}</p>
                 <Button
                   type="button"
-                  title="Adicionar ao carrinho"
+                  title="Clique aqui para adicionar ao carrinho"
                   background="secundary"
                   onClick={() => openModal(f)}
-                />
+                >Adicionar ao carrinho</Button>
               </Style.CardContainer>
           </li>
         ))}
@@ -52,14 +59,14 @@ const ProductsList = ({foods}: Props) => {
             <Style.Infos>
               <h3>{product?.nome}</h3>
               <p>{product?.descricao}</p>
-              <span>Serve: de {product?.porcao}</span>
-              <Button title={`Adicionar ao carrinho - ${formatPrice(product?.preco)}`} background='secundary' type='button'/>
+              <span>Serve: {product?.porcao}</span>
+              <Button title='Clique aqui para adicionar ao carrinho' background='secundary' type='button' onClick={addToCart}>Adicionar ao carrinho - {formatPrice(product?.preco)}</Button>
             </Style.Infos>
             <Style.Close onClick={closeModal}>
               <img src={closeIcon} alt="Icone de fechar" />
             </Style.Close>
           </Style.ModalContainer>
-          <div className="overlay" onClick={closeModal}></div>
+          <Overlay onClick={closeModal} />
         </Style.Modal>
       )}
     </>

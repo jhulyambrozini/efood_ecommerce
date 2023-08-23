@@ -1,21 +1,22 @@
-import styled from "styled-components"
-import { breakpoints, colors } from "../../styles"
-import { ButtonContainer } from "../Button/styles"
+import styled from 'styled-components'
+import { breakpoints, colors } from '../../styles'
+import { ButtonContainer } from '../Button/styles'
 
 export const ListContainer = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   justify-content: center;
-  padding: 2.5rem 10.7rem 7.5rem 10.7rem;
   align-items: center;
 
-  @media (max-width: ${breakpoints.desktop}){
+  @media (max-width: ${breakpoints.desktop}) {
     grid-template-columns: 1fr 1fr;
+    max-width: 50%;
   }
 
-  @media (max-width: ${breakpoints.mobile}){
+  @media (max-width: ${breakpoints.mobile}) {
     grid-template-columns: 1fr;
+    max-width: 50%;
   }
 `
 
@@ -29,15 +30,6 @@ export const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
 `
 
 export const ModalContainer = styled.div`
@@ -53,6 +45,22 @@ export const ModalContainer = styled.div`
     width: 17.5rem;
     height: 17.5rem;
     object-fit: cover;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 58rem;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 70%;
+    height: auto;
+    display: grid;
+    padding: 1.8rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 `
 export const Close = styled.button`
@@ -70,9 +78,9 @@ export const Close = styled.button`
 `
 
 export const Infos = styled.div`
- color: #FFF;
- margin-left: 1.4rem;
- display: grid;
+  color: #fff;
+  margin-left: 1.4rem;
+  display: grid;
 
   h3 {
     font-size: 1.125rem;
@@ -89,6 +97,19 @@ export const Infos = styled.div`
   ${ButtonContainer} {
     width: 13.625rem;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin: 0;
+    h3 {
+      padding: 0.5rem 0;
+    }
+
+    ${ButtonContainer} {
+      width: 100%;
+      margin-top: 1rem;
+      padding: .5rem;
+    }
+  }
 `
 
 export const CardContainer = styled.div`
@@ -96,6 +117,7 @@ export const CardContainer = styled.div`
   width: 20rem;
   padding: 0.5rem;
   color: ${colors.primaryLight};
+  margin: 0;
 
   img {
     width: 100%;

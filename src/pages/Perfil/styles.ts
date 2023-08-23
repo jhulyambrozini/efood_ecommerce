@@ -18,6 +18,7 @@ export const HeaderContainer = styled.header`
     text-align: center;
     font-size: 1.125rem;
     font-weight: 900;
+    cursor: pointer;
   }
 
   @media (max-width: ${breakpoints.mobile}){
