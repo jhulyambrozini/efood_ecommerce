@@ -1,5 +1,5 @@
-import { styled } from "styled-components";
-import { breakpoints } from "../../styles";
+import { styled } from 'styled-components'
+import { breakpoints } from '../../styles'
 
 export const Container = styled.ul`
   display: grid;
@@ -9,11 +9,11 @@ export const Container = styled.ul`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: ${breakpoints.desktop}){
+  @media (max-width: ${breakpoints.desktop}) {
     max-width: 50%;
   }
 
-  @media (max-width: ${breakpoints.mobile}){
+  @media (max-width: ${breakpoints.mobile}) {
     grid-template-columns: 1fr;
   }
 `

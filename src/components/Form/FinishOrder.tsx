@@ -1,22 +1,30 @@
+import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+
 import Button from '../Button/Button'
+
 import { FormContainer } from './styles'
+
 import { changeComponent, closeSideBar } from '../../store/reducers/sideBar'
 import { clearCart } from '../../store/reducers/cart'
-import { usePurchaseMutation } from '../../services/api'
 
-const FinishOrder = () => {
-  const [,{data}] = usePurchaseMutation()
+type Props = {
+  orderId: string
+}
 
+const FinishOrder = ({ orderId }: Props) => {
   const dispatch = useDispatch()
-  const finishedPayment = () => {
+  const navigate = useNavigate()
+
+  const goToHome = () => {
     dispatch(closeSideBar())
     dispatch(clearCart())
     dispatch(changeComponent('cart'))
+    navigate('/')
   }
   return (
     <FormContainer>
-      <h3>Pedido realizado - {data?.orderId} </h3>
+      <h3>Pedido realizado - {orderId} </h3>
       <p>
         Estamos felizes em informar que seu pedido já está em processo de
         preparação e, em breve, será entregue no endereço fornecido.
@@ -39,9 +47,9 @@ const FinishOrder = () => {
 
       <Button
         background="secundary"
-        title="Clique aqui para voltar para a home"
+        title="Clique aqui para concluir o pedido"
         type="button"
-        onClick={finishedPayment}
+        onClick={goToHome}
       >
         Concluir
       </Button>

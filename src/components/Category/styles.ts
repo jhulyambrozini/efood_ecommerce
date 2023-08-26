@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { breakpoints, colors } from "../../styles"
-import { ButtonContainer } from "../Button/styles"
+import styled from 'styled-components'
+import { breakpoints, colors } from '../../styles'
+import { ButtonContainer } from '../Button/styles'
 
 export const CardContainer = styled.div`
   width: 29.5rem;
@@ -28,11 +28,11 @@ export const CardContainer = styled.div`
     object-fit: cover;
   }
 
-  @media (max-width: ${breakpoints.desktop}){
+  @media (max-width: ${breakpoints.desktop}) {
     width: 25rem;
   }
 
-  @media (max-width: ${breakpoints.tablet}){
+  @media (max-width: ${breakpoints.tablet}) {
     width: 20rem;
     height: 26rem;
   }
@@ -74,4 +74,3 @@ export const Desc = styled.p`
   line-height: 1.3rem;
   padding: 0.5rem 0.5rem;
 `
-

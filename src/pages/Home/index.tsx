@@ -1,25 +1,26 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
-import CategorytList from "../../components/CategoryList/CategoryList"
+import CategorytList from '../../components/CategoryList/CategoryList'
 
-import { HeaderContainer } from "./styles"
-import { Logo } from "../../styles"
+import { HeaderContainer } from './styles'
+import { Logo } from '../../styles'
 
 import logoImage from '../../assets/images/logo.png'
 
 const Home = () => {
-
   return (
     <>
-     <HeaderContainer>
+      <HeaderContainer>
         <h1>
-          <Link to='/'>
+          <Link to="/">
             <Logo src={logoImage} alt="EFOOD" />
           </Link>
         </h1>
-        <h2>Viva experiências gastronômicas
+        <h2>
+          Viva experiências gastronômicas
           <br />
-          no conforto da sua casa</h2>
+          no conforto da sua casa
+        </h2>
       </HeaderContainer>
       <CategorytList />
     </>

@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { breakpoints } from "../../styles"
+import styled from 'styled-components'
+import { breakpoints } from '../../styles'
 
 export const Image = styled.div`
   background-repeat: no-repeat;
@@ -26,7 +26,7 @@ export const Titles = styled.div`
   position: relative;
   display: grid;
   gap: 9.78rem;
-  color: #FFF;
+  color: #fff;
   font-size: 2rem;
   padding: 1.5rem 0 2rem 10.7rem;
 
@@ -38,11 +38,11 @@ export const Titles = styled.div`
     font-weight: 900;
   }
 
-  @media (max-width: ${breakpoints.tablet}){
+  @media (max-width: ${breakpoints.tablet}) {
     padding-left: 2.7rem;
   }
 
-  @media (max-width: ${breakpoints.mobile}){
+  @media (max-width: ${breakpoints.mobile}) {
     font-size: 1.3rem;
   }
 `

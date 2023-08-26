@@ -59,7 +59,6 @@ export const ModalContainer = styled.div`
 
     img {
       width: 100%;
-      height: 100%;
     }
   }
 `
@@ -107,7 +106,7 @@ export const Infos = styled.div`
     ${ButtonContainer} {
       width: 100%;
       margin-top: 1rem;
-      padding: .5rem;
+      padding: 0.5rem;
     }
   }
 `

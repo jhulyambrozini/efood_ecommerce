@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { breakpoints, colors } from "../../styles"
+import styled from 'styled-components'
+import { breakpoints, colors } from '../../styles'
 import backgroundHeader from '../../assets/images/background-header.png'
 
 export const HeaderContainer = styled.header`
@@ -21,7 +21,7 @@ export const HeaderContainer = styled.header`
     cursor: pointer;
   }
 
-  @media (max-width: ${breakpoints.mobile}){
+  @media (max-width: ${breakpoints.mobile}) {
     display: grid;
   }
 `

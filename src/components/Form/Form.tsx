@@ -1,23 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import InputMask from 'react-input-mask'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
 import Button from '../Button/Button'
-import InputGroup from '../InputGroup/InputGroup'
+import FinishOrder from './FinishOrder'
 
-import { FormContainer } from './styles'
+import { FormContainer, InputGroup } from './styles'
 import { calculeTotalPrice, formatPrice } from '../../utils'
 
 import { RootReducer } from '../../store'
 import { changeComponent } from '../../store/reducers/sideBar'
 import { usePurchaseMutation } from '../../services/api'
+import { clearCart } from '../../store/reducers/cart'
 
 const Form = () => {
   const { itemsCart } = useSelector((state: RootReducer) => state.cart)
-  const [delivery, setDelivery] = useState(true)
+  const [isDelivery, setIsDelivery] = useState(true)
   const dispatch = useDispatch()
-  const [purchase] = usePurchaseMutation()
+  const [purchase, { isLoading, isSuccess, data }] = usePurchaseMutation()
 
   const checkInputHasError = (fieldName: string) => {
     const isTouched = fieldName in form.touched
@@ -25,11 +27,6 @@ const Form = () => {
     const hasError = isTouched && isInvalid
 
     return hasError
-  }
-
-  const finishPayment = () => {
-    form.handleSubmit()
-    dispatch(changeComponent('finishOrder'))
   }
 
   const form = useFormik({
@@ -53,139 +50,173 @@ const Form = () => {
       adress: Yup.string().required('O campo é obrigatório'),
       city: Yup.string().required('O campo é obrigatório'),
       zipCode: Yup.string()
-        .min(9, 'O campo precisa ter no mínimo 9 caracteres')
-        .max(9, 'O campo precisa ter no máximo 9 caracteres')
+        .min(14, 'O campo precisa ter no mínimo 14 caracteres')
+        .max(14, 'O campo precisa ter no máximo 14 caracteres')
         .required('O campo é obrigatório'),
       number: Yup.string().required('O campo é obrigatório'),
 
       cardName: Yup.string().when((values, schema) =>
-        !delivery ? schema.required('O campo é obrigatório') : schema
+        !isDelivery ? schema.required('O campo é obrigatório') : schema
       ),
       cardNumber: Yup.string().when((values, schema) =>
-        !delivery ? schema.required('O campo é obrigatório') : schema
+        !isDelivery ? schema.required('O campo é obrigatório') : schema
       ),
       cardCode: Yup.string().when((values, schema) =>
-        !delivery ? schema.required('O campo é obrigatório') : schema
+        !isDelivery ? schema.required('O campo é obrigatório') : schema
       ),
       expiresMonth: Yup.string().when((values, schema) =>
-        !delivery ? schema.required('O campo é obrigatório') : schema
+        !isDelivery ? schema.required('O campo é obrigatório') : schema
       ),
       expiresYear: Yup.string().when((values, schema) =>
-        !delivery ? schema.required('O campo é obrigatório') : schema
+        !isDelivery ? schema.required('O campo é obrigatório') : schema
       )
     }),
-    onSubmit: (values) => {
-      purchase({
-        delivery: {
-          receiver: values.name,
-          adress: {
-            description: values.adress,
-            city: values.city,
-            zipCode: values.zipCode,
-            number: Number(values.number),
-            complement: values.complement
-          }
-        },
-        payment: {
-          card: {
-            name: values.cardName,
-            number: values.cardNumber,
-            code: Number(values.cardCode),
-            expires: {
-              month: Number(values.expiresMonth),
-              year: Number(values.expiresYear)
+    onSubmit: async (values) => {
+      try {
+        await purchase({
+          delivery: {
+            receiver: values.name,
+            adress: {
+              description: values.adress,
+              city: values.city,
+              zipCode: values.zipCode,
+              number: Number(values.number),
+              complement: values.complement
             }
-          }
-        },
-        products: itemsCart.map((item) => ({
-          id: item.id,
-          price: item.preco as number
-        }))
-      })
+          },
+          payment: {
+            card: {
+              name: values.cardName,
+              number: values.cardNumber,
+              code: Number(values.cardCode),
+              expires: {
+                month: Number(values.expiresMonth),
+                year: Number(values.expiresYear)
+              }
+            }
+          },
+          products: itemsCart.map((item) => ({
+            id: item.id,
+            price: item.preco as number
+          }))
+        })
+      } catch (erro) {
+        console.log(erro)
+      }
     }
   })
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clearCart())
+    }
+  }, [isSuccess, dispatch])
 
   return (
     <form onSubmit={form.handleSubmit}>
       <FormContainer>
-        {delivery ? (
+        {isSuccess && data ? (
+          <FinishOrder orderId={data.orderId} />
+        ) : isDelivery ? (
           <>
             <div className="margin-bottom">
               <h3>Entrega</h3>
 
-              <InputGroup
-                id="name"
-                label="Quem irá receber"
-                type="text"
-                className={checkInputHasError('name') ? 'error' : ''}
-                name="name"
-                onBlur={form.handleBlur}
-                onChange={form.handleChange}
-                value={form.values.name}
-              />
-              <InputGroup
-                id="adress"
-                label="Endereço"
-                type="text"
-                className={checkInputHasError('adress') ? 'error' : ''}
-                name="adress"
-                onBlur={form.handleBlur}
-                onChange={form.handleChange}
-                value={form.values.adress}
-              />
-              <InputGroup
-                id="city"
-                label="Cidade"
-                type="text"
-                className={checkInputHasError('city') ? 'error' : ''}
-                name="city"
-                onBlur={form.handleBlur}
-                onChange={form.handleChange}
-                value={form.values.city}
-              />
+              <InputGroup>
+                <label htmlFor="name">Quem irá receber</label>
+
+                <input
+                  name="name"
+                  id="name"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.name}
+                  type="text"
+                  className={checkInputHasError('name') ? 'error' : ''}
+                />
+              </InputGroup>
+
+              <InputGroup>
+                <label htmlFor="adress">Endereço</label>
+
+                <input
+                  name="adress"
+                  id="adress"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.adress}
+                  type="text"
+                  className={checkInputHasError('adress') ? 'error' : ''}
+                />
+              </InputGroup>
+              <InputGroup>
+                <label htmlFor="city">Cidade</label>
+
+                <input
+                  name="city"
+                  id="city"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.city}
+                  type="text"
+                  className={checkInputHasError('city') ? 'error' : ''}
+                />
+              </InputGroup>
 
               <div className="flex">
-                <InputGroup
-                  id="zipCode"
-                  label="CPF"
-                  type="number"
-                  maxWidth="9.68rem"
-                  className={checkInputHasError('zipCode') ? 'error' : ''}
-                  name="zipCode"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.zipCode}
-                />
-                <InputGroup
-                  id="number"
-                  label="Número"
-                  type="number"
-                  maxWidth="9.68rem"
-                  className={checkInputHasError('number') ? 'error' : ''}
-                  name="number"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.number}
-                />
+                <InputGroup maxWidth="9.68rem">
+                  <label htmlFor="zipCode">CPF</label>
+
+                  <InputMask
+                    name="zipCode"
+                    id="zipCode"
+                    onBlur={form.handleBlur}
+                    onChange={form.handleChange}
+                    value={form.values.zipCode}
+                    type="text"
+                    className={checkInputHasError('zipCode') ? 'error' : ''}
+                    mask="999.999.999-99"
+                  />
+                </InputGroup>
+
+                <InputGroup maxWidth="9.68rem">
+                  <label htmlFor="number">Número</label>
+
+                  <input
+                    name="number"
+                    id="number"
+                    onBlur={form.handleBlur}
+                    onChange={form.handleChange}
+                    value={form.values.number}
+                    type="number"
+                    className={checkInputHasError('number') ? 'error' : ''}
+                  />
+                </InputGroup>
               </div>
 
-              <InputGroup
-                id="complement"
-                label="Complemento (opicional)"
-                type="text"
-                className={checkInputHasError('complement') ? 'error' : ''}
-                name="complement"
-                onBlur={form.handleBlur}
-                onChange={form.handleChange}
-                value={form.values.complement}
-              />
+              <InputGroup>
+                <label htmlFor="complement">Complemento (opicional)</label>
+
+                <input
+                  name="complement"
+                  id="complement"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.complement}
+                  type="text"
+                  className={checkInputHasError('complement') ? 'error' : ''}
+                />
+              </InputGroup>
             </div>
 
             <Button
               background="secundary"
               title="Clique aqui para continuar com o pagamento"
               type="button"
-              onClick={() => setDelivery(false)}
+              onClick={(e) => {
+                setIsDelivery(false)
+                e.preventDefault()
+              }}
             >
               Continuar com o pagamento
             </Button>
@@ -193,7 +224,10 @@ const Form = () => {
               background="secundary"
               title="Clique aqui para valtar ao carrinho"
               type="button"
-              onClick={() => dispatch(changeComponent('cart'))}
+              onClick={(e) => {
+                dispatch(changeComponent('cart'))
+                e.preventDefault()
+              }}
             >
               Voltar para o carrinho
             </Button>
@@ -203,68 +237,87 @@ const Form = () => {
             <div className="margin-bottom">
               <h3>
                 Pagameno - Valor a pagar{' '}
-                {itemsCart && formatPrice(calculeTotalPrice(itemsCart))}{' '}
+                {itemsCart && formatPrice(calculeTotalPrice(itemsCart))}
               </h3>
 
-              <InputGroup
-                id="cardName"
-                label="Nome do cartão"
-                type="text"
-                className={checkInputHasError('cardName') ? 'error' : ''}
-                name="cardName"
-                onBlur={form.handleBlur}
-                onChange={form.handleChange}
-                value={form.values.cardName}
-              />
+              <InputGroup>
+                <label htmlFor="cardName">Nome no cartão</label>
+
+                <input
+                  name="cardName"
+                  id="cardName"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.cardName}
+                  type="text"
+                  className={checkInputHasError('cardName') ? 'error' : ''}
+                />
+              </InputGroup>
 
               <div className="flex">
-                <InputGroup
-                  maxWidth="14rem"
-                  id="cardNumber"
-                  label="Número do cartão"
-                  type="text"
-                  className={checkInputHasError('cardNumber') ? 'error' : ''}
-                  name="cardNumber"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.cardNumber}
-                />
-                <InputGroup
-                  maxWidth="5.4375rem"
-                  id="cardCode"
-                  label="CVV"
-                  type="number"
-                  className={checkInputHasError('cardCode') ? 'error' : ''}
-                  name="cardCode"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.cardCode}
-                />
+                <InputGroup maxWidth="14rem">
+                  <label htmlFor="cardNumber">Número do cartão</label>
+
+                  <InputMask
+                    name="cardNumber"
+                    id="cardNumber"
+                    onBlur={form.handleBlur}
+                    onChange={form.handleChange}
+                    value={form.values.cardNumber}
+                    type="text"
+                    className={checkInputHasError('cardNumber') ? 'error' : ''}
+                    mask="9999 9999 9999 9999"
+                  />
+                </InputGroup>
+
+                <InputGroup maxWidth="5.4375rem">
+                  <label htmlFor="cardCode">CVV</label>
+
+                  <InputMask
+                    name="cardCode"
+                    id="cardCode"
+                    onBlur={form.handleBlur}
+                    onChange={form.handleChange}
+                    value={form.values.cardCode}
+                    type="text"
+                    className={checkInputHasError('cardCode') ? 'error' : ''}
+                    mask="999"
+                  />
+                </InputGroup>
               </div>
 
               <div className="flex margin-bottom">
-                <InputGroup
-                  maxWidth="9.68rem"
-                  id="expiresMonth"
-                  label="Mês de vencimento"
-                  type="number"
-                  className={checkInputHasError('expiresMonth') ? 'error' : ''}
-                  name="expiresMonth"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.expiresMonth}
-                />
-                <InputGroup
-                  maxWidth="9.68rem"
-                  id="expiresYear"
-                  label="Ano de vencimento"
-                  type="number"
-                  className={checkInputHasError('expiresYear') ? 'error' : ''}
-                  name="expiresYear"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.expiresYear}
-                />
+                <InputGroup maxWidth="9.68rem">
+                  <label htmlFor="expiresMonth">Mês de expiração</label>
+
+                  <InputMask
+                    name="expiresMonth"
+                    id="expiresMonth"
+                    onBlur={form.handleBlur}
+                    onChange={form.handleChange}
+                    value={form.values.expiresMonth}
+                    type="text"
+                    className={
+                      checkInputHasError('expiresMonth') ? 'error' : ''
+                    }
+                    mask="99"
+                  />
+                </InputGroup>
+
+                <InputGroup maxWidth="9.68rem">
+                  <label htmlFor="expiresYear">Ano de expiração</label>
+
+                  <InputMask
+                    name="expiresYear"
+                    id="expiresYear"
+                    onBlur={form.handleBlur}
+                    onChange={form.handleChange}
+                    value={form.values.expiresYear}
+                    type="text"
+                    className={checkInputHasError('expiresYear') ? 'error' : ''}
+                    mask="99"
+                  />
+                </InputGroup>
               </div>
             </div>
 
@@ -272,15 +325,17 @@ const Form = () => {
               background="secundary"
               title="Clique aqui para finalizar o pagamento"
               type="submit"
-              onClick={form.handleSubmit}
             >
-              Finalizar pagamento
+              {isLoading ? 'Finalizando pagamento...' : 'Finalizar pagamento'}
             </Button>
             <Button
               background="secundary"
               title="Clique aqui para voltar para a edição de endereço"
               type="button"
-              onClick={() => setDelivery(true)}
+              onClick={(e) => {
+                setIsDelivery(true)
+                e.preventDefault()
+              }}
             >
               Voltar para a edição de endereço
             </Button>

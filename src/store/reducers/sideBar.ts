@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 type sideBarState = {
   sideBarIsOpen: boolean
@@ -27,4 +27,5 @@ const sideBarSlice = createSlice({
 })
 
 export default sideBarSlice.reducer
-export const {closeSideBar, openSideBar, changeComponent} = sideBarSlice.actions
+export const { closeSideBar, openSideBar, changeComponent } =
+  sideBarSlice.actions

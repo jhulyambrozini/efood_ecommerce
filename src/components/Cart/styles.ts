@@ -1,8 +1,5 @@
 import styled from 'styled-components'
 import { ButtonAction, colors } from '../../styles'
-import { ButtonContainer } from '../Button/styles'
-
-
 
 export const ButtonTrash = styled(ButtonAction)`
   width: 1rem;
@@ -53,4 +50,3 @@ export const TotalValue = styled.div`
   display: flex;
   justify-content: space-between;
 `
-

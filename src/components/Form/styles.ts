@@ -2,6 +2,10 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 
+type InputGroupProps = {
+  maxWidth?: string
+}
+
 export const FormContainer = styled.div`
   color: ${colors.primaryLight};
   font-weight: 700;
@@ -21,9 +25,7 @@ export const FormContainer = styled.div`
   }
 
   .error {
-    input {
-      border: 1px solid red;
-    }
+    border: 2px solid red;
   }
 
   p {
@@ -35,5 +37,25 @@ export const FormContainer = styled.div`
 
   ${ButtonContainer} {
     margin-bottom: 0.5rem;
+  }
+`
+
+export const InputGroup = styled.div<InputGroupProps>`
+  display: grid;
+  margin-bottom: 0.5rem;
+
+  label {
+    font-size: 0.875rem;
+    padding-bottom: 0.5rem;
+  }
+
+  input {
+    padding: 0.5rem;
+    color: #4b4b4b;
+    font-size: 0.875rem;
+    border: none;
+    background-color: ${colors.primaryLight};
+    border: 2px solid ${colors.primaryLight};
+    max-width: ${(props) => props.maxWidth || 'auto'};
   }
 `

@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { breakpoints, colors } from "../../styles"
-import { Logo } from "../../styles"
+import styled from 'styled-components'
+import { breakpoints, colors } from '../../styles'
+import { Logo } from '../../styles'
 
 export const FooterContainer = styled.footer`
   background-color: ${colors.primaryLight};
@@ -15,7 +15,7 @@ export const FooterContainer = styled.footer`
     color: ${colors.primaryDark};
     font-size: 0.625rem;
 
-    @media (max-width: ${breakpoints.mobile}){
+    @media (max-width: ${breakpoints.mobile}) {
       padding: 0 2rem;
     }
   }
@@ -33,9 +33,9 @@ export const SocialMedia = styled.div`
     height: 1.5rem;
     cursor: pointer;
 
-    @media (max-width: ${breakpoints.mobile}){
+    @media (max-width: ${breakpoints.mobile}) {
       width: 2rem;
       height: 2rem;
     }
- }
+  }
 `

@@ -1,22 +1,22 @@
-import { useDispatch } from "react-redux"
-import { useState } from "react"
+import { useDispatch } from 'react-redux'
+import { useState } from 'react'
 
-import Button from "../Button/Button"
+import Button from '../Button/Button'
 
-import * as Style from "./styles"
-import { Overlay } from "../../styles"
+import * as Style from './styles'
+import { Overlay } from '../../styles'
 
 import closeIcon from '../../assets/images/close.png'
 
-import { formatPrice, getDescription } from "../../utils"
-import { addToCart} from "../../store/reducers/cart"
-import { openSideBar } from "../../store/reducers/sideBar"
+import { formatPrice, getDescription } from '../../utils'
+import { addToCart } from '../../store/reducers/cart'
+import { openSideBar } from '../../store/reducers/sideBar'
 
 type Props = {
   foods: Restaurants
 }
 
-const ProductsList = ({foods}: Props) => {
+const ProductsList = ({ foods }: Props) => {
   const [modal, setModal] = useState(false)
   const [product, setProduct] = useState<Menu>()
   const dispatch = useDispatch()
@@ -28,7 +28,7 @@ const ProductsList = ({foods}: Props) => {
   }
 
   const addItemToCart = () => {
-    if(product) {
+    if (product) {
       dispatch(addToCart(product))
       closeModal()
       dispatch(openSideBar())
@@ -40,8 +40,9 @@ const ProductsList = ({foods}: Props) => {
   return (
     <>
       <Style.ListContainer className="container">
-        {foods.cardapio && foods.cardapio.map((f) => (
-          <li key={f.id}>
+        {foods.cardapio &&
+          foods.cardapio.map((f) => (
+            <li key={f.id}>
               <Style.CardContainer>
                 <img src={f.foto} alt={f.nome} />
                 <h3>{f.nome}</h3>
@@ -51,10 +52,12 @@ const ProductsList = ({foods}: Props) => {
                   title="Clique aqui para adicionar ao carrinho"
                   background="secundary"
                   onClick={() => openModal(f)}
-                >Adicionar ao carrinho</Button>
+                >
+                  Adicionar ao carrinho
+                </Button>
               </Style.CardContainer>
-          </li>
-        ))}
+            </li>
+          ))}
       </Style.ListContainer>
 
       {modal && (
@@ -65,7 +68,14 @@ const ProductsList = ({foods}: Props) => {
               <h3>{product?.nome}</h3>
               <p>{product?.descricao}</p>
               <span>Serve: {product?.porcao}</span>
-              <Button title='Clique aqui para adicionar ao carrinho' background='secundary' type='button' onClick={addItemToCart}>Adicionar ao carrinho - {formatPrice(product?.preco)}</Button>
+              <Button
+                title="Clique aqui para adicionar ao carrinho"
+                background="secundary"
+                type="button"
+                onClick={addItemToCart}
+              >
+                Adicionar ao carrinho - {formatPrice(product?.preco)}
+              </Button>
             </Style.Infos>
             <Style.Close onClick={closeModal}>
               <img src={closeIcon} alt="Icone de fechar" />

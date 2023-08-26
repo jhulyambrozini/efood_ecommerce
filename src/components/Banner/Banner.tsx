@@ -1,4 +1,4 @@
-import { Image, Titles } from "./styles"
+import { Image, Titles } from './styles'
 
 type Props = {
   image: string
@@ -6,8 +6,8 @@ type Props = {
   title: string
 }
 
-const Banner = ({image, type, title}: Props) => (
-  <Image style={{backgroundImage: `url(${image})`}}>
+const Banner = ({ image, type, title }: Props) => (
+  <Image style={{ backgroundImage: `url(${image})` }}>
     <Titles>
       <span>{type}</span>
       <h2>{title}</h2>
