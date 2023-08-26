@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import InputMask from 'react-input-mask'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -55,7 +55,7 @@ const Form = () => {
         .required('O campo é obrigatório'),
       number: Yup.string().required('O campo é obrigatório'),
 
-      nameCard: Yup.string()
+      cardName: Yup.string()
         .min(5, 'O nome precisa ter pelo menos 5 caracteres')
         .required('O campo é obrigatório'),
       cardNumber: Yup.string().required('O campo é obrigatório'),
@@ -339,3 +339,4 @@ const Form = () => {
 }
 
 export default Form
+
