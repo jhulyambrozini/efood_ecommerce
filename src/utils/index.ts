@@ -10,3 +10,12 @@ export const formatPrice = (price = 0) => {
     currency: 'BRL'
   }).format(price)
 }
+
+export const calculeTotalPrice = (items: Menu[]) => {
+  return items.reduce((acc, currentValue) => {
+    if (currentValue.preco) {
+      return (acc += currentValue.preco)
+    }
+    return 0
+  }, 0)
+}

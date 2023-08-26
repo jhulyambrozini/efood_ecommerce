@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+
 import CategorytList from "../../components/CategoryList/CategoryList"
 
 import { HeaderContainer } from "./styles"

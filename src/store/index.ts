@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit"
 import api from "../services/api"
 import cartReducer from './reducers/cart'
-import formReducer from './reducers/form'
+import sideBarReducer from './reducers/sideBar'
 
 const store = configureStore({
   reducer: {
     cart: cartReducer,
-    form: formReducer,
+    sideBar: sideBarReducer,
     [api.reducerPath]: api.reducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware)

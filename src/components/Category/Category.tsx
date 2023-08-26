@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+
 import Button from '../Button/Button'
 import Tag from '../Tag/Tag'
+
 import * as Style from './styles'
 import starIcon from '../../assets/images/estrela-icon.svg'
 import { getDescription } from '../../utils'

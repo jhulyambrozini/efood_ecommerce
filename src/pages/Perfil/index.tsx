@@ -1,17 +1,18 @@
+import { useDispatch, useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom"
 
+import SideBar from "../../components/SideBar/SideBar"
 import Banner from "../../components/Banner/Banner"
 import ProductsList from "../../components/ProductsList/ProductsList"
-import { useGetRestaurantQuery } from "../../services/api"
 
 import { Logo } from "../../styles"
 import {HeaderContainer } from "./styles"
 import logoImage from '../../assets/images/logo.png'
-import { useDispatch, useSelector } from "react-redux"
+
+import { useGetRestaurantQuery } from "../../services/api"
 import { RootReducer } from "../../store"
-import Cart from "../../components/Cart/Cart"
-import { open } from "../../store/reducers/cart"
-import Form from "../../components/Form/Form"
+import { openCart } from "../../store/reducers/cart"
+import { openSideBar } from "../../store/reducers/sideBar"
 
 export type RestaurantParams = {
   id: string
@@ -22,12 +23,8 @@ const Perfil = () => {
   const {data: foodId} = useGetRestaurantQuery(id)
   const dispatch = useDispatch()
 
-  const {items, isOpen} = useSelector((state: RootReducer) => state.cart)
-  const {formIsOpen} = useSelector((state: RootReducer) => state.form)
-
-  const openToCart = () => {
-    dispatch(open())
-  }
+  const {itemsCart} = useSelector((state: RootReducer) => state.cart)
+  const {sideBarIsOpen} = useSelector((state: RootReducer) => state.sideBar)
 
   if(!foodId){
     return <h3>caregando....</h3>
@@ -42,8 +39,8 @@ const Perfil = () => {
               <Logo src={logoImage} alt="EFOOD" />
             </Link>
         </h1>
-        <span onClick={openToCart}>
-          {items.length} produto(s) no carrinho
+        <span onClick={() => dispatch(openSideBar())}>
+          {itemsCart.length} produto(s) no carrinho
         </span>
       </HeaderContainer>
       {foodId && (
@@ -52,8 +49,7 @@ const Perfil = () => {
          <ProductsList foods={foodId}/>
         </>
       )}
-      {isOpen &&  <Cart />}
-      {formIsOpen &&  <Form />}
+      {sideBarIsOpen && <SideBar />}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { styled } from "styled-components"
+import styled from "styled-components"
 import { ButtonAction, colors } from "../../styles"
 import { ButtonContainer } from "../Button/styles"
 
@@ -15,6 +15,10 @@ export const Container = styled.div`
   ${ButtonContainer} {
     width: 100%;
     padding: 0.25rem 0;
+  }
+
+  .cart-open {
+
   }
 `
 export const AsideContainer = styled.aside`

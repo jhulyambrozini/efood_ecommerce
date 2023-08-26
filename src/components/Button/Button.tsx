@@ -9,7 +9,7 @@ export type Props = {
 }
 
 const Button = ({title, type, onClick, background, children }: Props) => (
-  <ButtonContainer background={background} title={title} type={type} onClick={onClick}>{children} </ButtonContainer>
+  <ButtonContainer background={background} title={title} type={type} onClick={onClick}>{children}</ButtonContainer>
 )
 
 export default Button

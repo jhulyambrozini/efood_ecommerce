@@ -9,7 +9,7 @@ import { Logo } from '../../styles'
 
 const Footer = () => (
   <FooterContainer>
-    <Link to='/'>
+    <Link to='/' title='Clique aqui para ir para Home'>
       <Logo src={logoImage} alt="EFOOD" />
     </Link>
     <SocialMedia>

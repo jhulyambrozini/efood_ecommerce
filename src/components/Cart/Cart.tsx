@@ -1,36 +1,28 @@
-import Button from '../Button/Button'
-import trashIcon from '../../assets/images/trash.png'
-import * as Styles from './styles'
 import { useDispatch, useSelector } from 'react-redux'
+
+import Button from '../Button/Button'
+
+import * as Styles from './styles'
+import trashIcon from '../../assets/images/trash.png'
+import { calculeTotalPrice, formatPrice } from '../../utils'
+
 import { RootReducer } from '../../store'
-import { formatPrice } from '../../utils'
-import { remove } from '../../store/reducers/cart'
-import Aside from '../Aside/Aside'
+import { removeOfCart } from '../../store/reducers/cart'
+import { changeComponent } from '../../store/reducers/sideBar'
 
 const Cart = () => {
-  const { items } = useSelector((state: RootReducer) => state.cart)
+  const { itemsCart } = useSelector((state: RootReducer) => state.cart)
+
   const dispatch = useDispatch()
 
-  const calculeTotalPrice = () => {
-    return items.reduce((acc, currentValue) => {
-      if (currentValue.preco) {
-        return (acc += currentValue.preco)
-      }
-      return 0
-    }, 0)
-  }
-  // const goToForm = () => {
-  //   dispatch(close())
-  //   dispatch(openForm())
-  // }
+  const goToForm = () => dispatch(changeComponent('form'))
 
   return (
-    <Aside>
-      {/* Carrinho */}
-      {items.length > 0 ? (
+    <>
+      {itemsCart.length > 0 ? (
         <>
           <ul>
-            {items.map((item) => (
+            {itemsCart.map((item) => (
               <Styles.ItemList key={item.id}>
                 <img src={item.foto} alt={item.nome} className="food-image" />
                 <Styles.Infos>
@@ -38,7 +30,7 @@ const Cart = () => {
                   <span>{formatPrice(item.preco)}</span>
                 </Styles.Infos>
                 <Styles.ButtonTrash
-                  onClick={() => dispatch(remove(item.id))}
+                  onClick={() => dispatch(removeOfCart(item.id))}
                   title="Clique aqui para remover o item do carrinho"
                 >
                   <img src={trashIcon} alt="icone de lixeira da cor rosa" />
@@ -49,14 +41,14 @@ const Cart = () => {
 
           <Styles.TotalValue>
             <span>Valor Total</span>
-            <span>{formatPrice(calculeTotalPrice())}</span>
+            <span>{formatPrice(calculeTotalPrice(itemsCart))}</span>
           </Styles.TotalValue>
 
           <Button
             title="Clique aqui para continuar com a entrega"
             background="secundary"
             type="button"
-            // onClick={goToForm}
+            onClick={goToForm}
           >
             Continuar com a entrega
           </Button>
@@ -67,7 +59,7 @@ const Cart = () => {
           compra
         </p>
       )}
-    </Aside>
+    </>
   )
 }
 

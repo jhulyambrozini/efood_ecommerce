@@ -1,11 +1,16 @@
-import { useState } from "react"
-import Button from "../Button/Button"
-import * as Style from "./styles"
-import closeIcon from '../../assets/images/close.png'
-import { formatPrice, getDescription } from "../../utils"
-import { Overlay } from "../../styles"
 import { useDispatch } from "react-redux"
-import { add, open } from "../../store/reducers/cart"
+import { useState } from "react"
+
+import Button from "../Button/Button"
+
+import * as Style from "./styles"
+import { Overlay } from "../../styles"
+
+import closeIcon from '../../assets/images/close.png'
+
+import { formatPrice, getDescription } from "../../utils"
+import { addToCart} from "../../store/reducers/cart"
+import { openSideBar } from "../../store/reducers/sideBar"
 
 type Props = {
   foods: Restaurants
@@ -22,11 +27,11 @@ const ProductsList = ({foods}: Props) => {
     setProduct(products)
   }
 
-  const addToCart = () => {
+  const addItemToCart = () => {
     if(product) {
-      dispatch(add(product))
+      dispatch(addToCart(product))
       closeModal()
-      dispatch(open())
+      dispatch(openSideBar())
     } else {
       alert('Algo deu errado, tente novamente')
     }
@@ -60,7 +65,7 @@ const ProductsList = ({foods}: Props) => {
               <h3>{product?.nome}</h3>
               <p>{product?.descricao}</p>
               <span>Serve: {product?.porcao}</span>
-              <Button title='Clique aqui para adicionar ao carrinho' background='secundary' type='button' onClick={addToCart}>Adicionar ao carrinho - {formatPrice(product?.preco)}</Button>
+              <Button title='Clique aqui para adicionar ao carrinho' background='secundary' type='button' onClick={addItemToCart}>Adicionar ao carrinho - {formatPrice(product?.preco)}</Button>
             </Style.Infos>
             <Style.Close onClick={closeModal}>
               <img src={closeIcon} alt="Icone de fechar" />
