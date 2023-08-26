@@ -55,21 +55,13 @@ const Form = () => {
         .required('O campo é obrigatório'),
       number: Yup.string().required('O campo é obrigatório'),
 
-      cardName: Yup.string().when((values, schema) =>
-        !isDelivery ? schema.required('O campo é obrigatório') : schema
-      ),
-      cardNumber: Yup.string().when((values, schema) =>
-        !isDelivery ? schema.required('O campo é obrigatório') : schema
-      ),
-      cardCode: Yup.string().when((values, schema) =>
-        !isDelivery ? schema.required('O campo é obrigatório') : schema
-      ),
-      expiresMonth: Yup.string().when((values, schema) =>
-        !isDelivery ? schema.required('O campo é obrigatório') : schema
-      ),
-      expiresYear: Yup.string().when((values, schema) =>
-        !isDelivery ? schema.required('O campo é obrigatório') : schema
-      )
+      nameCard: Yup.string()
+        .min(5, 'O nome precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      cardNumber: Yup.string().required('O campo é obrigatório'),
+      cardCode: Yup.string().required('O campo é obrigatório'),
+      expiresMonth: Yup.string().required('O campo é obrigatório'),
+      expiresYear: Yup.string().required('O campo é obrigatório')
     }),
     onSubmit: async (values) => {
       try {
