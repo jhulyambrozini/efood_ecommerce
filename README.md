@@ -1,4 +1,4 @@
-##Efood
+# Efood
 Projeto final de conclusão do curso da EBAC de Engenheiro Front End, o projeto consiste em um ecommerce para redes de restauarantes delivery.
 Durante o projeto busquei aplicar todos os conhecimentos que obtive durante o curso para garantir um layout responsivo e um código mais limpo.
 
