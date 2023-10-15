@@ -1,27 +1,34 @@
-# React + TypeScript + Vite
+#Efood
+Projeto final de conclusão do curso da EBAC de Engenheiro Front End, o projeto consiste em um ecommerce para redes de restauarantes delivery.
+Durante o projeto busquei aplicar todos os conhecimentos que obtive durante o curso para garantir um layout responsivo e um código mais limpo.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Atualmente estou trabalhando para garatir melhor acessibilidade e otmização da página, aplicando conceitos de UX Design e otimização com React.
 
-Currently, two official plugins are available:
+Confira o projeto aqui: [Efood](https://efood-ecommerce-jhuly.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias
+- React.js: 
+React.js é uma biblioteca JavaScript amplamente utilizada para construir interfaces de usuário interativas e reativas. Desenvolvida pelo Facebook, ela permite a criação de componentes reutilizáveis que atualizam automaticamente quando os dados subjacentes mudam, tornando o desenvolvimento de aplicativos web eficiente e escalável.
 
-## Expanding the ESLint configuration
+- React Hooks:
+React Hooks é uma característica introduzida no React que permite aos desenvolvedores gerenciar o estado e os efeitos colaterais em componentes funcionais. Isso torna o código mais legível e evita a necessidade de criar classes para componentes.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Typescript:
+TypeScript é uma extensão tipada do JavaScript que adiciona recursos de tipagem estática ao código. Isso ajuda a pegar erros de programação em tempo de compilação e fornece informações mais claras sobre a estrutura e os tipos de dados em um projeto, tornando-o mais robusto e fácil de manter.
 
-- Configure the top-level `parserOptions` property like this:
+- Redux:
+Redux é uma biblioteca de gerenciamento de estado para aplicativos JavaScript, comumente usada com o React. Ele ajuda a centralizar e controlar o estado do aplicativo, tornando mais fácil o compartilhamento de dados entre componentes e mantendo um histórico claro das ações do usuário.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- Styled-Components:
+Styled-Components é uma biblioteca para estilizar componentes React usando estilos CSS-in-JS. Ela permite que você defina estilos diretamente nos componentes, tornando o código mais coeso e evitando conflitos de estilo.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Figma:
+Figma é uma ferramenta de design de interface de usuário baseada na web. Ela é usada para criar e colaborar em projetos de design, prototipagem e desenvolvimento de interfaces de usuário.
+
+## Execução
+1. Criar um clone ou baixar o repositório
+2. Baixar as dependências com `npm i`
+3. Iniciar o servidor vite com `npm run dev`
+
+### Status
+Em andamento
