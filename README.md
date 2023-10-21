@@ -28,6 +28,12 @@ Styled-Components é uma biblioteca para estilizar componentes React usando esti
 - Figma:
 Figma é uma ferramenta de design de interface de usuário baseada na web. Ela é usada para criar e colaborar em projetos de design, prototipagem e desenvolvimento de interfaces de usuário.
 
+- Ypu:
+Yup é uma biblioteca JavaScript usada para validação de dados no lado do cliente. Ela permite definir esquemas de validação de dados de forma declarativa e poderosa.
+
+- Formik:
+Formik é uma biblioteca para o gerenciamento de formulários em aplicativos React. Ela simplifica o processo de criação, validação e manipulação de formulários em aplicações React.
+
 ## Execução
 1. Criar um clone ou baixar o repositório
 2. Baixar as dependências com `npm i`
