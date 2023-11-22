@@ -8,7 +8,7 @@ import ProductsList from '../../components/ProductsList/ProductsList'
 
 import { Logo } from '../../styles'
 import { HeaderContainer } from './styles'
-import logoImage from '../../assets/images/logo.png'
+import logoImage from '../../assets/images/logo.svg'
 
 import { useGetRestaurantQuery } from '../../services/api'
 import { RootReducer } from '../../store'
@@ -35,7 +35,7 @@ const Perfil = () => {
       <HeaderContainer>
         <span>Restaurantes</span>
         <h1>
-          <Link to="/">
+          <Link to="/" title='Home'>
             <Logo src={logoImage} alt="EFOOD" />
           </Link>
         </h1>

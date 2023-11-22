@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import InputMask from 'react-input-mask'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -203,7 +203,7 @@ const Form = () => {
 
             <Button
               background="secundary"
-              title="Clique aqui para continuar com o pagamento"
+              title="Continuar com o pagamento"
               type="button"
               onClick={(e) => {
                 setIsDelivery(false)
@@ -315,14 +315,14 @@ const Form = () => {
 
             <Button
               background="secundary"
-              title="Clique aqui para finalizar o pagamento"
+              title="Finalizar o pagamento"
               type="submit"
             >
               {isLoading ? 'Finalizando pagamento...' : 'Finalizar pagamento'}
             </Button>
             <Button
               background="secundary"
-              title="Clique aqui para voltar para a edição de endereço"
+              title="voltar para a edição de endereço"
               type="button"
               onClick={(e) => {
                 setIsDelivery(true)

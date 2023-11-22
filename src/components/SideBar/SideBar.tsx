@@ -39,9 +39,9 @@ const SideBar = () => {
       <AsideContainer>
         <ButtonClose
           onClick={toClose}
-          title="Clique aqui para fechar a barra lateral"
+          title="Fechar carrinho"
         >
-          <img src={closeIcon} alt="Icone de x, para fechar barra lateral" />
+          <img src={closeIcon} alt="Icone de fechar" />
         </ButtonClose>
 
         {switchComponents()}

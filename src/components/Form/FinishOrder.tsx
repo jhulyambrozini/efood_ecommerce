@@ -47,7 +47,7 @@ const FinishOrder = ({ orderId }: Props) => {
 
       <Button
         background="secundary"
-        title="Clique aqui para concluir o pedido"
+        title="Concluir o pedido"
         type="button"
         onClick={goToHome}
       >

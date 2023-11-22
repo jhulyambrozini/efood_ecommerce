@@ -49,11 +49,11 @@ const ProductsList = ({ foods }: Props) => {
                 <p>{getDescription(f.descricao)}</p>
                 <Button
                   type="button"
-                  title="Clique aqui para adicionar ao carrinho"
+                  title="Mais detalhes"
                   background="secundary"
                   onClick={() => openModal(f)}
                 >
-                  Adicionar ao carrinho
+                  Mais detalhes
                 </Button>
               </Style.CardContainer>
             </li>
@@ -69,7 +69,7 @@ const ProductsList = ({ foods }: Props) => {
               <p>{product?.descricao}</p>
               <span>Serve: {product?.porcao}</span>
               <Button
-                title="Clique aqui para adicionar ao carrinho"
+                title="Adicionar ao carrinho"
                 background="secundary"
                 type="button"
                 onClick={addItemToCart}

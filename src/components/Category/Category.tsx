@@ -42,7 +42,7 @@ const Category = ({
     <Style.Desc>{getDescription(description)}</Style.Desc>
     <Link to={`/perfil/${id}`}>
       <Button
-        title="Clique aqui para mais informações"
+        title="Saiba mais"
         background="primary"
         type="button"
       >

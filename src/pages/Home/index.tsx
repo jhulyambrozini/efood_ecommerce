@@ -5,14 +5,14 @@ import CategorytList from '../../components/CategoryList/CategoryList'
 import { HeaderContainer } from './styles'
 import { Logo } from '../../styles'
 
-import logoImage from '../../assets/images/logo.png'
+import logoImage from '../../assets/images/logo.svg'
 
 const Home = () => {
   return (
     <>
       <HeaderContainer>
         <h1>
-          <Link to="/">
+          <Link to="/" title='Home'>
             <Logo src={logoImage} alt="EFOOD" />
           </Link>
         </h1>

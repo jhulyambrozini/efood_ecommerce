@@ -31,7 +31,7 @@ const Cart = () => {
                 </Styles.Infos>
                 <Styles.ButtonTrash
                   onClick={() => dispatch(removeOfCart(item.id))}
-                  title="Clique aqui para remover o item do carrinho"
+                  title="Remover o item do carrinho"
                 >
                   <img src={trashIcon} alt="icone de lixeira da cor rosa" />
                 </Styles.ButtonTrash>
@@ -45,7 +45,7 @@ const Cart = () => {
           </Styles.TotalValue>
 
           <Button
-            title="Clique aqui para continuar com a entrega"
+            title="Continuar com a entrega"
             background="secundary"
             type="button"
             onClick={goToForm}

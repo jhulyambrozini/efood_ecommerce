@@ -23,19 +23,10 @@ export const FooterContainer = styled.footer`
 
 export const SocialMedia = styled.div`
   display: flex;
-  gap: 0.5rem;
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
 
   img {
-    width: 1.5rem;
-    height: 1.5rem;
     cursor: pointer;
-
-    @media (max-width: ${breakpoints.mobile}) {
-      width: 2rem;
-      height: 2rem;
-    }
-  }
-`
+}`
