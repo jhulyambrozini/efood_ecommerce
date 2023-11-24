@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from '../../styles'
+import { breakpoints } from '../../../styles'
 
 export const Image = styled.div`
   background-repeat: no-repeat;

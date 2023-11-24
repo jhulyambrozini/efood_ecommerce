@@ -12,7 +12,7 @@ const Home = () => {
     <>
       <HeaderContainer>
         <h1>
-          <Link to="/" title='Home'>
+          <Link to="/" title="Home">
             <Logo src={logoImage} alt="EFOOD" />
           </Link>
         </h1>

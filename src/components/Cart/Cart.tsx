@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import Button from '../Button/Button'
+import Button from '../ui/Button/Button'
 
 import * as Styles from './styles'
 import trashIcon from '../../assets/images/trash.png'

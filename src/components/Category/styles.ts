@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../styles'
-import { ButtonContainer } from '../Button/styles'
+import { ButtonContainer } from '../ui/Button/styles'
 
 export const CardContainer = styled.div`
   width: 29.5rem;

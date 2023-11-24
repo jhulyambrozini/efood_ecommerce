@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 
 import SideBar from '../../components/SideBar/SideBar'
-import Loader from '../../components/Loader/Loader'
-import Banner from '../../components/Banner/Banner'
+import Loader from '../../components/ui/Loader/Loader'
+import Banner from '../../components/ui/Banner/Banner'
 import ProductsList from '../../components/ProductsList/ProductsList'
 
 import { Logo } from '../../styles'
@@ -26,16 +26,14 @@ const Perfil = () => {
   const { itemsCart } = useSelector((state: RootReducer) => state.cart)
   const { sideBarIsOpen } = useSelector((state: RootReducer) => state.sideBar)
 
-  if (!foodId) {
-    return <Loader />
-  }
+  if (!foodId) return <Loader />
 
   return (
     <>
       <HeaderContainer>
         <span>Restaurantes</span>
         <h1>
-          <Link to="/" title='Home'>
+          <Link to="/" title="Home">
             <Logo src={logoImage} alt="EFOOD" />
           </Link>
         </h1>
@@ -46,9 +44,9 @@ const Perfil = () => {
       {foodId && (
         <>
           <Banner
-            image={foodId?.capa}
-            title={foodId?.titulo}
-            type={foodId?.tipo}
+            image={foodId.capa}
+            title={foodId.titulo}
+            type={foodId.tipo}
           />
           <ProductsList foods={foodId} />
         </>

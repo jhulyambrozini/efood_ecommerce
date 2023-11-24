@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Props } from './Button'
-import { colors } from '../../styles'
+import { colors } from '../../../styles'
 
 export const ButtonContainer = styled.button<Omit<Props, 'children'>>`
   color: ${(props) =>

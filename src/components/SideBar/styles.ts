@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { ButtonAction, colors } from '../../styles'
-import { ButtonContainer } from '../Button/styles'
+import { ButtonContainer } from '../ui/Button/styles'
 
 export const Container = styled.div`
   display: flex;

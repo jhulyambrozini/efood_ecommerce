@@ -14,13 +14,13 @@ const Footer = () => (
       <Logo src={logoImage} alt="EFOOD" />
     </Link>
     <SocialMedia>
-      <a href="#" title='Instagram'>
+      <a href="#" title="Instagram">
         <img src={instagramIcon} alt="Icone do instagram" />
       </a>
-      <a href="#" title='Facebook'>
+      <a href="#" title="Facebook">
         <img src={facebookIcon} alt="Icone do facebook" />
       </a>
-      <a href="#" title='Twitter'>
+      <a href="#" title="Twitter">
         <img src={twitterIcon} alt="Icone do twitter" />
       </a>
     </SocialMedia>

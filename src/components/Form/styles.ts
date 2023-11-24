@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
-import { ButtonContainer } from '../Button/styles'
+import { ButtonContainer } from '../ui/Button/styles'
 
 type InputGroupProps = {
   maxWidth?: string

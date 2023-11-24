@@ -1,3 +1,5 @@
+import { SyntheticEvent } from 'react'
+
 export const getDescription = (desc: string) => {
   if (desc.length > 210) {
     return desc.slice(0, 207) + '...'
@@ -18,4 +20,8 @@ export const calculeTotalPrice = (items: Menu[]) => {
     }
     return 0
   }, 0)
+}
+
+export const removeLoading = (e: SyntheticEvent<HTMLImageElement>) => {
+  return e.currentTarget.classList.remove('loading')
 }

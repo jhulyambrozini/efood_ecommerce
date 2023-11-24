@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
-import Button from '../Button/Button'
+import Button from '../ui/Button/Button'
 
 import { FormContainer } from './styles'
 

@@ -37,10 +37,7 @@ const SideBar = () => {
     <Container>
       <Overlay onClick={toClose} />
       <AsideContainer>
-        <ButtonClose
-          onClick={toClose}
-          title="Fechar carrinho"
-        >
+        <ButtonClose onClick={toClose} title="Fechar carrinho">
           <img src={closeIcon} alt="Icone de fechar" />
         </ButtonClose>
 

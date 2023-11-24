@@ -4,7 +4,7 @@ import InputMask from 'react-input-mask'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
-import Button from '../Button/Button'
+import Button from '../ui/Button/Button'
 import FinishOrder from './FinishOrder'
 
 import { FormContainer, InputGroup } from './styles'
@@ -339,4 +339,3 @@ const Form = () => {
 }
 
 export default Form
-

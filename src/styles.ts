@@ -31,8 +31,29 @@ const GlobalStyle = createGlobalStyle`
   width: 100%;
   margin: 0 auto;
   padding-top: 5rem;
-padding-bottom: 7.5rem;
+  padding-bottom: 7.5rem;
  }
+
+ .loading {
+    background: linear-gradient(90deg,  #FF8C8C 0px, #E66767 50%,  #FF8C8C 100%);
+    background-size: 400%;
+    animation: linear loading 1.5s infinite;
+}
+
+
+@keyframes loading {
+  0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}
 `
 export default GlobalStyle
 
@@ -57,6 +78,22 @@ export const ButtonAction = styled.button`
 
   &:focus {
     outline: none;
-    boder: none;
+    border: none;
+  }
+`
+export const Skeleton = styled.div`
+  height: 100%;
+  background-image: linear-gradient(90deg, #eee 0px, #fff 50%, #eee 100%);
+  background-color: #eee;
+  background-size: 200%;
+  animation: skeleton 1.5s infinite linear;
+
+  @keyframes skeleton {
+    from {
+      background-position: 0px;
+    }
+    to {
+      background-position: -200%;
+    }
   }
 `

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 
-import Button from '../Button/Button'
+import Button from '../ui/Button/Button'
 
 import * as Style from './styles'
 import { Overlay } from '../../styles'
@@ -11,6 +11,7 @@ import closeIcon from '../../assets/images/close.png'
 import { formatPrice, getDescription } from '../../utils'
 import { addToCart } from '../../store/reducers/cart'
 import { openSideBar } from '../../store/reducers/sideBar'
+import Image from '../ui/Image'
 
 type Props = {
   foods: Restaurants
@@ -44,7 +45,7 @@ const ProductsList = ({ foods }: Props) => {
           foods.cardapio.map((f) => (
             <li key={f.id}>
               <Style.CardContainer>
-                <img src={f.foto} alt={f.nome} />
+                <Image src={f.foto} alt={f.nome} />
                 <h3>{f.nome}</h3>
                 <p>{getDescription(f.descricao)}</p>
                 <Button
@@ -63,7 +64,7 @@ const ProductsList = ({ foods }: Props) => {
       {modal && (
         <Style.Modal>
           <Style.ModalContainer>
-            <img src={product?.foto} alt={product?.foto} />
+            <Image src={product?.foto} alt={product?.foto} />
             <Style.Infos>
               <h3>{product?.nome}</h3>
               <p>{product?.descricao}</p>

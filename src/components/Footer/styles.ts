@@ -27,8 +27,12 @@ export const SocialMedia = styled.div`
   align-items: center;
   margin-bottom: 5rem;
 
-  img {
+  a {
     cursor: pointer;
+  }
+
+  img {
     width: 48px;
     height: 48px;
-}`
+  }
+`
