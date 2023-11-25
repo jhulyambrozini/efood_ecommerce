@@ -1,40 +1,33 @@
 import styled from 'styled-components'
 import { breakpoints } from '../../../styles'
 
-export const Image = styled.div`
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 17.5rem;
-  width: 100%;
-  display: block;
+export const BannerContainer = styled.div`
   position: relative;
+  height: 17.5rem;
 
-  &::after {
-    position: absolute;
-    background-color: #000;
-    width: 100%;
+  img {
     height: 100%;
-    top: 0;
-    left: 0;
-    content: '';
-    opacity: 0.5;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
   }
 `
 
 export const Titles = styled.div`
   z-index: 1;
-  position: relative;
   display: grid;
-  gap: 9.78rem;
   color: #fff;
   font-size: 2rem;
-  padding: 1.5rem 0 2rem 10.7rem;
+  position: absolute;
+  top: 25px;
+  left: 170px;
 
   span {
     font-weight: 100;
   }
 
   h2 {
+    margin-top: 156px;
     font-weight: 900;
   }
 

@@ -1,19 +1,21 @@
-import { Image, Titles } from './styles'
+import Image from '../Image'
+import { BannerContainer, Titles } from './styles'
 
-type Props = {
+type BannerProps = {
   image: string
   type: string
   title: string
 }
 
-const Banner = ({ image, type, title }: Props) => {
+const Banner = ({ image, type, title }: BannerProps) => {
   return (
-    <Image style={{ backgroundImage: `url(${image})` }}>
+    <BannerContainer>
+      <Image src={image} alt={title} />
       <Titles>
         <span>{type}</span>
         <h2>{title}</h2>
       </Titles>
-    </Image>
+    </BannerContainer>
   )
 }
 
