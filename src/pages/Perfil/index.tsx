@@ -13,6 +13,7 @@ import logoImage from '../../assets/images/logo.svg'
 import { useGetRestaurantQuery } from '../../services/api'
 import { RootReducer } from '../../store'
 import { openSideBar } from '../../store/reducers/sideBar'
+import Footer from '../../components/Footer/Footer'
 
 export type RestaurantParams = {
   id: string
@@ -41,17 +42,20 @@ const Perfil = () => {
           {itemsCart.length} produto(s) no carrinho
         </span>
       </HeaderContainer>
-      {foodId && (
-        <>
-          <Banner
-            image={foodId.capa}
-            title={foodId.titulo}
-            type={foodId.tipo}
-          />
-          <ProductsList foods={foodId} />
-        </>
-      )}
-      {sideBarIsOpen && <SideBar />}
+      <main>
+        {foodId && (
+          <>
+            <Banner
+              image={foodId.capa}
+              title={foodId.titulo}
+              type={foodId.tipo}
+            />
+            <ProductsList foods={foodId} />
+          </>
+        )}
+        {sideBarIsOpen && <SideBar />}
+      </main>
+      <Footer />
     </>
   )
 }

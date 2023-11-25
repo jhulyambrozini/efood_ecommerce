@@ -6,6 +6,8 @@ export const FooterContainer = styled.footer`
   background-color: ${colors.primaryLight};
   text-align: center;
   padding: 2.5rem 0;
+  bottom: 0;
+  height: 300px;
 
   ${Logo} {
     margin-bottom: 2rem;

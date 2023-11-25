@@ -6,6 +6,7 @@ import { HeaderContainer } from './styles'
 import { Logo } from '../../styles'
 
 import logoImage from '../../assets/images/logo.svg'
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
   return (
@@ -22,7 +23,10 @@ const Home = () => {
           no conforto da sua casa
         </h2>
       </HeaderContainer>
-      <CategorytList />
+      <main>
+        <CategorytList />
+      </main>
+      <Footer />
     </>
   )
 }

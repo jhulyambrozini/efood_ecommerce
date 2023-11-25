@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`
   background-color: ${colors.secundary};
  }
 
+ main {
+  min-height: calc(100vh - 300px);
+ }
+
  .container {
   max-width: 1024px;
   width: 100%;
