@@ -8,11 +8,11 @@ import { FormContainer } from './styles'
 import { changeComponent, closeSideBar } from '../../store/reducers/sideBar'
 import { clearCart } from '../../store/reducers/cart'
 
-type Props = {
+type FinishOrderProps = {
   orderId: string
 }
 
-const FinishOrder = ({ orderId }: Props) => {
+const FinishOrder = ({ orderId }: FinishOrderProps) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -50,9 +50,7 @@ const FinishOrder = ({ orderId }: Props) => {
         title="Concluir o pedido"
         type="button"
         onClick={goToHome}
-      >
-        Concluir
-      </Button>
+      />
     </FormContainer>
   )
 }

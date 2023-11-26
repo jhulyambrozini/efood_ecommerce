@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Button from '../ui/Button/Button'
 
 import * as Styles from './styles'
-import trashIcon from '../../assets/images/trash.png'
+import trashIcon from '../../assets/images/trash-icon.svg'
 import { calculeTotalPrice, formatPrice } from '../../utils'
 
 import { RootReducer } from '../../store'
@@ -49,9 +49,7 @@ const Cart = () => {
             background="secundary"
             type="button"
             onClick={goToForm}
-          >
-            Continuar com a entrega
-          </Button>
+          />
         </>
       ) : (
         <p className="empty-text">

@@ -2,11 +2,16 @@ import styled from 'styled-components'
 import { ButtonAction, colors } from '../../styles'
 
 export const ButtonTrash = styled(ButtonAction)`
-  width: 1rem;
-  height: 1rem;
+  width: 48px;
+  height: 48px;
   object-fit: cover;
-  bottom: 0.5rem;
-  right: 0.5rem;
+  bottom: 0;
+  right: 0;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
 `
 
 export const ItemList = styled.li`

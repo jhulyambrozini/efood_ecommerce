@@ -35,8 +35,8 @@ export const AsideContainer = styled.aside`
 `
 
 export const ButtonClose = styled(ButtonAction)`
-  right: 0.5rem;
-  top: 0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  right: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
 `

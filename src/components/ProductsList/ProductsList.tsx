@@ -13,11 +13,11 @@ import { addToCart } from '../../store/reducers/cart'
 import { openSideBar } from '../../store/reducers/sideBar'
 import Image from '../ui/Image'
 
-type Props = {
+type ProductsListProps = {
   foods: Restaurants
 }
 
-const ProductsList = ({ foods }: Props) => {
+const ProductsList = ({ foods }: ProductsListProps) => {
   const [modal, setModal] = useState(false)
   const [product, setProduct] = useState<Menu>()
   const dispatch = useDispatch()
@@ -53,9 +53,7 @@ const ProductsList = ({ foods }: Props) => {
                   title="Mais detalhes"
                   background="secundary"
                   onClick={() => openModal(f)}
-                >
-                  Mais detalhes
-                </Button>
+                />
               </Style.CardContainer>
             </li>
           ))}
@@ -74,9 +72,8 @@ const ProductsList = ({ foods }: Props) => {
                 background="secundary"
                 type="button"
                 onClick={addItemToCart}
-              >
-                Adicionar ao carrinho - {formatPrice(product?.preco)}
-              </Button>
+                text={`Adicionar ao carrinho - ${formatPrice(product?.preco)}`}
+              />
             </Style.Infos>
             <Style.Close onClick={closeModal}>
               <img src={closeIcon} alt="Icone de fechar" />

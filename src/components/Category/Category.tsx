@@ -8,7 +8,7 @@ import * as Style from './styles'
 import starIcon from '../../assets/images/estrela-icon.svg'
 import { getDescription } from '../../utils'
 
-type Props = {
+type CategoryProps = {
   image: string
   title: string
   description: string
@@ -26,7 +26,7 @@ const Category = ({
   description,
   image,
   id
-}: Props) => (
+}: CategoryProps) => (
   <Style.CardContainer>
     <Image src={image} alt={title} />
     <div className="tags">
@@ -42,9 +42,7 @@ const Category = ({
     </Style.Infos>
     <Style.Desc>{getDescription(description)}</Style.Desc>
     <Link to={`/perfil/${id}`}>
-      <Button title="Saiba mais" background="primary" type="button">
-        Saiba mais
-      </Button>
+      <Button title="Saiba mais" background="primary" type="button" />
     </Link>
   </Style.CardContainer>
 )
