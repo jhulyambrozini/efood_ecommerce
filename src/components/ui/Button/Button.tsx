@@ -1,21 +1,21 @@
 import { ButtonContainer } from './styles'
 
-export type Props = {
-  title: string
+export type ButtonProps = {
   type: 'button' | 'submit'
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
   background: 'primary' | 'secundary'
-  children: string | string[]
+  text?: string
+  title: string
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const Button = ({ title, type, onClick, background, children }: Props) => (
+const Button = ({ type, background, text, title, onClick }: ButtonProps) => (
   <ButtonContainer
     background={background}
     title={title}
     type={type}
     onClick={onClick}
   >
-    {children}
+    {text ? text : title}
   </ButtonContainer>
 )
 

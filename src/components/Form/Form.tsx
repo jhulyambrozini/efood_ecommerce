@@ -1,33 +1,28 @@
-import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import InputMask from 'react-input-mask'
+// import InputMask from 'react-input-mask'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
 import Button from '../ui/Button/Button'
 import FinishOrder from './FinishOrder'
+import InputGroup from '../ui/InputGroup'
 
-import { FormContainer, InputGroup } from './styles'
+import { FormContainer } from './styles'
 import { calculeTotalPrice, formatPrice } from '../../utils'
 
 import { RootReducer } from '../../store'
 import { changeComponent } from '../../store/reducers/sideBar'
 import { usePurchaseMutation } from '../../services/api'
 import { clearCart } from '../../store/reducers/cart'
+import { useState, useEffect, MouseEvent } from 'react'
 
 const Form = () => {
   const { itemsCart } = useSelector((state: RootReducer) => state.cart)
   const [isDelivery, setIsDelivery] = useState(true)
+  const [inputsVoidsMessage, setInputsVoidsMessage] = useState(false)
   const dispatch = useDispatch()
-  const [purchase, { isLoading, isSuccess, data }] = usePurchaseMutation()
-
-  const checkInputHasError = (fieldName: string) => {
-    const isTouched = fieldName in form.touched
-    const isInvalid = fieldName in form.errors
-    const hasError = isTouched && isInvalid
-
-    return hasError
-  }
+  const [purchase, { isLoading, isSuccess, data, isError }] =
+    usePurchaseMutation()
 
   const form = useFormik({
     initialValues: {
@@ -104,6 +99,31 @@ const Form = () => {
     }
   }, [isSuccess, dispatch])
 
+  const getMessageError = (field: string, message?: string) => {
+    const isTouched = field in form.touched
+    const isInvalid = field in form.errors
+
+    if (isTouched && isInvalid) return message
+    return false
+  }
+
+  const handlePayment = (event: MouseEvent) => {
+    event.preventDefault()
+
+    const isInvalid =
+      form.values.adress === '' ||
+      form.values.name === '' ||
+      form.values.city === '' ||
+      form.values.zipCode === '' ||
+      form.values.number === ''
+
+    if (isInvalid) setInputsVoidsMessage(true)
+    else {
+      setInputsVoidsMessage(false)
+      setIsDelivery(false)
+    }
+  }
+
   return (
     <form onSubmit={form.handleSubmit}>
       <FormContainer>
@@ -114,90 +134,74 @@ const Form = () => {
             <div className="margin-bottom">
               <h3>Entrega</h3>
 
-              <InputGroup>
-                <label htmlFor="name">Quem irá receber</label>
-
-                <input
-                  name="name"
-                  id="name"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.name}
-                  type="text"
-                  className={checkInputHasError('name') ? 'error' : ''}
-                />
+              <InputGroup
+                id="name"
+                onBlur={form.handleBlur}
+                onChange={form.handleChange}
+                value={form.values.name}
+                label="Quem irá receber*"
+              >
+                <small>{getMessageError('name', form.errors.name)}</small>
               </InputGroup>
 
-              <InputGroup>
-                <label htmlFor="adress">Endereço</label>
-
-                <input
-                  name="adress"
-                  id="adress"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.adress}
-                  type="text"
-                  className={checkInputHasError('adress') ? 'error' : ''}
-                />
+              <InputGroup
+                id="adress"
+                label="Endereço*"
+                onBlur={form.handleBlur}
+                onChange={form.handleChange}
+                value={form.values.adress}
+              >
+                <small>{getMessageError('adress', form.errors.adress)}</small>
               </InputGroup>
-              <InputGroup>
-                <label htmlFor="city">Cidade</label>
 
-                <input
-                  name="city"
-                  id="city"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.city}
-                  type="text"
-                  className={checkInputHasError('city') ? 'error' : ''}
-                />
+              <InputGroup
+                id="city"
+                label="Cidade*"
+                onBlur={form.handleBlur}
+                onChange={form.handleChange}
+                value={form.values.city}
+              >
+                <small>{getMessageError('city', form.errors.city)}</small>
               </InputGroup>
 
               <div className="flex">
-                <InputGroup maxWidth="9.68rem">
-                  <label htmlFor="zipCode">CPF</label>
-
-                  <InputMask
-                    name="zipCode"
-                    id="zipCode"
-                    onBlur={form.handleBlur}
-                    onChange={form.handleChange}
-                    value={form.values.zipCode}
-                    type="text"
-                    className={checkInputHasError('zipCode') ? 'error' : ''}
-                    mask="999.999.999-99"
-                  />
+                <InputGroup
+                  id="zipCode"
+                  label="CPF*"
+                  maxWidth="9.68rem"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.zipCode}
+                  mask="999.999.999-99"
+                >
+                  <small>
+                    {getMessageError('zipCode', form.errors.zipCode)}
+                  </small>
                 </InputGroup>
 
-                <InputGroup maxWidth="9.68rem">
-                  <label htmlFor="number">Número</label>
-
-                  <input
-                    name="number"
-                    id="number"
-                    onBlur={form.handleBlur}
-                    onChange={form.handleChange}
-                    value={form.values.number}
-                    type="number"
-                    className={checkInputHasError('number') ? 'error' : ''}
-                  />
+                <InputGroup
+                  maxWidth="9.68rem"
+                  id="number"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.number}
+                  type="number"
+                  label="Número*"
+                >
+                  <small>{getMessageError('number', form.errors.number)}</small>
                 </InputGroup>
               </div>
 
-              <InputGroup>
-                <label htmlFor="complement">Complemento (opicional)</label>
-
-                <input
-                  name="complement"
-                  id="complement"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.complement}
-                  type="text"
-                  className={checkInputHasError('complement') ? 'error' : ''}
-                />
+              <InputGroup
+                label="Complemento (opicional)"
+                id="complement"
+                onBlur={form.handleBlur}
+                onChange={form.handleChange}
+                value={form.values.complement}
+              >
+                <small>
+                  {getMessageError('complement', form.errors.complement)}
+                </small>
               </InputGroup>
             </div>
 
@@ -205,24 +209,22 @@ const Form = () => {
               background="secundary"
               title="Continuar com o pagamento"
               type="button"
-              onClick={(e) => {
-                setIsDelivery(false)
-                e.preventDefault()
-              }}
-            >
-              Continuar com o pagamento
-            </Button>
+              onClick={(event: MouseEvent) => handlePayment(event)}
+            />
             <Button
               background="secundary"
-              title="Clique aqui para valtar ao carrinho"
+              title="Voltar ao carrinho"
               type="button"
-              onClick={(e) => {
+              onClick={(e: MouseEvent) => {
                 dispatch(changeComponent('cart'))
                 e.preventDefault()
               }}
-            >
-              Voltar para o carrinho
-            </Button>
+            />
+            {inputsVoidsMessage && (
+              <p style={{ textAlign: 'center', fontSize: '18px' }}>
+                Preencha os campos obrigatórios!
+              </p>
+            )}
           </>
         ) : (
           <>
@@ -232,83 +234,75 @@ const Form = () => {
                 {itemsCart && formatPrice(calculeTotalPrice(itemsCart))}
               </h3>
 
-              <InputGroup>
-                <label htmlFor="cardName">Nome no cartão</label>
-
-                <input
-                  name="cardName"
-                  id="cardName"
-                  onBlur={form.handleBlur}
-                  onChange={form.handleChange}
-                  value={form.values.cardName}
-                  type="text"
-                  className={checkInputHasError('cardName') ? 'error' : ''}
-                />
+              <InputGroup
+                label="Nome no cartão*"
+                id="cardName"
+                onBlur={form.handleBlur}
+                onChange={form.handleChange}
+                value={form.values.cardName}
+              >
+                <small>
+                  {getMessageError('cardName', form.errors.cardName)}
+                </small>
               </InputGroup>
 
               <div className="flex">
-                <InputGroup maxWidth="14rem">
-                  <label htmlFor="cardNumber">Número do cartão</label>
-
-                  <InputMask
-                    name="cardNumber"
-                    id="cardNumber"
-                    onBlur={form.handleBlur}
-                    onChange={form.handleChange}
-                    value={form.values.cardNumber}
-                    type="text"
-                    className={checkInputHasError('cardNumber') ? 'error' : ''}
-                    mask="9999 9999 9999 9999"
-                  />
+                <InputGroup
+                  label="Número do cartão*"
+                  maxWidth="14rem"
+                  id="cardNumber"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.cardNumber}
+                  mask="9999 9999 9999 9999"
+                >
+                  <small>
+                    {getMessageError('cardNumber', form.errors.cardNumber)}
+                  </small>
                 </InputGroup>
 
-                <InputGroup maxWidth="5.4375rem">
-                  <label htmlFor="cardCode">CVV</label>
-
-                  <InputMask
-                    name="cardCode"
-                    id="cardCode"
-                    onBlur={form.handleBlur}
-                    onChange={form.handleChange}
-                    value={form.values.cardCode}
-                    type="text"
-                    className={checkInputHasError('cardCode') ? 'error' : ''}
-                    mask="999"
-                  />
+                <InputGroup
+                  maxWidth="133px"
+                  label="CVV*"
+                  id="cardCode"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.cardCode}
+                  mask="999"
+                >
+                  <small>
+                    {getMessageError('cardCode', form.errors.cardCode)}
+                  </small>
                 </InputGroup>
               </div>
 
               <div className="flex margin-bottom">
-                <InputGroup maxWidth="9.68rem">
-                  <label htmlFor="expiresMonth">Mês de expiração</label>
-
-                  <InputMask
-                    name="expiresMonth"
-                    id="expiresMonth"
-                    onBlur={form.handleBlur}
-                    onChange={form.handleChange}
-                    value={form.values.expiresMonth}
-                    type="text"
-                    className={
-                      checkInputHasError('expiresMonth') ? 'error' : ''
-                    }
-                    mask="99"
-                  />
+                <InputGroup
+                  label="Mês de expiração*"
+                  maxWidth="9.68rem"
+                  id="expiresMonth"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.expiresMonth}
+                  mask="99"
+                >
+                  <small>
+                    {getMessageError('expiresMonth', form.errors.expiresMonth)}
+                  </small>
                 </InputGroup>
 
-                <InputGroup maxWidth="9.68rem">
-                  <label htmlFor="expiresYear">Ano de expiração</label>
-
-                  <InputMask
-                    name="expiresYear"
-                    id="expiresYear"
-                    onBlur={form.handleBlur}
-                    onChange={form.handleChange}
-                    value={form.values.expiresYear}
-                    type="text"
-                    className={checkInputHasError('expiresYear') ? 'error' : ''}
-                    mask="99"
-                  />
+                <InputGroup
+                  id="expiresYear"
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                  value={form.values.expiresYear}
+                  mask="99"
+                  label="Ano de expiração*"
+                  maxWidth="9.68rem"
+                >
+                  <small>
+                    {getMessageError('expiresYear', form.errors.expiresYear)}
+                  </small>
                 </InputGroup>
               </div>
             </div>
@@ -316,21 +310,22 @@ const Form = () => {
             <Button
               background="secundary"
               title="Finalizar o pagamento"
+              text={
+                isLoading ? 'Finalizando pagamento...' : 'Finalizar pagamento'
+              }
               type="submit"
-            >
-              {isLoading ? 'Finalizando pagamento...' : 'Finalizar pagamento'}
-            </Button>
+            />
+
             <Button
               background="secundary"
-              title="voltar para a edição de endereço"
+              title="Voltar para a edição de endereço"
               type="button"
-              onClick={(e) => {
+              onClick={(e: MouseEvent) => {
                 setIsDelivery(true)
                 e.preventDefault()
               }}
-            >
-              Voltar para a edição de endereço
-            </Button>
+            />
+            {isError && <p>Oops! Algo deu errado, tente novamente</p>}
           </>
         )}
       </FormContainer>

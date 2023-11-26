@@ -58,4 +58,9 @@ export const InputGroup = styled.div<InputGroupProps>`
     border: 2px solid ${colors.primaryLight};
     max-width: ${(props) => props.maxWidth || 'auto'};
   }
+
+  small {
+    margin-top: 0.3rem;
+    height: 18px;
+  }
 `
