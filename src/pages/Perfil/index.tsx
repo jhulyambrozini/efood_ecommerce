@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 
-import SideBar from '../../components/SideBar/SideBar'
-import Loader from '../../components/ui/Loader/Loader'
-import Banner from '../../components/ui/Banner/Banner'
+import SideBar from '../../components/ui/SideBar'
 import ProductsList from '../../components/ProductsList/ProductsList'
 
 import { Logo } from '../../styles'
@@ -13,7 +11,9 @@ import logoImage from '../../assets/images/logo.svg'
 import { useGetRestaurantQuery } from '../../services/api'
 import { RootReducer } from '../../store'
 import { openSideBar } from '../../store/reducers/sideBar'
-import Footer from '../../components/Footer/Footer'
+import Footer from '../../components/ui/Footer'
+import Banner from '../../components/ui/Banner'
+import Loader from '../../components/ui/Loader'
 
 export type RestaurantParams = {
   id: string

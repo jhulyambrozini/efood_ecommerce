@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
-import Button from '../ui/Button/Button'
+import Button from '../ui/Button'
 
 import { FormContainer } from './styles'
 
 import { changeComponent, closeSideBar } from '../../store/reducers/sideBar'
 import { clearCart } from '../../store/reducers/cart'
 
-type FinishOrderProps = {
+export type FinishOrderProps = {
   orderId: string
 }
 
@@ -48,6 +48,7 @@ const FinishOrder = ({ orderId }: FinishOrderProps) => {
       <Button
         background="secundary"
         title="Concluir o pedido"
+        label="Concluir o pedido"
         type="button"
         onClick={goToHome}
       />

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 
-import Button from '../ui/Button/Button'
+import Button from '../ui/Button'
 
 import * as Style from './styles'
 import { Overlay } from '../../styles'
@@ -11,7 +11,7 @@ import closeIcon from '../../assets/images/close.png'
 import { formatPrice, getDescription } from '../../utils'
 import { addToCart } from '../../store/reducers/cart'
 import { openSideBar } from '../../store/reducers/sideBar'
-import Image from '../ui/Image'
+import Image from '../../utils/Image'
 
 type ProductsListProps = {
   foods: Restaurants
@@ -51,6 +51,7 @@ const ProductsList = ({ foods }: ProductsListProps) => {
                 <Button
                   type="button"
                   title="Mais detalhes"
+                  label="Mais detalhes"
                   background="secundary"
                   onClick={() => openModal(f)}
                 />
@@ -72,7 +73,7 @@ const ProductsList = ({ foods }: ProductsListProps) => {
                 background="secundary"
                 type="button"
                 onClick={addItemToCart}
-                text={`Adicionar ao carrinho - ${formatPrice(product?.preco)}`}
+                label={`Adicionar ao carrinho - ${formatPrice(product?.preco)}`}
               />
             </Style.Infos>
             <Style.Close onClick={closeModal}>

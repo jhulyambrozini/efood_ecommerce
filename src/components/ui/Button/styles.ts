@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { Props } from './Button'
+import { ButtonProps } from '.'
 import { colors } from '../../../styles'
 
-export const ButtonContainer = styled.button<Omit<Props, 'children'>>`
+export const ButtonContainer = styled.button<ButtonProps>`
   color: ${(props) =>
     props.background === 'primary' ? colors.primaryLight : colors.primaryDark};
   background-color: ${(props) =>
@@ -12,6 +12,7 @@ export const ButtonContainer = styled.button<Omit<Props, 'children'>>`
   font-size: 0.875rem;
   font-weight: 700;
   cursor: pointer;
+  padding: 0.5rem 0.5rem;
 
   &:hover {
     opacity: 0.8;

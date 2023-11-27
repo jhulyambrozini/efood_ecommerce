@@ -1,21 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import Button from '../ui/Button/Button'
+import Button from '../ui/Button'
 
 import * as Styles from './styles'
 import trashIcon from '../../assets/images/trash-icon.svg'
 import { calculeTotalPrice, formatPrice } from '../../utils'
 
-import { RootReducer } from '../../store'
 import { removeOfCart } from '../../store/reducers/cart'
 import { changeComponent } from '../../store/reducers/sideBar'
+import { RootReducer } from '../../store'
 
 const Cart = () => {
   const { itemsCart } = useSelector((state: RootReducer) => state.cart)
-
   const dispatch = useDispatch()
-
-  const goToForm = () => dispatch(changeComponent('form'))
 
   return (
     <>
@@ -46,9 +43,10 @@ const Cart = () => {
 
           <Button
             title="Continuar com a entrega"
+            label="Continuar com a entrega"
             background="secundary"
             type="button"
-            onClick={goToForm}
+            onClick={() => dispatch(changeComponent('form'))}
           />
         </>
       ) : (

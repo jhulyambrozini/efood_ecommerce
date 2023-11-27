@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { ButtonAction, colors } from '../../styles'
-import { ButtonContainer } from '../ui/Button/styles'
+import { ButtonAction, colors } from '../../../styles'
+import { ButtonContainer } from '../Button/styles'
 
 export const Container = styled.div`
   display: flex;
@@ -11,6 +11,7 @@ export const Container = styled.div`
   height: 100%;
   position: fixed;
   z-index: 1;
+  overflow: hidden;
 
   ${ButtonContainer} {
     width: 100%;

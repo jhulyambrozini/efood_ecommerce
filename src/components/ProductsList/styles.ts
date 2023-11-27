@@ -47,7 +47,6 @@ export const CardContainer = styled.div`
 
   ${ButtonContainer} {
     width: 100%;
-    padding: 0.25rem 0;
   }
 `
 
@@ -125,7 +124,8 @@ export const Infos = styled.div`
   }
 
   ${ButtonContainer} {
-    width: 13.625rem;
+    width: 14.625rem;
+    padding: 0;
   }
 
   @media (max-width: ${breakpoints.tablet}) {

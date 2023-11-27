@@ -1,7 +1,7 @@
-import Image from '../Image'
+import Image from '../../../utils/Image'
 import { BannerContainer, Titles } from './styles'
 
-type BannerProps = {
+export type BannerProps = {
   image: string
   type: string
   title: string

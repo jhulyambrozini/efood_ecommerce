@@ -2,7 +2,7 @@ import { DetailedHTMLProps, InputHTMLAttributes } from 'react'
 import { InputGroupContainer } from './styles'
 import InputMask from 'react-input-mask'
 
-type InputGroupProps = DetailedHTMLProps<
+export type InputGroupProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & {

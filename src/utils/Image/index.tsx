@@ -1,11 +1,19 @@
-import { removeLoading } from '../../../utils'
+import { removeLoading } from '..'
 
-type ImageProps = {
+export type ImageProps = {
   alt: string | undefined
   src: string | undefined
+  width?: number
+  height?: number
 }
 
-const Image = ({ src, alt, ...props }: ImageProps) => {
+const Image = ({
+  src,
+  alt,
+  width = 100,
+  height = 100,
+  ...props
+}: ImageProps) => {
   return (
     <img
       loading="lazy"
@@ -13,9 +21,9 @@ const Image = ({ src, alt, ...props }: ImageProps) => {
       alt={alt}
       onLoad={removeLoading}
       className="loading"
+      width={width}
+      height={height}
       {...props}
-      width={100}
-      height={100}
     />
   )
 }

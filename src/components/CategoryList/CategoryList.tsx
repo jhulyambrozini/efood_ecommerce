@@ -1,4 +1,4 @@
-import Loader from '../ui/Loader/Loader'
+import Loader from '../ui/Loader'
 import Category from '../Category/Category'
 
 import { Container } from './styles'

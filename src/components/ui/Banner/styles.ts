@@ -29,6 +29,7 @@ export const Titles = styled.div`
   h2 {
     margin-top: 156px;
     font-weight: 900;
+    font-size: 32px;
   }
 
   @media (max-width: ${breakpoints.tablet}) {

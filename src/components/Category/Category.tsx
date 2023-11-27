@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import Tag from '../ui/Tag/Tag'
-import Button from '../ui/Button/Button'
-import Image from '../ui/Image'
+import Tag from '../ui/Tag'
+import Button from '../ui/Button'
+import Image from '../../utils/Image'
 
 import * as Style from './styles'
 import starIcon from '../../assets/images/estrela-icon.svg'
@@ -30,8 +30,12 @@ const Category = ({
   <Style.CardContainer>
     <Image src={image} alt={title} />
     <div className="tags">
-      {detach && <Tag>Destaque da semana</Tag>}
-      <Tag>{type}</Tag>
+      {detach && (
+        <>
+          <Tag text="Destaque da semana" />
+          <Tag text={type} />
+        </>
+      )}
     </div>
     <Style.Infos>
       <Style.Title>{title}</Style.Title>
@@ -42,7 +46,12 @@ const Category = ({
     </Style.Infos>
     <Style.Desc>{getDescription(description)}</Style.Desc>
     <Link to={`/perfil/${id}`}>
-      <Button title="Saiba mais" background="primary" type="button" />
+      <Button
+        label="Saiba mais"
+        title="Saiba mais"
+        background="primary"
+        type="button"
+      />
     </Link>
   </Style.CardContainer>
 )

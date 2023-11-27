@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
-import { Logo } from '../../styles'
+import { breakpoints, colors } from '../../../styles'
+import { Logo } from '../../../styles'
 
 export const FooterContainer = styled.footer`
   background-color: ${colors.primaryLight};

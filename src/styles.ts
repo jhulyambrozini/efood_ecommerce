@@ -14,16 +14,17 @@ export const breakpoints = {
 }
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Roboto, san-serif;
     list-style: none;
  }
 
  body {
   background-color: ${colors.secundary};
+  font-family: 'Roboto', sans-serif;
  }
 
  main {

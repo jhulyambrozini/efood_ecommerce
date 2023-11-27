@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
-import Button from '../ui/Button/Button'
+import Button from '../ui/Button'
 import FinishOrder from './FinishOrder'
 import InputGroup from '../ui/InputGroup'
 
@@ -11,10 +11,10 @@ import { FormContainer } from './styles'
 import { calculeTotalPrice, formatPrice } from '../../utils'
 
 import { RootReducer } from '../../store'
-import { changeComponent } from '../../store/reducers/sideBar'
 import { usePurchaseMutation } from '../../services/api'
 import { clearCart } from '../../store/reducers/cart'
 import { useState, useEffect, MouseEvent } from 'react'
+import { changeComponent } from '../../store/reducers/sideBar'
 
 const Form = () => {
   const { itemsCart } = useSelector((state: RootReducer) => state.cart)
@@ -205,23 +205,27 @@ const Form = () => {
               </InputGroup>
             </div>
 
-            <Button
-              background="secundary"
-              title="Continuar com o pagamento"
-              type="button"
-              onClick={(event: MouseEvent) => handlePayment(event)}
-            />
-            <Button
-              background="secundary"
-              title="Voltar ao carrinho"
-              type="button"
-              onClick={(e: MouseEvent) => {
-                dispatch(changeComponent('cart'))
-                e.preventDefault()
-              }}
-            />
+            <div className="controls">
+              <Button
+                background="secundary"
+                title="Continuar com o pagamento"
+                label="Continuar com o pagamento"
+                type="button"
+                onClick={(event: MouseEvent) => handlePayment(event)}
+              />
+              <Button
+                background="secundary"
+                title="Voltar ao carrinho"
+                label="Voltar ao carrinho"
+                type="button"
+                onClick={(e: MouseEvent) => {
+                  dispatch(changeComponent('cart'))
+                  e.preventDefault()
+                }}
+              />
+            </div>
             {inputsVoidsMessage && (
-              <p style={{ textAlign: 'center', fontSize: '18px' }}>
+              <p style={{ textAlign: 'center' }}>
                 Preencha os campos obrigatórios!
               </p>
             )}
@@ -249,7 +253,7 @@ const Form = () => {
               <div className="flex">
                 <InputGroup
                   label="Número do cartão*"
-                  maxWidth="14rem"
+                  maxWidth="228px"
                   id="cardNumber"
                   onBlur={form.handleBlur}
                   onChange={form.handleChange}
@@ -262,7 +266,7 @@ const Form = () => {
                 </InputGroup>
 
                 <InputGroup
-                  maxWidth="133px"
+                  maxWidth="87px"
                   label="CVV*"
                   id="cardCode"
                   onBlur={form.handleBlur}
@@ -307,24 +311,28 @@ const Form = () => {
               </div>
             </div>
 
-            <Button
-              background="secundary"
-              title="Finalizar o pagamento"
-              text={
-                isLoading ? 'Finalizando pagamento...' : 'Finalizar pagamento'
-              }
-              type="submit"
-            />
+            <div className="controls">
+              <Button
+                background="secundary"
+                title="Finalizar o pagamento"
+                label={
+                  isLoading ? 'Finalizando pagamento...' : 'Finalizar pagamento'
+                }
+                type="submit"
+              />
 
-            <Button
-              background="secundary"
-              title="Voltar para a edição de endereço"
-              type="button"
-              onClick={(e: MouseEvent) => {
-                setIsDelivery(true)
-                e.preventDefault()
-              }}
-            />
+              <Button
+                background="secundary"
+                title="Voltar para a edição de endereço"
+                label="Voltar para a edição de endereço"
+                type="button"
+                onClick={(e: MouseEvent) => {
+                  setIsDelivery(true)
+                  e.preventDefault()
+                }}
+              />
+            </div>
+
             {isError && <p>Oops! Algo deu errado, tente novamente</p>}
           </>
         )}
