@@ -12,6 +12,7 @@ export const InputGroupContainer = styled.div<InputGroupProps>`
   label {
     font-size: 0.875rem;
     padding-bottom: 0.5rem;
+    color: #ffff;
   }
 
   input {

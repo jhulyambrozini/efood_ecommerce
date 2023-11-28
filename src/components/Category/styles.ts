@@ -4,7 +4,6 @@ import { ButtonContainer } from '../ui/Button/styles'
 
 export const CardContainer = styled.div`
   width: 29.5rem;
-  height: 24.875rem;
   border: 1px solid ${colors.primaryDark};
   background: #fff;
   position: relative;
@@ -12,6 +11,7 @@ export const CardContainer = styled.div`
   ${ButtonContainer} {
     padding: 0.25rem 0.37rem;
     margin-left: 0.5rem;
+    margin-bottom: 12px;
   }
 
   .tags {

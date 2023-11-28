@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import Button from '../ui/Button'
 
@@ -8,14 +8,16 @@ import { calculeTotalPrice, formatPrice } from '../../utils'
 
 import { removeOfCart } from '../../store/reducers/cart'
 import { changeComponent } from '../../store/reducers/sideBar'
-import { RootReducer } from '../../store'
 
-const Cart = () => {
-  const { itemsCart } = useSelector((state: RootReducer) => state.cart)
+export type CartProps = {
+  itemsCart: Menu[]
+}
+
+const Cart = ({ itemsCart }: CartProps) => {
   const dispatch = useDispatch()
 
   return (
-    <>
+    <div>
       {itemsCart.length > 0 ? (
         <>
           <ul>
@@ -50,12 +52,12 @@ const Cart = () => {
           />
         </>
       ) : (
-        <p className="empty-text">
+        <p className="empty-text" style={{ color: '#ffff' }}>
           O carrinho está vazio, dicione ao menos um item para continuar com a
-          compra
+          compra.
         </p>
       )}
-    </>
+    </div>
   )
 }
 

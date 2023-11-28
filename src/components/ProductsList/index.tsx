@@ -13,7 +13,7 @@ import { addToCart } from '../../store/reducers/cart'
 import { openSideBar } from '../../store/reducers/sideBar'
 import Image from '../../utils/Image'
 
-type ProductsListProps = {
+export type ProductsListProps = {
   foods: Restaurants
 }
 

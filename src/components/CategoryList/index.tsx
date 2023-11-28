@@ -1,5 +1,5 @@
 import Loader from '../ui/Loader'
-import Category from '../Category/Category'
+import Category from '../Category'
 
 import { Container } from './styles'
 

@@ -5,9 +5,7 @@ import SideBar from '.'
 const meta = {
   title: 'ui/SideBar',
   component: SideBar,
-  parameters: {
-    layout: 'fullscreen'
-  }
+  parameters: {}
 } satisfies Meta<typeof SideBar>
 
 // eslint-disable-next-line react-refresh/only-export-components

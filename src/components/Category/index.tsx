@@ -8,7 +8,7 @@ import * as Style from './styles'
 import starIcon from '../../assets/images/estrela-icon.svg'
 import { getDescription } from '../../utils'
 
-type CategoryProps = {
+export type CategoryProps = {
   image: string
   title: string
   description: string

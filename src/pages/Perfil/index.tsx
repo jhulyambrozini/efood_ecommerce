@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 
 import SideBar from '../../components/ui/SideBar'
-import ProductsList from '../../components/ProductsList/ProductsList'
+import ProductsList from '../../components/ProductsList'
 
 import { Logo } from '../../styles'
 import { HeaderContainer } from './styles'
@@ -19,15 +19,19 @@ export type RestaurantParams = {
   id: string
 }
 
+// export type PerfilProps = {
+//   data: Restaurants
+// }
+
 const Perfil = () => {
   const { id } = useParams() as RestaurantParams
-  const { data: foodId } = useGetRestaurantQuery(id)
+  const { data: foodId, isLoading } = useGetRestaurantQuery(id)
   const dispatch = useDispatch()
 
   const { itemsCart } = useSelector((state: RootReducer) => state.cart)
   const { sideBarIsOpen } = useSelector((state: RootReducer) => state.sideBar)
 
-  if (!foodId) return <Loader />
+  if (isLoading) return <Loader />
 
   return (
     <>

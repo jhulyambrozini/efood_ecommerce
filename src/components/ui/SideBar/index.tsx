@@ -12,11 +12,12 @@ import Form from '../../Form/Form'
 const SideBar = () => {
   const dispatch = useDispatch()
   const { component } = useSelector((state: RootReducer) => state.sideBar)
+  const { itemsCart } = useSelector((state: RootReducer) => state.cart)
 
   const switchComponents = () => {
     switch (component) {
       case 'cart':
-        return <Cart />
+        return <Cart itemsCart={itemsCart} />
       case 'form':
         return <Form />
       default:
