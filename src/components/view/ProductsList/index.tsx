@@ -6,7 +6,7 @@ import Button from '../../ui/Button'
 import * as Style from './styles'
 import { Overlay } from '../../../styles'
 
-import closeIcon from '../../assets/images/close.png'
+import closeIcon from '../../../assets/images/close.png'
 
 import { formatPrice, getDescription } from '../../../utils'
 import { addToCart } from '../../../store/reducers/cart'

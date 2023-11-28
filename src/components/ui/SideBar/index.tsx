@@ -1,13 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux'
 
+import Cart from '../../view/Cart'
+import Form from '../../view/Form/Form'
+
 import { Overlay } from '../../../styles'
 import { Container, AsideContainer, ButtonClose } from './styles'
+
 import closeIcon from '../../../assets/images/close.png'
 
 import { changeComponent, closeSideBar } from '../../../store/reducers/sideBar'
 import { RootReducer } from '../../../store'
-import Cart from '../../view/Cart'
-import Form from '../../view/Form/Form'
 
 const SideBar = () => {
   const dispatch = useDispatch()

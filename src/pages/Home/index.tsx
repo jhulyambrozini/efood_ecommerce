@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 
 import CategorytList from '../../components/view/CategoryList'
+import Footer from '../../components/ui/Footer'
 
 import { HeaderContainer } from './styles'
 import { Logo } from '../../styles'
 
 import logoImage from '../../assets/images/logo.svg'
-import Footer from '../../components/ui/Footer'
 
 const Home = () => {
   return (

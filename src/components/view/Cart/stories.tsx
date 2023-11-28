@@ -17,8 +17,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof Cart>
 
-// const Template = (args: CartProps) => <Cart {...args} />
-
 export const EmptyCart: Story = {
   args: {
     itemsCart: []
