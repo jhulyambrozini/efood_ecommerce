@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 
-import Tag from '../ui/Tag'
-import Button from '../ui/Button'
-import Image from '../../utils/Image'
+import Tag from '../../ui/Tag'
+import Button from '../../ui/Button'
+import Image from '../../../utils/Image'
 
 import * as Style from './styles'
 import starIcon from '../../assets/images/estrela-icon.svg'
-import { getDescription } from '../../utils'
+import { getDescription } from '../../../utils'
 
 export type CategoryProps = {
   image: string

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import CategorytList from '../../components/CategoryList'
+import CategorytList from '../../components/view/CategoryList'
 
 import { HeaderContainer } from './styles'
 import { Logo } from '../../styles'

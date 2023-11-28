@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ButtonAction, colors } from '../../styles'
+import { ButtonAction, colors } from '../../../styles'
 
 export const ButtonTrash = styled(ButtonAction)`
   width: 48px;

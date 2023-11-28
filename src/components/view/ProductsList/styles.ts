@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
-import { ButtonContainer } from '../ui/Button/styles'
+import { breakpoints, colors } from '../../../styles'
+import { ButtonContainer } from '../../ui/Button/styles'
 
 export const ListContainer = styled.ul`
   display: grid;

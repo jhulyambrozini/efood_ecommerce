@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
-import Button from '../ui/Button'
+import Button from '../../ui/Button'
 import FinishOrder from './FinishOrder'
-import InputGroup from '../ui/InputGroup'
+import InputGroup from '../../ui/InputGroup'
 
 import { FormContainer } from './styles'
-import { calculeTotalPrice, formatPrice } from '../../utils'
+import { calculeTotalPrice, formatPrice } from '../../../utils'
 
-import { RootReducer } from '../../store'
-import { usePurchaseMutation } from '../../services/api'
-import { clearCart } from '../../store/reducers/cart'
+import { RootReducer } from '../../../store'
+import { usePurchaseMutation } from '../../../services/api'
+import { clearCart } from '../../../store/reducers/cart'
 import { useState, useEffect, MouseEvent } from 'react'
-import { changeComponent } from '../../store/reducers/sideBar'
+import { changeComponent } from '../../../store/reducers/sideBar'
 
 const Form = () => {
   const { itemsCart } = useSelector((state: RootReducer) => state.cart)

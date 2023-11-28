@@ -1,9 +1,9 @@
-import Loader from '../ui/Loader'
+import Loader from '../../ui/Loader'
 import Category from '../Category'
 
 import { Container } from './styles'
 
-import { useGetRestaurantsListQuery } from '../../services/api'
+import { useGetRestaurantsListQuery } from '../../../services/api'
 
 const CategorytList = () => {
   const { data, isLoading } = useGetRestaurantsListQuery()

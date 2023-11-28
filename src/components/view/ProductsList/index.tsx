@@ -1,17 +1,17 @@
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 
-import Button from '../ui/Button'
+import Button from '../../ui/Button'
 
 import * as Style from './styles'
-import { Overlay } from '../../styles'
+import { Overlay } from '../../../styles'
 
 import closeIcon from '../../assets/images/close.png'
 
-import { formatPrice, getDescription } from '../../utils'
-import { addToCart } from '../../store/reducers/cart'
-import { openSideBar } from '../../store/reducers/sideBar'
-import Image from '../../utils/Image'
+import { formatPrice, getDescription } from '../../../utils'
+import { addToCart } from '../../../store/reducers/cart'
+import { openSideBar } from '../../../store/reducers/sideBar'
+import Image from '../../../utils/Image'
 
 export type ProductsListProps = {
   foods: Restaurants

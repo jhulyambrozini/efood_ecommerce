@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux'
 
-import Button from '../ui/Button'
+import Button from '../../ui/Button'
 
 import * as Styles from './styles'
 import trashIcon from '../../assets/images/trash-icon.svg'
-import { calculeTotalPrice, formatPrice } from '../../utils'
+import { calculeTotalPrice, formatPrice } from '../../../utils'
 
-import { removeOfCart } from '../../store/reducers/cart'
-import { changeComponent } from '../../store/reducers/sideBar'
+import { removeOfCart } from '../../../store/reducers/cart'
+import { changeComponent } from '../../../store/reducers/sideBar'
 
 export type CartProps = {
   itemsCart: Menu[]

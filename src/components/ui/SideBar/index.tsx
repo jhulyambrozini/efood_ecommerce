@@ -6,8 +6,8 @@ import closeIcon from '../../../assets/images/close.png'
 
 import { changeComponent, closeSideBar } from '../../../store/reducers/sideBar'
 import { RootReducer } from '../../../store'
-import Cart from '../../Cart'
-import Form from '../../Form/Form'
+import Cart from '../../view/Cart'
+import Form from '../../view/Form/Form'
 
 const SideBar = () => {
   const dispatch = useDispatch()

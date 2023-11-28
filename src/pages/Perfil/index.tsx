@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 
 import SideBar from '../../components/ui/SideBar'
-import ProductsList from '../../components/ProductsList'
+import ProductsList from '../../components/view/ProductsList'
 
 import { Logo } from '../../styles'
 import { HeaderContainer } from './styles'
