@@ -21,7 +21,7 @@ const InputGroup = ({
   ...props
 }: InputGroupProps) => {
   return (
-    <InputGroupContainer maxWidth={maxWidth}>
+    <InputGroupContainer maxWidth={maxWidth} role="input-group">
       <label htmlFor={id}>{label}</label>
       {mask ? (
         <InputMask name={id} id={id} type="text" mask={mask} {...props} />

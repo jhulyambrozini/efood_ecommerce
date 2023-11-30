@@ -1,5 +1,4 @@
 import { SyntheticEvent } from 'react'
-import { closeSideBar } from '../store/reducers/sideBar'
 
 export const getDescription = (desc: string) => {
   if (desc.length > 210) {

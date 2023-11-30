@@ -5,7 +5,7 @@ import { colors } from '../../../styles'
 
 const Loader = () => (
   <Container>
-    <BeatLoader color={colors.primaryDark} />
+    <BeatLoader color={colors.primaryDark} data-testid="loader-svg" />
   </Container>
 )
 
