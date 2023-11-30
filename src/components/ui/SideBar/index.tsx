@@ -9,12 +9,12 @@ import { Container, AsideContainer, ButtonClose } from './styles'
 import closeIcon from '../../../assets/images/close.png'
 
 import { changeComponent, closeSideBar } from '../../../store/reducers/sideBar'
-import { RootReducer } from '../../../store'
+import { RootState } from '../../../store'
 
 const SideBar = () => {
   const dispatch = useDispatch()
-  const { component } = useSelector((state: RootReducer) => state.sideBar)
-  const { itemsCart } = useSelector((state: RootReducer) => state.cart)
+  const { component } = useSelector((state: RootState) => state.sideBar)
+  const { itemsCart } = useSelector((state: RootState) => state.cart)
 
   const switchComponents = () => {
     switch (component) {
@@ -37,7 +37,7 @@ const SideBar = () => {
   }
   return (
     <Container>
-      <Overlay onClick={toClose} />
+      <Overlay onClick={toClose} role="overlay-container" />
       <AsideContainer>
         <ButtonClose onClick={toClose} title="Fechar carrinho">
           <img src={closeIcon} alt="Icone de fechar" />

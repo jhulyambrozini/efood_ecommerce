@@ -1,4 +1,4 @@
-import Loader from '.'
+import Loader from '..'
 import { render, screen } from '@testing-library/react'
 
 describe('<Loader />', () => {

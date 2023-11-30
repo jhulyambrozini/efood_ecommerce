@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-type sideBarState = {
+export type sideBarState = {
   sideBarIsOpen: boolean
   component: string
 }

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Banner from '.'
+import Banner from '..'
 
 const props = {
   image: 'img/img1.png',

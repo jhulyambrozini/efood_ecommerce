@@ -12,7 +12,7 @@ import { HeaderContainer } from './styles'
 import logoImage from '../../assets/images/logo.svg'
 
 import { useGetRestaurantQuery } from '../../services/api'
-import { RootReducer } from '../../store'
+import { RootState } from '../../store'
 import { openSideBar } from '../../store/reducers/sideBar'
 
 export type RestaurantParams = {
@@ -24,8 +24,8 @@ const Perfil = () => {
   const { data, isLoading } = useGetRestaurantQuery(id)
   const dispatch = useDispatch()
 
-  const { itemsCart } = useSelector((state: RootReducer) => state.cart)
-  const { sideBarIsOpen } = useSelector((state: RootReducer) => state.sideBar)
+  const { itemsCart } = useSelector((state: RootState) => state.cart)
+  const { sideBarIsOpen } = useSelector((state: RootState) => state.sideBar)
 
   if (isLoading) return <Loader />
 

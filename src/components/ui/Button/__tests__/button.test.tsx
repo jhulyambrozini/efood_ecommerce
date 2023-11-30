@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import Button from '.'
+import Button from '..'
 
 describe('<Button />', () => {
   it('should render a primary button"', () => {

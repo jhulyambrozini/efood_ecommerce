@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import InputGroup from '.'
+import InputGroup from '..'
 
 describe('<InputGroup />', () => {
   it('should render correctly', () => {
