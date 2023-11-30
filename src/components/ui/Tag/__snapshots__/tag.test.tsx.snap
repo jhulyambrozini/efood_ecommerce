@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tag /> should match snapshot 1`] = `
+<div
+  class="sc-dcJsrY QRaBo"
+  role="tag-container"
+>
+  destaque
+</div>
+`;

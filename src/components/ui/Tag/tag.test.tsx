@@ -8,4 +8,8 @@ describe('<Tag />', () => {
 
     expect(screen.findByRole('tag-container', { name: /destaque/i }))
   })
+  it('should match snapshot', () => {
+    const { container } = render(<Tag text="destaque" />)
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })

@@ -50,4 +50,19 @@ describe('<Button />', () => {
 
     expect(fn).toHaveBeenCalledTimes(1)
   })
+
+  it('should match snapshot', () => {
+    const fn = jest.fn()
+
+    const { container } = render(
+      <Button
+        label="button"
+        background="secundary"
+        type="button"
+        title="click me"
+        onClick={fn}
+      />
+    )
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })

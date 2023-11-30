@@ -46,4 +46,13 @@ describe('<InputGroup />', () => {
     const input = screen.getByRole('textbox')
     expect(input).toHaveStyle('max-width: 93px')
   })
+
+  it('should match snapshot', () => {
+    const { container } = render(
+      <InputGroup label="name" id="name" maxWidth="96px">
+        mensagem de erro
+      </InputGroup>
+    )
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
