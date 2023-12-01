@@ -32,8 +32,8 @@ const props = {
 
 describe('<ProductList />', () => {
   it('should render with 2 items on the cardapio', () => {
-    const { debug } = renderWithProvider(<ProductsList foods={props} />)
-    debug()
+    renderWithProvider(<ProductsList foods={props} />)
+
     const items = screen.getAllByRole('listitem')
 
     expect(items).toHaveLength(2)

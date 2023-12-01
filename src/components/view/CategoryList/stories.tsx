@@ -5,7 +5,6 @@ import { worker } from '../../../mocks/handlers'
 import { ComponentType } from 'react'
 import { Meta } from '@storybook/react'
 
-// Inicializa o msw worker antes de renderizar o componente
 worker.start()
 
 const queryClient = new QueryClient()

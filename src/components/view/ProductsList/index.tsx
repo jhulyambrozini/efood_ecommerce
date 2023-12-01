@@ -9,9 +9,9 @@ import { Overlay } from '../../../styles'
 import closeIcon from '../../../assets/images/close.png'
 
 import { formatPrice, getDescription } from '../../../utils'
+import Image from '../../../utils/Image'
 import { addToCart } from '../../../store/reducers/cart'
 import { openSideBar } from '../../../store/reducers/sideBar'
-import Image from '../../../utils/Image'
 
 export type ProductsListProps = {
   foods: Restaurants

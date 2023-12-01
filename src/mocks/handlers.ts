@@ -1,5 +1,4 @@
-// src/mocks/handlers.js
-import { HttpResponse, http } from 'msw'
+import { http, HttpResponse } from 'msw'
 import { setupWorker } from 'msw/browser'
 
 const handlers = [

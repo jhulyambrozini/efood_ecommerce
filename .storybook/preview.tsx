@@ -3,8 +3,11 @@ import GlobalStyle, { colors } from '../src/styles'
 import { ComponentType } from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
-import store from '../src/store'
 import React from 'react'
+
+import { configStore } from '../src/store'
+
+const store = configStore()
 
 const preview: Preview = {
   parameters: {
