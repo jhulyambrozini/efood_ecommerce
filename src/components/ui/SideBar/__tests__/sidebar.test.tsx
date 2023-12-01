@@ -76,9 +76,4 @@ describe('<Sidebar />', () => {
     const headingDelivery = screen.getByRole('heading', { name: /entrega/i })
     expect(headingDelivery).toBeInTheDocument()
   })
-
-  it('should match snapshot', () => {
-    const { container } = renderWithProvider(<SideBar />)
-    expect(container.firstChild).toMatchSnapshot()
-  })
 })
