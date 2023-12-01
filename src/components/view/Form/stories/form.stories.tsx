@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
 
-import Form from './Form'
+import Form from '../Form'
 
 const meta = {
   title: 'view/Form',

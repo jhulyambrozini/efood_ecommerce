@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
 
-import FinishOrder, { FinishOrderProps } from './FinishOrder'
+import FinishOrder, { FinishOrderProps } from '../FinishOrder'
 
 const meta = {
   title: 'view/FinishOrder',
