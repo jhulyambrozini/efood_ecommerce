@@ -10,14 +10,14 @@ import InputGroup from '../../ui/InputGroup'
 import { FormContainer } from './styles'
 import { calculeTotalPrice, formatPrice } from '../../../utils'
 
-import { RootReducer } from '../../../store'
+import { RootState } from '../../../store'
 import { usePurchaseMutation } from '../../../services/api'
 import { clearCart } from '../../../store/reducers/cart'
 import { useState, useEffect, MouseEvent } from 'react'
 import { changeComponent } from '../../../store/reducers/sideBar'
 
 const Form = () => {
-  const { itemsCart } = useSelector((state: RootReducer) => state.cart)
+  const { itemsCart } = useSelector((state: RootState) => state.cart)
   const [isDelivery, setIsDelivery] = useState(true)
   const [inputsVoidsMessage, setInputsVoidsMessage] = useState(false)
   const dispatch = useDispatch()
