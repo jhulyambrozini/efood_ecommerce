@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom'
 import Home from '..'
 import { MemoryRouter } from 'react-router-dom'
 import { renderWithProvider } from '../../../utils/tests'

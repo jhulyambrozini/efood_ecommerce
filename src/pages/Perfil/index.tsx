@@ -15,7 +15,7 @@ import { useGetRestaurantQuery } from '../../services/api'
 import { RootState } from '../../store'
 import { openSideBar } from '../../store/reducers/sideBar'
 
-export type RestaurantParams = {
+type RestaurantParams = {
   id: string
 }
 

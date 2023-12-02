@@ -1,4 +1,6 @@
+import '@testing-library/jest-dom'
 import { fireEvent, screen } from '@testing-library/dom'
+import { vi } from 'vitest'
 import Cart from '..'
 import { renderWithProvider } from '../../../../utils/tests'
 
@@ -38,7 +40,7 @@ describe('<Cart />', () => {
   })
 
   it('should call a function when clicking on the trash button', () => {
-    const handleRemove = jest.fn()
+    const handleRemove = vi.fn()
     renderWithProvider(
       <Cart
         itemsCart={[
@@ -63,7 +65,7 @@ describe('<Cart />', () => {
   })
 
   it('should call a function when clicking continue with delivery', () => {
-    const handleClick = jest.fn()
+    const handleClick = vi.fn()
     renderWithProvider(<Cart itemsCart={itemsCart} />)
 
     const keepWithDeliveryButton = screen.getByRole('button', {

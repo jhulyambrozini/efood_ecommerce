@@ -1,7 +1,8 @@
+import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 import { fireEvent, screen } from '@testing-library/dom'
 import SideBar from '..'
 import { renderWithProvider } from '../../../../utils/tests'
-import Button from '../../Button'
 
 describe('<Sidebar />', () => {
   it('should render correctly', () => {
@@ -10,7 +11,7 @@ describe('<Sidebar />', () => {
   })
 
   it('should call a function when pressing the close button', () => {
-    const handleClose = jest.fn()
+    const handleClose = vi.fn()
     renderWithProvider(<SideBar />)
     const button = screen.getByRole('button', { name: 'Icone de fechar' })
     expect(button).toBeInTheDocument()
@@ -23,7 +24,7 @@ describe('<Sidebar />', () => {
   })
 
   it('should call a function when pressing the overlay container', () => {
-    const handleCloseOverlay = jest.fn()
+    const handleCloseOverlay = vi.fn()
     renderWithProvider(<SideBar />)
     const overlayContainer = screen.getByRole('overlay-container')
     expect(overlayContainer).toBeInTheDocument()

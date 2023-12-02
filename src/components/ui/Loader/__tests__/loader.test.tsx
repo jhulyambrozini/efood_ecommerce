@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom'
 import Loader from '..'
 import { render, screen } from '@testing-library/react'
 

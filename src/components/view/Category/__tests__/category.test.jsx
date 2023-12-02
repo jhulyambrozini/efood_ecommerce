@@ -1,4 +1,6 @@
+import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from "@testing-library/react"
+import {vi} from 'vitest'
 import { MemoryRouter } from "react-router-dom"
 import Category from '..'
 
@@ -24,7 +26,7 @@ describe('<Category />', () => {
     })
 
     it('should call a function when clicking "Saiba mais"', () => {
-        const handleClick = jest.fn()
+        const handleClick = vi.fn()
         render(<MemoryRouter>
             <Category {...props} />
         </MemoryRouter>)

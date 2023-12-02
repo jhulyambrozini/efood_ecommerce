@@ -1,4 +1,58 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Footer /> > should match snapshot 1`] = `
+<footer
+  class="sc-dcJsrY dKkVer"
+>
+  <a
+    href="/"
+    title="Home"
+  >
+    <img
+      alt="EFOOD"
+      class="sc-aXZVg drWPxd"
+      src="/src/assets/images/logo.svg"
+    />
+  </a>
+  <div
+    class="sc-iGgWBj lkGQIz"
+  >
+    <a
+      href="#"
+      title="Instagram"
+    >
+      <img
+        alt="Icone do instagram"
+        src="/src/assets/images/instagram-icon.svg"
+      />
+    </a>
+    <a
+      href="#"
+      title="Facebook"
+    >
+      <img
+        alt="Icone do facebook"
+        src="/src/assets/images/facebook-icon.svg"
+      />
+    </a>
+    <a
+      href="#"
+      title="Twitter"
+    >
+      <img
+        alt="Icone do twitter"
+        src="/src/assets/images/twitter-icon.svg"
+      />
+    </a>
+  </div>
+  <p>
+    A efood é uma plataforma para divulgação de estabelecimentos responsabilidade pela entrega, qualidade 
+    <br />
+     dos produtos é toda do estabelecimento contratado.
+     
+  </p>
+</footer>
+`;
 
 exports[`<Footer /> should match snapshot 1`] = `
 <footer

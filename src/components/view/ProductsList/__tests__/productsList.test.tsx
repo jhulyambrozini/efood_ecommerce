@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 import { fireEvent, screen } from '@testing-library/dom'
 import ProductsList from '..'
 import { renderWithProvider } from '../../../../utils/tests'
@@ -39,7 +41,7 @@ describe('<ProductList />', () => {
     expect(items).toHaveLength(2)
   })
   it('should render a modal when clicking "Mais detalhes"', () => {
-    const handleClick = jest.fn()
+    const handleClick = vi.fn()
     renderWithProvider(<ProductsList foods={props} />)
 
     const moreDetailsButton = screen.getAllByRole('button', {
@@ -57,7 +59,7 @@ describe('<ProductList />', () => {
     ).toBeInTheDocument()
   })
   it('should call a function when clicking in "Adicionar ao carrinho"', () => {
-    const handleClick = jest.fn()
+    const handleClick = vi.fn()
     renderWithProvider(<ProductsList foods={props} />)
 
     const moreDetailsButton = screen.getAllByRole('button', {

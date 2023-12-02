@@ -1,4 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Tag /> > should match snapshot 1`] = `
+<div
+  class="sc-dcJsrY QRaBo"
+  role="tag-container"
+>
+  destaque
+</div>
+`;
 
 exports[`<Tag /> should match snapshot 1`] = `
 <div

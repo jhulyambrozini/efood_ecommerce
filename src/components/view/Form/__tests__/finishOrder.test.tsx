@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import { renderWithProvider } from '../../../../utils/tests'
 import FinishOrder from '../FinishOrder'
@@ -18,7 +20,7 @@ describe('<FinishOrder />', () => {
   })
 
   it('should call a function when clicking "Concluir o pedido"', () => {
-    const handleClick = jest.fn()
+    const handleClick = vi.fn()
     renderWithProvider(
       <MemoryRouter>
         <FinishOrder orderId="84456" />

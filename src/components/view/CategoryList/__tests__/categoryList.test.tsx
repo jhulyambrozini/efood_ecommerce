@@ -1,8 +1,5 @@
-import {
-  screen,
-  waitFor,
-  waitForElementToBeRemoved
-} from '@testing-library/react'
+import '@testing-library/jest-dom'
+import { screen, waitFor } from '@testing-library/react'
 import CategorytList from '..'
 import { HttpResponse, http } from 'msw'
 import { setupServer } from 'msw/node'
@@ -48,7 +45,7 @@ describe('<CategoryList />', () => {
   afterEach(() => server.resetHandlers())
   afterAll(() => server.close())
 
-  it('should render correctly with loader', async () => {
+  it('should render correctly with loader', () => {
     renderWithProvider(
       <MemoryRouter>
         <CategorytList />

@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
 import Button from '..'
 
@@ -33,14 +35,14 @@ describe('<Button />', () => {
   })
 
   it('should call function on button click', () => {
-    const fn = jest.fn()
+    const handleClick = vi.fn()
     render(
       <Button
         label="button"
         background="secundary"
         type="button"
         title="click me"
-        onClick={fn}
+        onClick={handleClick}
       />
     )
     const button = screen.getByRole('button', {
@@ -48,11 +50,11 @@ describe('<Button />', () => {
     })
     fireEvent.click(button)
 
-    expect(fn).toHaveBeenCalledTimes(1)
+    expect(handleClick).toHaveBeenCalledTimes(1)
   })
 
   it('should match snapshot', () => {
-    const fn = jest.fn()
+    const handleClick = vi.fn()
 
     const { container } = render(
       <Button
@@ -60,7 +62,7 @@ describe('<Button />', () => {
         background="secundary"
         type="button"
         title="click me"
-        onClick={fn}
+        onClick={handleClick}
       />
     )
     expect(container.firstChild).toMatchSnapshot()

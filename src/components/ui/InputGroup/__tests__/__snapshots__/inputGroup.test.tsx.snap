@@ -1,4 +1,23 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<InputGroup /> > should match snapshot 1`] = `
+<div
+  class="sc-dcJsrY jnVQvq"
+  role="input-group"
+>
+  <label
+    for="name"
+  >
+    name
+  </label>
+  <input
+    id="name"
+    name="name"
+    type="text"
+  />
+  mensagem de erro
+</div>
+`;
 
 exports[`<InputGroup /> should match snapshot 1`] = `
 <div
