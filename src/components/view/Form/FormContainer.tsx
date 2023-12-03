@@ -125,12 +125,12 @@ const Form = () => {
   }
 
   return (
-    <form onSubmit={form.handleSubmit}>
+    <form onSubmit={form.handleSubmit} data-testid="form">
       <FormContainer>
         {isSuccess && data ? (
           <FinishOrder orderId={data.orderId} />
         ) : isDelivery ? (
-          <>
+          <div data-testid="delivery">
             <div className="margin-bottom">
               <h3>Entrega</h3>
 
@@ -229,9 +229,9 @@ const Form = () => {
                 Preencha os campos obrigatórios!
               </p>
             )}
-          </>
+          </div>
         ) : (
-          <>
+          <div data-testid="payment">
             <div className="margin-bottom">
               <h3>
                 Pagameno - Valor a pagar{' '}
@@ -334,7 +334,7 @@ const Form = () => {
             </div>
 
             {isError && <p>Oops! Algo deu errado, tente novamente</p>}
-          </>
+          </div>
         )}
       </FormContainer>
     </form>

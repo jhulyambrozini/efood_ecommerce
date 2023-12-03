@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import Cart from '../../view/Cart'
-import Form from '../../view/Form/Form'
+import Form from '../../view/Form/FormContainer'
 
 import { Overlay } from '../../../styles'
 import { Container, AsideContainer, ButtonClose } from './styles'

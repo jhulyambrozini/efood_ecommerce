@@ -38,7 +38,7 @@ const Perfil = () => {
             <Logo src={logoImage} alt="EFOOD" />
           </Link>
         </h1>
-        <span onClick={() => dispatch(openSideBar())}>
+        <span role="button" onClick={() => dispatch(openSideBar())}>
           {itemsCart.length} produto(s) no carrinho
         </span>
       </HeaderContainer>

@@ -6,7 +6,7 @@ import { setupServer } from 'msw/node'
 import { renderWithProvider } from '../../../../utils/tests'
 import { MemoryRouter } from 'react-router-dom'
 
-export const server = setupServer(
+const server = setupServer(
   http.get('https://fake-api-tau.vercel.app/api/efood/restaurantes', () => {
     return HttpResponse.json([
       {

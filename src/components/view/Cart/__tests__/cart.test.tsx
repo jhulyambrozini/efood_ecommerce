@@ -56,7 +56,9 @@ describe('<Cart />', () => {
       />
     )
 
-    const trashButton = screen.getByTitle('Remover o item do carrinho')
+    const trashButton = screen.getByRole('button', {
+      name: 'icone de lixeira da cor rosa'
+    })
 
     trashButton.onclick = handleRemove
     fireEvent.click(trashButton)
