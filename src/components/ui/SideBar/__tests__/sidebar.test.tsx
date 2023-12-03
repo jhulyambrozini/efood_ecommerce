@@ -10,30 +10,40 @@ describe('<Sidebar />', () => {
     expect(screen.getByText(/O carrinho está vazio/i)).toBeInTheDocument()
   })
 
-  it('should call a function when pressing the close button', () => {
+  it('should call a function when pressing the close button or overlay container', () => {
     const handleClose = vi.fn()
     renderWithProvider(<SideBar />)
     const button = screen.getByRole('button', { name: 'Icone de fechar' })
-    expect(button).toBeInTheDocument()
+    const overlayContainer = screen.getByRole('overlay-container')
+
+    button.onclick = handleClose
+    overlayContainer.onclick = handleClose
+
+    fireEvent.click(overlayContainer)
+    fireEvent.click(button)
+
+    expect(handleClose).toHaveBeenCalledTimes(2)
+  })
+
+  it('should change the component state when close Sidebar', () => {
+    const handleClose = vi.fn()
+    const { store } = renderWithProvider(<SideBar />, {
+      preloadedState: {
+        sideBar: {
+          component: 'form',
+          sideBarIsOpen: true
+        }
+      }
+    })
+
+    const button = screen.getByRole('button', { name: 'Icone de fechar' })
 
     button.onclick = handleClose
 
     fireEvent.click(button)
 
     expect(handleClose).toHaveBeenCalled()
-  })
-
-  it('should call a function when pressing the overlay container', () => {
-    const handleCloseOverlay = vi.fn()
-    renderWithProvider(<SideBar />)
-    const overlayContainer = screen.getByRole('overlay-container')
-    expect(overlayContainer).toBeInTheDocument()
-
-    overlayContainer.onclick = handleCloseOverlay
-
-    fireEvent.click(overlayContainer)
-
-    expect(handleCloseOverlay).toHaveBeenCalled()
+    expect(store.getState().sideBar.component).toEqual('cart')
   })
 
   it('should render with a Cart component', () => {

@@ -17,14 +17,8 @@ const SideBar = () => {
   const { itemsCart } = useSelector((state: RootState) => state.cart)
 
   const switchComponents = () => {
-    switch (component) {
-      case 'cart':
-        return <Cart itemsCart={itemsCart} />
-      case 'form':
-        return <Form />
-      default:
-        return null
-    }
+    if (component === 'cart') return <Cart itemsCart={itemsCart} />
+    if (component === 'form') return <Form />
   }
 
   const toClose = () => {

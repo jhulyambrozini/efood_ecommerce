@@ -8,7 +8,6 @@ import { MemoryRouter } from 'react-router-dom'
 import { vi } from 'vitest'
 import { setupServer } from 'msw/node'
 import { HttpResponse, http } from 'msw'
-import { configStore } from '../../../store'
 
 const server = setupServer(
   http.get(
