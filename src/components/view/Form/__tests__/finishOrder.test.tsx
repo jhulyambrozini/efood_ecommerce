@@ -1,9 +1,10 @@
 import '@testing-library/jest-dom'
-import { vi } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
-import { renderWithProvider } from '../../../../utils/tests'
-import FinishOrder from '../FinishOrder'
 import { fireEvent, screen } from '@testing-library/dom'
+import { vi } from 'vitest'
+
+import FinishOrder from '../FinishOrder'
+import { renderWithProvider } from '../../../../utils/tests'
 
 describe('<FinishOrder />', () => {
   it('should render correctly', () => {

@@ -2,6 +2,7 @@ import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from "@testing-library/react"
 import {vi} from 'vitest'
 import { MemoryRouter } from "react-router-dom"
+
 import Category from '..'
 
 const props = {

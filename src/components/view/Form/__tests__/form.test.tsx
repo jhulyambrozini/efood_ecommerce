@@ -1,11 +1,12 @@
 import '@testing-library/jest-dom'
 import { vi } from 'vitest'
-import { renderWithProvider } from '../../../../utils/tests'
-import Form from '../FormContainer'
 import { fireEvent, screen, waitFor } from '@testing-library/dom'
 import { setupServer } from 'msw/node'
 import { HttpResponse, http } from 'msw'
 import { MemoryRouter } from 'react-router-dom'
+
+import { renderWithProvider } from '../../../../utils/tests'
+import Form from '../FormContainer'
 
 const server = setupServer(
   http.post('https://fake-api-tau.vercel.app/api/efood/checkout', async () => {

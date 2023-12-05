@@ -1,7 +1,8 @@
 import '@testing-library/jest-dom'
 import { screen } from '@testing-library/dom'
-import Tag from '..'
 import { render } from '@testing-library/react'
+
+import Tag from '..'
 
 describe('<Tag />', () => {
   it('should be render with the text "destaque"', () => {

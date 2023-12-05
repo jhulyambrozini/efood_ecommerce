@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import { fireEvent, screen } from '@testing-library/dom'
 import { vi } from 'vitest'
+
 import Cart from '..'
 import { renderWithProvider } from '../../../../utils/tests'
 

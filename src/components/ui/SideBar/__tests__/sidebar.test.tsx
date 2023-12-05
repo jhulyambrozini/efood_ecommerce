@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import { vi } from 'vitest'
 import { fireEvent, screen } from '@testing-library/dom'
+
 import SideBar from '..'
 import { renderWithProvider } from '../../../../utils/tests'
 

@@ -13,19 +13,17 @@ const Image = ({
   width = 100,
   height = 100,
   ...props
-}: ImageProps) => {
-  return (
-    <img
-      loading="lazy"
-      src={src}
-      alt={alt}
-      onLoad={removeLoading}
-      className="loading"
-      width={width}
-      height={height}
-      {...props}
-    />
-  )
-}
+}: ImageProps) => (
+  <img
+    loading="lazy"
+    src={src}
+    alt={alt}
+    onLoad={removeLoading}
+    className="loading"
+    width={width}
+    height={height}
+    {...props}
+  />
+)
 
 export default Image

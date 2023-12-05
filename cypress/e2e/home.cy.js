@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Testes to Home', () => {
+describe('Tests for Home', () => {
   beforeEach(() => {
     cy.visit('https://efood-ecommerce-jhuly.vercel.app/')
   })

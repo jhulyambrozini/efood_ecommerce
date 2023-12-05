@@ -11,9 +11,10 @@ import { Logo } from '../../styles'
 import { HeaderContainer } from './styles'
 import logoImage from '../../assets/images/logo.svg'
 
-import { useGetRestaurantQuery } from '../../services/api'
 import { RootState } from '../../store'
 import { openSideBar } from '../../store/reducers/sideBar'
+
+import { useGetRestaurantQuery } from '../../services/api'
 
 type RestaurantParams = {
   id: string

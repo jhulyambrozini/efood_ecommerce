@@ -1,23 +1,23 @@
 /// <reference types="cypress" />
 
-describe('Testes para Perfil', () => {
+describe('Tests for Perfil', () => {
   beforeEach(() => {
     cy.visit('https://efood-ecommerce-jhuly.vercel.app/')
   })
 
-  it('should levar o usuario ate o perfil do restaurante', () => {
+  it('should take the user to the profile page', () => {
     cy.get('.sc-bBbNsw.eRiKZD a').first().click()
     cy.get('h2').should('have.text', 'Bella Tavola Italiana')
   })
 
-  it('should add a intem in cart', () => {
+  it('should add an item to cart', () => {
     cy.get('.sc-bBbNsw.eRiKZD a').first().click()
     cy.get('.sc-fnOeiS.kvmMQT button').first().click()
     cy.get('.sc-dIEoRj.fBZSNL button').click()
     cy.get('.sc-ipMvLY.jgxxj').should('be.visible')
   })
 
-  it('should exclude a item from cart', () => {
+  it('should delete an item from the cart', () => {
     cy.get('.sc-bBbNsw.eRiKZD a').first().click()
     cy.get('.sc-fnOeiS.kvmMQT button').first().click()
     cy.get('.sc-dIEoRj.fBZSNL button').click()
@@ -29,7 +29,7 @@ describe('Testes para Perfil', () => {
     )
   })
 
-  it('should go to delivery form', () => {
+  it('should go to the form', () => {
     cy.get('.sc-bBbNsw.eRiKZD a').first().click()
     cy.get('.sc-fnOeiS.kvmMQT button').first().click()
     cy.get('.sc-dIEoRj.fBZSNL button').click()
@@ -37,7 +37,7 @@ describe('Testes para Perfil', () => {
     cy.get('form h3').should('have.text', 'Entrega')
   })
 
-  it('should preencher o formulario corretamente', () => {
+  it('should fill out the entire form correctly', () => {
     cy.get('.sc-bBbNsw.eRiKZD a').first().click()
     cy.get('.sc-fnOeiS.kvmMQT button').first().click()
     cy.get('.sc-dIEoRj.fBZSNL button').click()

@@ -1,9 +1,10 @@
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
+import GlobalStyle from './styles'
+
 import RoutesProvider from './routes'
 import { configStore } from './store'
-import GlobalStyle from './styles'
 
 const store = configStore()
 

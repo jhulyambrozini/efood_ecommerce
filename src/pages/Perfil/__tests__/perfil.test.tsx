@@ -1,13 +1,12 @@
 import '@testing-library/jest-dom'
-
 import { fireEvent, screen, waitFor } from '@testing-library/react'
-
-import { renderWithProvider } from '../../../utils/tests'
-import Perfil from '..'
 import { MemoryRouter } from 'react-router-dom'
 import { vi } from 'vitest'
 import { setupServer } from 'msw/node'
 import { HttpResponse, http } from 'msw'
+
+import Perfil from '..'
+import { renderWithProvider } from '../../../utils/tests'
 
 const server = setupServer(
   http.get(

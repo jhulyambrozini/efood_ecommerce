@@ -1,3 +1,4 @@
+import { useState, useEffect, MouseEvent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 // import InputMask from 'react-input-mask'
 import { useFormik } from 'formik'
@@ -11,10 +12,10 @@ import { FormContainer } from './styles'
 import { calculeTotalPrice, formatPrice } from '../../../utils'
 
 import { RootState } from '../../../store'
-import { usePurchaseMutation } from '../../../services/api'
 import { clearCart } from '../../../store/reducers/cart'
-import { useState, useEffect, MouseEvent } from 'react'
 import { changeComponent } from '../../../store/reducers/sideBar'
+
+import { usePurchaseMutation } from '../../../services/api'
 
 const Form = () => {
   const { itemsCart } = useSelector((state: RootState) => state.cart)

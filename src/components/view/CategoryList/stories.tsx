@@ -1,9 +1,9 @@
+import { ComponentType } from 'react'
+import { Meta } from '@storybook/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import CategoryList from '.'
 import { worker } from '../../../mocks/handlers'
-import { ComponentType } from 'react'
-import { Meta } from '@storybook/react'
 
 worker.start()
 

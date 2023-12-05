@@ -1,10 +1,11 @@
 import '@testing-library/jest-dom'
+import { MemoryRouter } from 'react-router-dom'
 import { screen, waitFor } from '@testing-library/react'
-import CategorytList from '..'
 import { HttpResponse, http } from 'msw'
 import { setupServer } from 'msw/node'
+
+import CategorytList from '..'
 import { renderWithProvider } from '../../../../utils/tests'
-import { MemoryRouter } from 'react-router-dom'
 
 const server = setupServer(
   http.get('https://fake-api-tau.vercel.app/api/efood/restaurantes', () => {
