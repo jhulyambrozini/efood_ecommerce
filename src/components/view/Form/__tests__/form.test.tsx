@@ -5,19 +5,11 @@ import Form from '../FormContainer'
 import { fireEvent, screen, waitFor } from '@testing-library/dom'
 import { setupServer } from 'msw/node'
 import { HttpResponse, http } from 'msw'
-import { act } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-
-const withFormData =
-  (resolver: any) =>
-  async ({ request }: any) => {
-    const formData = await request.json()
-    return resolver(formData)
-  }
 
 const server = setupServer(
   http.post('https://fake-api-tau.vercel.app/api/efood/checkout', async () => {
-    const orderId = '123456' // Substitua isso pela lógica real para obter um orderId
+    const orderId = '123456'
     return HttpResponse.json({ orderId }, { status: 201 })
   })
 )

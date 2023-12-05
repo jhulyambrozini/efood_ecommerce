@@ -234,7 +234,7 @@ const Form = () => {
           <div data-testid="payment">
             <div className="margin-bottom">
               <h3>
-                Pagameno - Valor a pagar{' '}
+                Pagamento - Valor a pagar{' '}
                 {itemsCart && formatPrice(calculeTotalPrice(itemsCart))}
               </h3>
 
