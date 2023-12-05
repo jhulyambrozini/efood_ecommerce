@@ -1,12 +1,10 @@
 # Efood
-Projeto final de conclusão do curso da EBAC de Engenheiro Front End, o projeto consiste em um ecommerce para redes de restauarantes delivery.
-Durante o projeto busquei aplicar todos os conhecimentos que obtive durante o curso para garantir um layout responsivo e um código mais limpo.
-
-Atualmente estou trabalhando para garatir melhor acessibilidade e otmização da página, aplicando conceitos de UX Design e otimização com React.
+Projeto final de conclusão do curso da EBAC de Engenheiro Front End, o projeto consiste em um ecommerce para restauarantes delivery.
+Durante o projeto busquei aplicar todos os conhecimentos que obtive durante todo o curso para garantir a responsividade do layout e um código mais limpo.
 
 Confira o projeto aqui: [Efood](https://efood-ecommerce-jhuly.vercel.app/)
 
-## Tecnologias
+## Tecnologias utilizadas
 - *React.js*: 
 React.js é uma biblioteca JavaScript amplamente utilizada para construir interfaces de usuário interativas e reativas. Desenvolvida pelo Facebook, ela permite a criação de componentes reutilizáveis que atualizam automaticamente quando os dados subjacentes mudam, tornando o desenvolvimento de aplicativos web eficiente e escalável.
 
@@ -34,10 +32,31 @@ Yup é uma biblioteca JavaScript usada para validação de dados no lado do clie
 - *Formik*:
 Formik é uma biblioteca para o gerenciamento de formulários em aplicativos React. Ela simplifica o processo de criação, validação e manipulação de formulários em aplicações React.
 
+- *Storybook*:
+O Storybook é uma ferramenta de desenvolvimento que simplifica a criação, documentação e teste de componentes de interface do usuário em ambientes de JavaScript. Ele oferece um ambiente isolado para desenvolver e visualizar componentes de forma interativa, permitindo aos desenvolvedores criar e manter uma biblioteca de componentes coesa e reutilizável.
+
+- *MSW (Mock Service Worker)*:
+O MSW é uma biblioteca que simplifica a simulação de serviços e APIs em ambientes de desenvolvimento e teste. Ele permite que desenvolvedores criem mocks de servidores HTTP, facilitando a simulação de respostas de API para testes unitários ou de integração.
+
+- *Cypress*:
+O Cypress é uma ferramenta de automação de testes E2E projetada para simplificar e otimizar o processo de teste de aplicações web. Com uma arquitetura amigável ao desenvolvedor, destaca-se pela execução em tempo real, permitindo a visualização instantânea dos testes enquanto são executados.
+
+- *Vitest*:
+O Vitest é uma estrutura de teste nativa do Vite, projetada para oferecer uma experiência de teste simples e eficaz para aplicações Vite. Baseado no ecossistema Jest, o Vitest simplifica a escrita e execução de testes unitários e de integração, proporcionando uma abordagem amigável ao desenvolvedor.
+
+- *Vite*:
+O Vite é uma poderosa ferramenta de construção de aplicações web, projetada para oferecer um desenvolvimento rápido e eficiente. Diferentemente das tradicionais ferramentas de construção, o Vite adota uma abordagem inovadora baseada em ESM (ECMAScript Modules) e serve como um construtor de módulos para projetos Vue.js e React.
+
 ## Execução
 1. Criar um clone ou baixar o repositório
 2. Baixar as dependências com `npm i`
 3. Iniciar o servidor vite com `npm run dev`
 
+## Comandos adicionais
+- Para iniciar o storybook: `npm run storybook`
+- Para iniciar testes com vitest: `npm run test`
+- Para obter relatórios de teste com vitest: `npm run coverage`
+- Para iniciar testes e2e com cypress: `npm run cypress open`
+
 ### Status
-Em andamento
+Concluido
