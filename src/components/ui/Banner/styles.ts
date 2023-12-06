@@ -38,5 +38,7 @@ export const Titles = styled.div`
 
   @media (max-width: ${breakpoints.mobile}) {
     font-size: 1.3rem;
+    left: 25px;
+    padding: 0;
   }
 `
