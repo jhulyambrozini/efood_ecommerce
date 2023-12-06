@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { ButtonProps } from '.'
 import { colors } from '../../../styles'
 
-export const ButtonContainer = styled.button<ButtonProps>`
+export const ButtonContainer = styled.button<Omit<ButtonProps, 'label'>>`
   color: ${(props) =>
     props.background === 'primary' ? colors.primaryLight : colors.primaryDark};
   background-color: ${(props) =>

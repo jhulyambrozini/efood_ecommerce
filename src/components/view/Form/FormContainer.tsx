@@ -141,6 +141,7 @@ const Form = () => {
                 onChange={form.handleChange}
                 value={form.values.name}
                 label="Quem irá receber*"
+                type="text"
               >
                 <small>{getMessageError('name', form.errors.name)}</small>
               </InputGroup>
@@ -151,6 +152,7 @@ const Form = () => {
                 onBlur={form.handleBlur}
                 onChange={form.handleChange}
                 value={form.values.adress}
+                type="text"
               >
                 <small>{getMessageError('adress', form.errors.adress)}</small>
               </InputGroup>
@@ -161,6 +163,7 @@ const Form = () => {
                 onBlur={form.handleBlur}
                 onChange={form.handleChange}
                 value={form.values.city}
+                type="text"
               >
                 <small>{getMessageError('city', form.errors.city)}</small>
               </InputGroup>
@@ -174,6 +177,7 @@ const Form = () => {
                   onChange={form.handleChange}
                   value={form.values.zipCode}
                   mask="999.999.999-99"
+                  type="text"
                 >
                   <small>
                     {getMessageError('zipCode', form.errors.zipCode)}
@@ -199,6 +203,7 @@ const Form = () => {
                 onBlur={form.handleBlur}
                 onChange={form.handleChange}
                 value={form.values.complement}
+                type="text"
               >
                 <small>
                   {getMessageError('complement', form.errors.complement)}
@@ -245,6 +250,7 @@ const Form = () => {
                 onBlur={form.handleBlur}
                 onChange={form.handleChange}
                 value={form.values.cardName}
+                type="text"
               >
                 <small>
                   {getMessageError('cardName', form.errors.cardName)}
@@ -260,6 +266,7 @@ const Form = () => {
                   onChange={form.handleChange}
                   value={form.values.cardNumber}
                   mask="9999 9999 9999 9999"
+                  type="text"
                 >
                   <small>
                     {getMessageError('cardNumber', form.errors.cardNumber)}
@@ -274,6 +281,7 @@ const Form = () => {
                   onChange={form.handleChange}
                   value={form.values.cardCode}
                   mask="999"
+                  type="text"
                 >
                   <small>
                     {getMessageError('cardCode', form.errors.cardCode)}
@@ -290,6 +298,7 @@ const Form = () => {
                   onChange={form.handleChange}
                   value={form.values.expiresMonth}
                   mask="99"
+                  type="text"
                 >
                   <small>
                     {getMessageError('expiresMonth', form.errors.expiresMonth)}
@@ -304,6 +313,7 @@ const Form = () => {
                   mask="99"
                   label="Ano de expiração*"
                   maxWidth="9.68rem"
+                  type="text"
                 >
                   <small>
                     {getMessageError('expiresYear', form.errors.expiresYear)}
