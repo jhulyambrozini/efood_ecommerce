@@ -9,8 +9,7 @@ const meta = {
     backgrounds: {
       default: 'dark'
     }
-  },
-  tags: ['autodocs']
+  }
 } satisfies Meta<typeof Form>
 
 // eslint-disable-next-line react-refresh/only-export-components

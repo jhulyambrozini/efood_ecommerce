@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { colors } from '../../../styles'
 
 type FieldSetContainerProps = {
-  maxWidth?: string
+  maxwidth?: string
 }
 
 export const FieldSetContainer = styled.div<FieldSetContainerProps>`
@@ -22,7 +22,7 @@ export const FieldSetContainer = styled.div<FieldSetContainerProps>`
     border: none;
     background-color: ${colors.primaryLight};
     border: 2px solid ${colors.primaryLight};
-    max-width: ${(props) => props.maxWidth || 'auto'};
+    max-width: ${(props) => props.maxwidth || 'auto'};
   }
 
   span {

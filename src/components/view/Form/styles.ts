@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../../styles'
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   color: ${colors.primaryLight};
   font-weight: 700;
 

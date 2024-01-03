@@ -9,7 +9,7 @@ import { RootState } from '../../../store'
 import { openFormDelivery } from '../../../store/reducers/formDelivery'
 import { FormControls } from './styles'
 
-type PaymentFormProps = {
+export type PaymentFormProps = {
   form: FormikProps<FormValues>
 }
 
