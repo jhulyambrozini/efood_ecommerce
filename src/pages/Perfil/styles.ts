@@ -21,7 +21,7 @@ export const HeaderContainer = styled.header`
     cursor: pointer;
   }
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media only screen and (max-width: ${breakpoints.mobile}) {
     display: grid;
   }
 `

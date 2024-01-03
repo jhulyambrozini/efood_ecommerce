@@ -17,7 +17,7 @@ export const FooterContainer = styled.footer`
     color: ${colors.primaryDark};
     font-size: 0.625rem;
 
-    @media (max-width: ${breakpoints.mobile}) {
+    @media only screen and (max-width: ${breakpoints.mobile}) {
       padding: 0 2rem;
     }
   }

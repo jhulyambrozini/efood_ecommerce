@@ -28,13 +28,18 @@ export const CardContainer = styled.div`
     object-fit: cover;
   }
 
-  @media (max-width: ${breakpoints.desktop}) {
+  @media only screen and (max-width: ${breakpoints.desktop}) {
     width: 25rem;
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media only screen and (max-width: ${breakpoints.tablet}) {
     width: 20rem;
     height: 26rem;
+  }
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    width: 100%;
+    height: 100%;
   }
 `
 

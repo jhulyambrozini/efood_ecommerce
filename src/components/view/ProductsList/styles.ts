@@ -3,20 +3,16 @@ import { breakpoints, colors } from '../../../styles'
 import { ButtonContainer } from '../../ui/Button/styles'
 
 export const ListContainer = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
   gap: 2rem;
-  justify-content: center;
   align-items: center;
 
-  @media (max-width: ${breakpoints.desktop}) {
-    grid-template-columns: 1fr 1fr;
-    max-width: 50%;
-  }
-
-  @media (max-width: ${breakpoints.mobile}) {
-    grid-template-columns: 1fr;
-    max-width: 50%;
+  @media only screen and (max-width: ${breakpoints.desktop}) {
+    padding-left: 24px;
+    padding-right: 24px;
+    justify-content: center;
   }
 `
 
@@ -48,6 +44,11 @@ export const CardContainer = styled.div`
   ${ButtonContainer} {
     width: 100%;
   }
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const Modal = styled.div`
@@ -77,11 +78,15 @@ export const ModalContainer = styled.div`
     object-fit: cover;
   }
 
-  @media (max-width: ${breakpoints.desktop}) {
-    width: 58rem;
+  @media only screen and (max-width: ${breakpoints.desktop}) {
+    width: 70%;
+
+    img {
+      height: 250px;
+    }
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media only screen and (max-width: ${breakpoints.tablet}) {
     width: 70%;
     height: auto;
     display: grid;
@@ -89,6 +94,18 @@ export const ModalContainer = styled.div`
 
     img {
       width: 100%;
+      margin-top: 1rem;
+    }
+  }
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    width: 80%;
+    padding: 1.2rem;
+    padding-top: 2rem;
+
+    img {
+      width: 100%;
+      height: 165px;
     }
   }
 `
@@ -99,10 +116,17 @@ export const Close = styled.button`
   right: 0.5rem;
   position: absolute;
   cursor: pointer;
+  width: 48px;
+  height: 48px;
 
   img {
     width: 1rem;
     height: 1rem;
+  }
+
+  @media only screen and (max-width: ${breakpoints.tablet}) {
+    top: 0;
+    right: 0;
   }
 `
 
@@ -128,7 +152,7 @@ export const Infos = styled.div`
     padding: 0;
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media only screen and (max-width: ${breakpoints.tablet}) {
     margin: 0;
     h3 {
       padding: 0.5rem 0;

@@ -32,13 +32,18 @@ export const Titles = styled.div`
     font-size: 32px;
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media only screen and (max-width: ${breakpoints.tablet}) {
     padding-left: 2.7rem;
+    left: 0;
   }
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media only screen and (max-width: ${breakpoints.mobile}) {
     font-size: 1.3rem;
     left: 25px;
     padding: 0;
+
+    h2 {
+      margin-top: 130px;
+    }
   }
 `

@@ -24,7 +24,7 @@ export const HeaderContainer = styled.header`
     font-size: 2.25rem;
     font-weight: 900;
 
-    @media (max-width: ${breakpoints.mobile}) {
+    @media only screen and (max-width: ${breakpoints.mobile}) {
       font-size: 1.8rem;
     }
   }
