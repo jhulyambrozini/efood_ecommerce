@@ -17,3 +17,17 @@ declare type Restaurants = {
   capa: string
   cardapio?: Menu[]
 }
+
+declare type FormValues = {
+  name: string
+  zipCode: string
+  number: string
+  adress: string
+  city: string
+  complement: string
+  cardName: string
+  cardNumber: string
+  cardCode: string
+  expiresMonth: string
+  expiresYear: string
+}

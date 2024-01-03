@@ -23,16 +23,15 @@ export const FormContainer = styled.div`
     border: 2px solid red;
   }
 
-  .controls {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
   p {
     color: ${colors.primaryLight};
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.375rem;
   }
+`
+export const FormControls = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `

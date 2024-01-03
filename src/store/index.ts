@@ -7,10 +7,12 @@ import {
 import api from '../services/api'
 import cartReducer from './reducers/cart'
 import sideBarReducer from './reducers/sideBar'
+import formDeliveryReducer from './reducers/formDelivery'
 
 const rootReducer = combineReducers({
   cart: cartReducer,
   sideBar: sideBarReducer,
+  formDelivery: formDeliveryReducer,
   api: api.reducer
 })
 

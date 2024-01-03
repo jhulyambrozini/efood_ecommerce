@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { colors } from '../../../styles'
 
-type InputGroupProps = {
+type FieldSetContainerProps = {
   maxWidth?: string
 }
 
-export const InputGroupContainer = styled.div<InputGroupProps>`
+export const FieldSetContainer = styled.div<FieldSetContainerProps>`
   display: grid;
   margin-bottom: 0.5rem;
 
@@ -25,8 +25,10 @@ export const InputGroupContainer = styled.div<InputGroupProps>`
     max-width: ${(props) => props.maxWidth || 'auto'};
   }
 
-  small {
+  span {
     margin-top: 0.3rem;
     height: 18px;
+    font-size: 12px;
+    font-weight: 400;
   }
 `
