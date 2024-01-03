@@ -1,6 +1,6 @@
 import { SyntheticEvent } from 'react'
 
-export const getDescription = (desc: string) => {
+export const formatDescription = (desc: string) => {
   if (desc.length > 210) {
     return desc.slice(0, 207) + '...'
   }

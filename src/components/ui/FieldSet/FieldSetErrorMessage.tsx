@@ -4,6 +4,4 @@ type FieldSetErrorMessageProps = {
 
 export const FieldSetErrorMessage = ({
   errorMessage
-}: FieldSetErrorMessageProps) => {
-  return <span>{errorMessage}</span>
-}
+}: FieldSetErrorMessageProps) => <span>{errorMessage}</span>

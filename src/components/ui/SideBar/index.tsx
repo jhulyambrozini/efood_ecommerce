@@ -4,7 +4,7 @@ import Cart from '../../view/Cart'
 import Form from '../../view/Form/FormContainer'
 
 import { Overlay } from '../../../styles'
-import { Container, AsideContainer, ButtonClose } from './styles'
+import * as Style from './styles'
 
 import closeIcon from '../../../assets/images/close.png'
 
@@ -14,10 +14,9 @@ import { RootState } from '../../../store'
 const SideBar = () => {
   const dispatch = useDispatch()
   const { component } = useSelector((state: RootState) => state.sideBar)
-  const { itemsCart } = useSelector((state: RootState) => state.cart)
 
   const switchComponents = () => {
-    if (component === 'cart') return <Cart itemsCart={itemsCart} />
+    if (component === 'cart') return <Cart />
     if (component === 'form') return <Form />
   }
 
@@ -30,16 +29,16 @@ const SideBar = () => {
     }
   }
   return (
-    <Container>
+    <Style.SideBarContainer>
       <Overlay onClick={toClose} role="overlay-container" />
-      <AsideContainer>
-        <ButtonClose onClick={toClose} title="Fechar carrinho">
+      <Style.AsideContainer>
+        <Style.ButtonClose onClick={toClose} title="Fechar carrinho">
           <img src={closeIcon} alt="Icone de fechar" />
-        </ButtonClose>
+        </Style.ButtonClose>
 
         {switchComponents()}
-      </AsideContainer>
-    </Container>
+      </Style.AsideContainer>
+    </Style.SideBarContainer>
   )
 }
 

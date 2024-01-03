@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const LoaderContainer = styled.div`
   min-height: 360px;
   display: flex;
   align-items: center;

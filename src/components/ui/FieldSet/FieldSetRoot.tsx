@@ -7,7 +7,7 @@ type FieldSetRootProps = {
 }
 
 export const FieldSetRoot = ({ maxWidth, children }: FieldSetRootProps) => (
-  <FieldSetContainer maxwidth={maxWidth} role="fieldset">
+  <FieldSetContainer maxwidth={maxWidth} aria-label="fieldset">
     {children}
   </FieldSetContainer>
 )

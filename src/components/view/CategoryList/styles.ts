@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.ul`
+export const CategoryListContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 3rem 5rem;

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { ButtonAction, colors } from '../../../styles'
 import { ButtonContainer } from '../Button/styles'
 
-export const Container = styled.div`
+export const SideBarContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   top: 0;

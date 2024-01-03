@@ -14,15 +14,13 @@ export const FieldSetInput = ({
   onBlur,
   onChange,
   value
-}: FieldSetInputProps) => {
-  return (
-    <input
-      name={id}
-      id={id}
-      type={type}
-      onBlur={onBlur}
-      onChange={onChange}
-      value={value}
-    />
-  )
-}
+}: FieldSetInputProps) => (
+  <input
+    name={id}
+    id={id}
+    type={type}
+    onBlur={onBlur}
+    onChange={onChange}
+    value={value}
+  />
+)

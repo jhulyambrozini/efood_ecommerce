@@ -1,11 +1,11 @@
 import Loader from '../../ui/Loader'
 import Category from '../Category'
 
-import { Container } from './styles'
+import { CategoryListContainer } from './styles'
 
 import { useGetRestaurantsListQuery } from '../../../services/api'
 
-const CategorytList = () => {
+const CategoryList = () => {
   const { data, isLoading } = useGetRestaurantsListQuery()
 
   if (isLoading) {
@@ -13,24 +13,23 @@ const CategorytList = () => {
   }
 
   return (
-    <Container className="container">
+    <CategoryListContainer className="container">
       {data &&
-        data.map((r) => (
-          <li key={r.id}>
+        data.map((restaurant) => (
+          <li key={restaurant.id}>
             <Category
-              key={r.id}
-              description={r.descricao}
-              image={r.capa}
-              title={r.titulo}
-              detach={r.destacado}
-              evaluation={r.avaliacao}
-              type={r.tipo}
-              id={r.id}
+              description={restaurant.descricao}
+              image={restaurant.capa}
+              title={restaurant.titulo}
+              detach={restaurant.destacado}
+              evaluation={restaurant.avaliacao}
+              type={restaurant.tipo}
+              id={restaurant.id}
             />
           </li>
         ))}
-    </Container>
+    </CategoryListContainer>
   )
 }
 
-export default CategorytList
+export default CategoryList

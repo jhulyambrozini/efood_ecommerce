@@ -8,7 +8,7 @@ import { Overlay } from '../../../styles'
 
 import closeIcon from '../../../assets/images/close.png'
 
-import { formatPrice, getDescription } from '../../../utils'
+import { formatPrice, formatDescription } from '../../../utils'
 import Image from '../../../utils/Image'
 
 import { addToCart } from '../../../store/reducers/cart'
@@ -24,6 +24,7 @@ const ProductsList = ({ foods }: ProductsListProps) => {
   const dispatch = useDispatch()
 
   const closeModal = () => setModal(false)
+
   const openModal = (products: Menu) => {
     setModal(true)
     setProduct(products)
@@ -48,7 +49,7 @@ const ProductsList = ({ foods }: ProductsListProps) => {
               <Style.CardContainer>
                 <Image src={f.foto} alt={f.nome} />
                 <h3>{f.nome}</h3>
-                <p>{getDescription(f.descricao)}</p>
+                <p>{formatDescription(f.descricao)}</p>
                 <Button
                   type="button"
                   title="Mais detalhes"

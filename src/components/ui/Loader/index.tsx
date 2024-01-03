@@ -1,12 +1,12 @@
 import { BeatLoader } from 'react-spinners'
 
-import { Container } from './styles'
+import { LoaderContainer } from './styles'
 import { colors } from '../../../styles'
 
 const Loader = () => (
-  <Container>
+  <LoaderContainer>
     <BeatLoader color={colors.primaryDark} data-testid="loader-svg" />
-  </Container>
+  </LoaderContainer>
 )
 
 export default Loader

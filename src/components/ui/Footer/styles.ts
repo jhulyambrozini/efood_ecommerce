@@ -23,7 +23,7 @@ export const FooterContainer = styled.footer`
   }
 `
 
-export const SocialMedia = styled.div`
+export const SocialMediaContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,12 +1,15 @@
+import { MouseEventHandler, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { FormikProps } from 'formik'
-import { changeComponent } from '../../../store/reducers/sideBar'
+
 import Button from '../../ui/Button'
 import { FieldSet } from '../../ui/FieldSet'
-import { getMessageError } from '../../../utils/form-validate'
-import { useDispatch } from 'react-redux'
-import { MouseEventHandler, useState } from 'react'
-import { closeFormDelivery } from '../../../store/reducers/formDelivery'
+
 import { FormControls } from './styles'
+import { getMessageError } from '../../../utils/form-validate'
+
+import { changeComponent } from '../../../store/reducers/sideBar'
+import { closeFormDelivery } from '../../../store/reducers/formDelivery'
 
 type DeliveryFormProps = {
   form: FormikProps<FormValues>
