@@ -2,12 +2,12 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 export type modalState = {
   isModalOpen: boolean
-  product: Menu | undefined
+  food: Menu | undefined
 }
 
 const initialState: modalState = {
   isModalOpen: false,
-  product: undefined
+  food: undefined
 }
 
 const modalSlice = createSlice({
@@ -20,11 +20,11 @@ const modalSlice = createSlice({
     closeModal: (state) => {
       state.isModalOpen = false
     },
-    setProduct: (state, action: PayloadAction<Menu>) => {
-      state.product = action.payload
+    setFood: (state, action: PayloadAction<Menu>) => {
+      state.food = action.payload
     }
   }
 })
 
 export default modalSlice.reducer
-export const { closeModal, openModal, setProduct } = modalSlice.actions
+export const { closeModal, openModal, setFood } = modalSlice.actions

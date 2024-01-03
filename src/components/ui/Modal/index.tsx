@@ -12,11 +12,11 @@ import { RootState } from '../../../store'
 
 const Modal = () => {
   const dispatch = useDispatch()
-  const { product } = useSelector((state: RootState) => state.modal)
+  const { food } = useSelector((state: RootState) => state.modal)
 
   const addItemToCart = () => {
-    if (product) {
-      dispatch(addToCart(product))
+    if (food) {
+      dispatch(addToCart(food))
       dispatch(closeModal())
       dispatch(openSideBar())
     } else {
@@ -24,22 +24,22 @@ const Modal = () => {
     }
   }
 
-  if (!product) return <span>Parece que não há um produto aqui :(</span>
+  if (!food) return <span>Parece que não há um produto aqui :(</span>
 
   return (
     <Style.Modal>
       <Style.ModalContainer>
-        <Image src={product.foto} alt={product.foto} />
+        <Image src={food.foto} alt={food.foto} />
         <Style.Infos>
-          <h3>{product.nome}</h3>
-          <p>{product.descricao}</p>
-          <span>Serve: {product.porcao}</span>
+          <h3>{food.nome}</h3>
+          <p>{food.descricao}</p>
+          <span>Serve: {food.porcao}</span>
           <Button
             title="Adicionar ao carrinho"
             background="secundary"
             type="button"
             onClick={addItemToCart}
-            label={`Adicionar ao carrinho - ${formatPrice(product?.preco)}`}
+            label={`Adicionar ao carrinho - ${formatPrice(food?.preco)}`}
           />
         </Style.Infos>
         <Style.Close onClick={() => dispatch(closeModal())}>
