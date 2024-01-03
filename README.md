@@ -2,7 +2,7 @@
 Projeto final de conclusão do curso da EBAC de Engenheiro Front End, o projeto consiste em um ecommerce para restauarantes delivery.
 Durante o projeto busquei aplicar todos os conhecimentos que obtive durante todo o curso para garantir a responsividade do layout e um código mais limpo.
 
-Confira o projeto aqui: [Efood](https://efood-ecommerce-jhuly.vercel.app/)
+Confira o projeto aqui: [Efood](https://efood-ecommerce-delta.vercel.app/)
 
 ## Tecnologias utilizadas
 - *React.js*: 
