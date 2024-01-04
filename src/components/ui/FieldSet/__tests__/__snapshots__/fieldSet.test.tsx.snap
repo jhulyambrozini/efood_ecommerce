@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<FieldSet /> > should render correctly 1`] = `
+<div
+  aria-label="Campo do Formulário"
+  class="sc-dcJsrY bAxpnH"
+>
+  <label
+    for="name"
+  >
+    Nome
+  </label>
+  <input
+    aria-required="true"
+    id="name"
+    name="name"
+    type="text"
+    value=""
+  />
+</div>
+`;

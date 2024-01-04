@@ -14,7 +14,7 @@ const Modal = () => {
   const dispatch = useDispatch()
   const { food } = useSelector((state: RootState) => state.modal)
 
-  const addItemToCart = () => {
+  const addFoodToCart = () => {
     if (food) {
       dispatch(addToCart(food))
       dispatch(closeModal())
@@ -38,7 +38,7 @@ const Modal = () => {
             title="Adicionar ao carrinho"
             background="secundary"
             type="button"
-            onClick={addItemToCart}
+            onClick={addFoodToCart}
             label={`Adicionar ao carrinho - ${formatPrice(food?.preco)}`}
           />
         </Style.Infos>
@@ -46,7 +46,7 @@ const Modal = () => {
           <img src={closeIcon} alt="Icone de fechar" />
         </Style.Close>
       </Style.ModalContainer>
-      <Overlay onClick={() => dispatch(closeModal())} />
+      <Overlay data-testid="overlay" onClick={() => dispatch(closeModal())} />
     </Style.Modal>
   )
 }

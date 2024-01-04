@@ -4,7 +4,7 @@ import { FieldSet } from '..'
 
 describe('<FieldSet />', () => {
   it('should render correctly', () => {
-    render(
+    const { container } = render(
       <FieldSet.Root>
         <FieldSet.Label id="name" label="Nome" />
         <FieldSet.Input id="name" required="true" type="text" />
@@ -12,6 +12,8 @@ describe('<FieldSet />', () => {
     )
 
     expect(screen.getByText('Nome')).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render correctly with input mask', () => {

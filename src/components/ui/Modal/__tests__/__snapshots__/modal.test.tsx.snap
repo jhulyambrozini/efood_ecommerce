@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Modal /> > should render correctly when state is true 1`] = `
+<div
+  class="sc-iGgWBj oFAYE"
+>
+  <div
+    class="sc-gsFSXq cVMKeN"
+  >
+    <img
+      alt="Comida A"
+      class="loading"
+      height="100"
+      loading="lazy"
+      src="/img.png"
+      width="100"
+    />
+    <div
+      class="sc-imWYAI hLZLGI"
+    >
+      <h3>
+        Comida A
+      </h3>
+      <p>
+        descrição comida A
+      </p>
+      <span>
+        Serve: 
+        3 pessoas
+      </span>
+      <button
+        class="sc-dcJsrY bDWePn"
+        title="Adicionar ao carrinho"
+        type="button"
+      >
+        Adicionar ao carrinho - R$ 98,90
+      </button>
+    </div>
+    <button
+      class="sc-kAyceB dCjlVK"
+    >
+      <img
+        alt="Icone de fechar"
+        src="/src/assets/images/close.png"
+      />
+    </button>
+  </div>
+  <div
+    class="sc-gEvEer cSvWod"
+    data-testid="overlay"
+  />
+</div>
+`;
