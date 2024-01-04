@@ -87,7 +87,7 @@ exports[`<Cart /> > should render without itens 1`] = `
     data-testid="paragraph"
     style="color: rgba(255, 255, 255, 1);"
   >
-    O carrinho está vazio, dicione ao menos um item para continuar com a compra.
+    O carrinho está vazio, adicione ao menos um item para continuar com a compra.
   </p>
 </div>
 `;

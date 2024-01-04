@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { fireEvent, screen } from '@testing-library/react'
-import { renderWithProvider } from '../../../../utils/tests'
+import { renderWithProvider } from '../../../../utils/redux-store-tests'
 import Modal from '..'
 
 const renderComponent = () => {

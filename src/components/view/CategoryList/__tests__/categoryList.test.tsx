@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { screen, waitFor } from '@testing-library/react'
 
 import CategorytList from '..'
-import { renderWithProvider } from '../../../../utils/tests'
+import { renderWithProvider } from '../../../../utils/redux-store-tests'
 
 import { server } from '../../../../mocks/api/index-server'
 

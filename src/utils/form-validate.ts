@@ -1,13 +1,32 @@
 import { FormikProps } from 'formik'
 
-export const getMessageError = (
-  field: string,
-  form: FormikProps<FormValues>,
-  message?: string
-) => {
+type Field =
+  | 'adress'
+  | 'cardCode'
+  | 'cardName'
+  | 'cardNumber'
+  | 'city'
+  | 'expiresMonth'
+  | 'expiresYear'
+  | 'name'
+  | 'number'
+  | 'zipCode'
+
+const getFieldStatus = (field: Field, form: FormikProps<FormValues>) => {
   const isTouched = field in form.touched
   const isInvalid = field in form.errors
 
-  if (isTouched && isInvalid && message) return message
+  return isTouched && isInvalid
+}
+
+export const getErrorMessage = (
+  field: Field,
+  form: FormikProps<FormValues>
+): string => {
+  const hasError = getFieldStatus(field, form)
+
+  const errorMessage = form.errors[field]
+
+  if (hasError && errorMessage) return errorMessage
   return ''
 }

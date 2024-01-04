@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom'
-import { fireEvent, screen, waitFor } from '@testing-library/dom'
 import { MemoryRouter } from 'react-router-dom'
+import { fireEvent, screen, waitFor } from '@testing-library/dom'
 
-import { renderWithProvider } from '../../../../utils/tests'
+import { renderWithProvider } from '../../../../utils/redux-store-tests'
 import Form from '../FormContainer'
 
 import { server } from '../../../../mocks/api/index-server'
@@ -41,7 +41,7 @@ describe('<Form />', () => {
     fireEvent.click(KeepWithPaymentButton)
 
     expect(
-      screen.getByText('Preencha os campos obrigatórios!')
+      screen.getByText('Preencha todos os campos obrigatórios!')
     ).toBeInTheDocument()
   })
 
@@ -161,7 +161,6 @@ describe('<Form />', () => {
     })
   })
 
-  // voltar para edição de endereço
   it('should return to address editing when you clicking "Voltar para a edição de endereço"', () => {
     renderWithProvider(
       <MemoryRouter>

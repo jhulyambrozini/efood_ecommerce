@@ -6,7 +6,7 @@ import Button from '../../ui/Button'
 import { FieldSet } from '../../ui/FieldSet'
 
 import { FormControls } from './styles'
-import { getMessageError } from '../../../utils/form-validate'
+import { getErrorMessage } from '../../../utils/form-validate'
 
 import { changeComponent } from '../../../store/reducers/sideBar'
 import { closeFormDelivery } from '../../../store/reducers/formDelivery'
@@ -19,7 +19,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
   const dispatch = useDispatch()
   const [inputsVoidsMessage, setInputsVoidsMessage] = useState(false)
 
-  const handlePayment: MouseEventHandler<HTMLButtonElement> = (event) => {
+  const goToPaymentForm: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.preventDefault()
 
     const isInvalid =
@@ -51,9 +51,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
             type="text"
             required="true"
           />
-          <FieldSet.ErrorMessage
-            errorMessage={getMessageError('name', form, form.errors.name)}
-          />
+          <FieldSet.ErrorMessage errorMessage={getErrorMessage('name', form)} />
         </FieldSet.Root>
 
         <FieldSet.Root>
@@ -67,7 +65,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
             required="true"
           />
           <FieldSet.ErrorMessage
-            errorMessage={getMessageError('adress', form, form.errors.adress)}
+            errorMessage={getErrorMessage('adress', form)}
           />
         </FieldSet.Root>
 
@@ -81,9 +79,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
             type="text"
             required="true"
           />
-          <FieldSet.ErrorMessage
-            errorMessage={getMessageError('city', form, form.errors.city)}
-          />
+          <FieldSet.ErrorMessage errorMessage={getErrorMessage('city', form)} />
         </FieldSet.Root>
 
         <div className="flex">
@@ -99,11 +95,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
               required="true"
             />
             <FieldSet.ErrorMessage
-              errorMessage={getMessageError(
-                'zipCode',
-                form,
-                form.errors.zipCode
-              )}
+              errorMessage={getErrorMessage('zipCode', form)}
             />
           </FieldSet.Root>
 
@@ -118,7 +110,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
               required="true"
             />
             <FieldSet.ErrorMessage
-              errorMessage={getMessageError('number', form, form.errors.number)}
+              errorMessage={getErrorMessage('number', form)}
             />
           </FieldSet.Root>
         </div>
@@ -133,13 +125,6 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
             type="text"
             required="false"
           />
-          <FieldSet.ErrorMessage
-            errorMessage={getMessageError(
-              'complement',
-              form,
-              form.errors.complement
-            )}
-          />
         </FieldSet.Root>
       </div>
 
@@ -149,7 +134,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
           title="Continuar com o pagamento"
           label="Continuar com o pagamento"
           type="button"
-          onClick={(event) => handlePayment(event)}
+          onClick={(event) => goToPaymentForm(event)}
         />
         <Button
           background="secundary"
@@ -164,7 +149,9 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
       </FormControls>
 
       {inputsVoidsMessage && (
-        <p style={{ textAlign: 'center' }}>Preencha os campos obrigatórios!</p>
+        <p style={{ textAlign: 'center' }}>
+          Preencha todos os campos obrigatórios!
+        </p>
       )}
     </div>
   )

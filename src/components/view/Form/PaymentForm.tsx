@@ -1,6 +1,6 @@
 import { FormikProps } from 'formik'
 import { formatPrice, calculeTotalPrice } from '../../../utils'
-import { getMessageError } from '../../../utils/form-validate'
+import { getErrorMessage } from '../../../utils/form-validate'
 import Button from '../../ui/Button'
 import { FieldSet } from '../../ui/FieldSet'
 import { usePurchaseMutation } from '../../../services/api'
@@ -36,11 +36,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
             required="true"
           />
           <FieldSet.ErrorMessage
-            errorMessage={getMessageError(
-              'cardName',
-              form,
-              form.errors.cardName
-            )}
+            errorMessage={getErrorMessage('cardName', form)}
           />
         </FieldSet.Root>
 
@@ -57,11 +53,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
               required="true"
             />
             <FieldSet.ErrorMessage
-              errorMessage={getMessageError(
-                'cardNumber',
-                form,
-                form.errors.cardNumber
-              )}
+              errorMessage={getErrorMessage('cardNumber', form)}
             />
           </FieldSet.Root>
 
@@ -77,11 +69,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
               required="true"
             />
             <FieldSet.ErrorMessage
-              errorMessage={getMessageError(
-                'cardCode',
-                form,
-                form.errors.cardCode
-              )}
+              errorMessage={getErrorMessage('cardCode', form)}
             />
           </FieldSet.Root>
         </div>
@@ -99,11 +87,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
               required="true"
             />
             <FieldSet.ErrorMessage
-              errorMessage={getMessageError(
-                'expiresMonth',
-                form,
-                form.errors.expiresMonth
-              )}
+              errorMessage={getErrorMessage('expiresMonth', form)}
             />
           </FieldSet.Root>
 
@@ -119,11 +103,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
               required="true"
             />
             <FieldSet.ErrorMessage
-              errorMessage={getMessageError(
-                'expiresYear',
-                form,
-                form.errors.expiresYear
-              )}
+              errorMessage={getErrorMessage('expiresYear', form)}
             />
           </FieldSet.Root>
         </div>

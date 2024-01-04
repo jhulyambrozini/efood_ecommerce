@@ -4,7 +4,7 @@ import { fireEvent, screen } from '@testing-library/dom'
 import { vi } from 'vitest'
 
 import FinishOrder from '../FinishOrder'
-import { renderWithProvider } from '../../../../utils/tests'
+import { renderWithProvider } from '../../../../utils/redux-store-tests'
 
 describe('<FinishOrder />', () => {
   it('should render correctly', () => {

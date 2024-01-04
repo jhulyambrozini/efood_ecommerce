@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { fireEvent, screen } from '@testing-library/dom'
 
 import SideBar from '..'
-import { renderWithProvider } from '../../../../utils/tests'
+import { renderWithProvider } from '../../../../utils/redux-store-tests'
 
 const renderComponent = () => {
   const { store } = renderWithProvider(<SideBar />, {
