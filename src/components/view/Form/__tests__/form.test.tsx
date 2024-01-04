@@ -1,19 +1,11 @@
 import '@testing-library/jest-dom'
-import { vi } from 'vitest'
 import { fireEvent, screen, waitFor } from '@testing-library/dom'
-import { setupServer } from 'msw/node'
-import { HttpResponse, http } from 'msw'
 import { MemoryRouter } from 'react-router-dom'
 
 import { renderWithProvider } from '../../../../utils/tests'
 import Form from '../FormContainer'
 
-const server = setupServer(
-  http.post('https://fake-api-tau.vercel.app/api/efood/checkout', async () => {
-    const orderId = '123456'
-    return HttpResponse.json({ orderId }, { status: 201 })
-  })
-)
+import { server } from '../../../../mocks/api/index-server'
 
 describe('<Form />', () => {
   beforeAll(() => server.listen())
@@ -26,7 +18,6 @@ describe('<Form />', () => {
   })
 
   it('should render an error message when clicking button with empty inputs', () => {
-    const handleClick = vi.fn()
     renderWithProvider(<Form />)
 
     const inputName = screen.getByRole('textbox', {
@@ -46,8 +37,6 @@ describe('<Form />', () => {
     const KeepWithPaymentButton = screen.getByRole('button', {
       name: 'Continuar com o pagamento'
     })
-
-    KeepWithPaymentButton.onclick = handleClick
 
     fireEvent.click(KeepWithPaymentButton)
 
@@ -174,7 +163,6 @@ describe('<Form />', () => {
 
   // voltar para edição de endereço
   it('should return to address editing when you clicking "Voltar para a edição de endereço"', () => {
-    const handleClick = vi.fn()
     renderWithProvider(
       <MemoryRouter>
         <Form />
@@ -215,15 +203,12 @@ describe('<Form />', () => {
       name: 'Continuar com o pagamento'
     })
 
-    KeepWithPaymentButton.onclick = handleClick
-
     fireEvent.click(KeepWithPaymentButton)
 
     const backToAdressButton = screen.getByRole('button', {
       name: 'Voltar para a edição de endereço'
     })
 
-    backToAdressButton.onclick = handleClick
     fireEvent.click(backToAdressButton)
 
     expect(screen.getByRole('heading', { name: 'Entrega' })).toBeInTheDocument()

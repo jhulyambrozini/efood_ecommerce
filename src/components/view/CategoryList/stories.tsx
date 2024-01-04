@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import CategoryList from '.'
-import { worker } from '../../../mocks/handlers'
+import { worker } from '../../../mocks/api/index-worker'
 
 worker.start()
 
