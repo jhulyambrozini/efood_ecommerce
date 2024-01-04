@@ -4,17 +4,18 @@ import { Provider } from 'react-redux'
 import GlobalStyle from './styles'
 
 import RoutesProvider from './routes'
-import { configStore } from './store'
-
-const store = configStore()
+import { persistor, store } from './store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <RoutesProvider />
-      </BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <GlobalStyle />
+          <RoutesProvider />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   )
 }

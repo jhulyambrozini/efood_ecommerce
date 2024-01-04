@@ -5,9 +5,8 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import React from 'react'
 
-import { configStore } from '../src/store'
-
-const store = configStore()
+import { store, persistor } from '../src/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const preview: Preview = {
   parameters: {
@@ -39,10 +38,12 @@ const preview: Preview = {
   decorators: [
     (Story: ComponentType) => (
       <Provider store={store}>
-        <Router>
-          <GlobalStyle />
-          <Story />
-        </Router>
+        <PersistGate loading={null} persistor={persistor}>
+          <Router>
+            <GlobalStyle />
+            <Story />
+          </Router>
+        </PersistGate>
       </Provider>
     )
   ]
