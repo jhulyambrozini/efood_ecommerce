@@ -1,13 +1,18 @@
+import { useDispatch, useSelector } from 'react-redux'
 import { FormikProps } from 'formik'
-import { formatPrice, calculeTotalPrice } from '../../../utils'
-import { getErrorMessage } from '../../../utils/form-validate'
+
 import Button from '../../ui/Button'
 import { FieldSet } from '../../ui/FieldSet'
-import { usePurchaseMutation } from '../../../services/api'
-import { useDispatch, useSelector } from 'react-redux'
+
+import { FormControls } from './styles'
+
+import { formatPrice, calculeTotalPrice } from '../../../utils'
+import { getErrorMessage } from '../../../utils/form-validate'
+
 import { RootState } from '../../../store'
 import { openFormDelivery } from '../../../store/reducers/formDelivery'
-import { FormControls } from './styles'
+
+import { usePurchaseMutation } from '../../../services/api'
 
 export type PaymentFormProps = {
   form: FormikProps<FormValues>
