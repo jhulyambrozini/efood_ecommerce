@@ -1,8 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Footer /> > should match snapshot 1`] = `
+exports[`<Footer /> > should render correctly 1`] = `
 <footer
-  class="sc-dcJsrY dKkVer"
+  class="sc-dcJsrY faKNNM"
 >
   <a
     href="/"
@@ -42,60 +42,6 @@ exports[`<Footer /> > should match snapshot 1`] = `
       <img
         alt="Icone do twitter"
         src="/src/assets/images/twitter-icon.svg"
-      />
-    </a>
-  </div>
-  <p>
-    A efood é uma plataforma para divulgação de estabelecimentos responsabilidade pela entrega, qualidade 
-    <br />
-     dos produtos é toda do estabelecimento contratado.
-     
-  </p>
-</footer>
-`;
-
-exports[`<Footer /> should match snapshot 1`] = `
-<footer
-  class="sc-dcJsrY dKkVer"
->
-  <a
-    href="/"
-    title="Home"
-  >
-    <img
-      alt="EFOOD"
-      class="sc-aXZVg drWPxd"
-      src="test-file-stub"
-    />
-  </a>
-  <div
-    class="sc-iGgWBj lkGQIz"
-  >
-    <a
-      href="#"
-      title="Instagram"
-    >
-      <img
-        alt="Icone do instagram"
-        src="test-file-stub"
-      />
-    </a>
-    <a
-      href="#"
-      title="Facebook"
-    >
-      <img
-        alt="Icone do facebook"
-        src="test-file-stub"
-      />
-    </a>
-    <a
-      href="#"
-      title="Twitter"
-    >
-      <img
-        alt="Icone do twitter"
-        src="test-file-stub"
       />
     </a>
   </div>

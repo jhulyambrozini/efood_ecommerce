@@ -1,15 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Tag /> > should match snapshot 1`] = `
-<div
-  class="sc-dcJsrY QRaBo"
-  role="tag-container"
->
-  destaque
-</div>
-`;
-
-exports[`<Tag /> should match snapshot 1`] = `
+exports[`<Tag /> > should be render with the text "destaque" 1`] = `
 <div
   class="sc-dcJsrY QRaBo"
   role="tag-container"

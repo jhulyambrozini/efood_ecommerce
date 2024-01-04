@@ -6,7 +6,7 @@ import Button from '..'
 
 describe('<Button />', () => {
   it('should render a primary button"', () => {
-    render(
+    const { container } = render(
       <Button
         label="button primary"
         background="primary"
@@ -18,10 +18,11 @@ describe('<Button />', () => {
       name: /button primary/i
     })
     expect(buttonPrimary).toHaveStyle('color:  rgb(255, 235, 217)')
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render a secondary button"', () => {
-    render(
+    const { container } = render(
       <Button
         label="button secondary"
         background="secundary"
@@ -33,6 +34,7 @@ describe('<Button />', () => {
       name: /button secondary/i
     })
     expect(buttonSecondary).toHaveStyle('color:   rgb(177, 57, 57)')
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should call function on button click', () => {
@@ -52,20 +54,5 @@ describe('<Button />', () => {
     fireEvent.click(button)
 
     expect(handleClick).toHaveBeenCalledTimes(1)
-  })
-
-  it('should match snapshot', () => {
-    const handleClick = vi.fn()
-
-    const { container } = render(
-      <Button
-        label="button"
-        background="secundary"
-        type="button"
-        title="click me"
-        onClick={handleClick}
-      />
-    )
-    expect(container.firstChild).toMatchSnapshot()
   })
 })

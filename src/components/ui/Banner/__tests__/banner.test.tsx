@@ -10,7 +10,7 @@ const props = {
 
 describe('<Banner />', () => {
   it('should be render correctly', () => {
-    render(<Banner {...props} />)
+    const { container } = render(<Banner {...props} />)
 
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
@@ -20,10 +20,7 @@ describe('<Banner />', () => {
       screen.getByRole('heading', { name: props.title })
     ).toBeInTheDocument()
     expect(screen.getByText(props.type)).toBeInTheDocument()
-  })
 
-  it('should match snapshot', () => {
-    const { container } = render(<Banner {...props} />)
     expect(container.firstChild).toMatchSnapshot()
   })
 })

@@ -5,19 +5,13 @@ import Footer from '..'
 
 describe('<Footer />', () => {
   it('should render correctly', () => {
-    render(
-      <MemoryRouter>
-        <Footer />
-      </MemoryRouter>
-    )
-    expect(screen.getByAltText('EFOOD'))
-  })
-  it('should match snapshot', () => {
     const { container } = render(
       <MemoryRouter>
         <Footer />
       </MemoryRouter>
     )
+    expect(screen.getByAltText('EFOOD'))
+
     expect(container.firstChild).toMatchSnapshot()
   })
 })

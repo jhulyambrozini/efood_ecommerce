@@ -1,50 +1,41 @@
 import '@testing-library/jest-dom'
-import { vi } from 'vitest'
 import { fireEvent, screen } from '@testing-library/dom'
 
 import SideBar from '..'
 import { renderWithProvider } from '../../../../utils/tests'
 
+const renderComponent = () => {
+  const { store } = renderWithProvider(<SideBar />, {
+    preloadedState: {
+      sideBar: {
+        component: 'form',
+        sideBarIsOpen: true
+      }
+    }
+  })
+  return { store }
+}
 describe('<Sidebar />', () => {
   it('should render correctly', () => {
     renderWithProvider(<SideBar />)
     expect(screen.getByText(/O carrinho está vazio/i)).toBeInTheDocument()
   })
 
-  it('should call a function when pressing the close button or overlay container', () => {
-    const handleClose = vi.fn()
-    renderWithProvider(<SideBar />)
+  it('should close sidebar when pressing the close button', () => {
+    const { store } = renderComponent()
+
     const button = screen.getByRole('button', { name: 'Icone de fechar' })
-    const overlayContainer = screen.getByRole('overlay-container')
 
-    button.onclick = handleClose
-    overlayContainer.onclick = handleClose
-
-    fireEvent.click(overlayContainer)
     fireEvent.click(button)
 
-    expect(handleClose).toHaveBeenCalledTimes(2)
+    expect(store.getState().sideBar.sideBarIsOpen).toBeFalsy()
   })
 
-  it('should change the component state when close Sidebar', () => {
-    const handleClose = vi.fn()
-    const { store } = renderWithProvider(<SideBar />, {
-      preloadedState: {
-        sideBar: {
-          component: 'form',
-          sideBarIsOpen: true
-        }
-      }
-    })
+  it('should render with a Form component', () => {
+    renderComponent()
 
-    const button = screen.getByRole('button', { name: 'Icone de fechar' })
-
-    button.onclick = handleClose
-
-    fireEvent.click(button)
-
-    expect(handleClose).toHaveBeenCalled()
-    expect(store.getState().sideBar.component).toEqual('cart')
+    const headingDelivery = screen.getByRole('heading', { name: /entrega/i })
+    expect(headingDelivery).toBeInTheDocument()
   })
 
   it('should render with a Cart component', () => {
@@ -75,17 +66,23 @@ describe('<Sidebar />', () => {
     expect(buttonContinueWithDelivery).toBeInTheDocument()
   })
 
-  it('should render with a Form component', () => {
-    renderWithProvider(<SideBar />, {
-      preloadedState: {
-        sideBar: {
-          component: 'form',
-          sideBarIsOpen: true
-        }
-      }
-    })
+  it('should close sidebar when pressing the overlay', () => {
+    const { store } = renderComponent()
 
-    const headingDelivery = screen.getByRole('heading', { name: /entrega/i })
-    expect(headingDelivery).toBeInTheDocument()
+    const overlayContainer = screen.getByRole('overlay-container')
+
+    fireEvent.click(overlayContainer)
+
+    expect(store.getState().sideBar.sideBarIsOpen).toBeFalsy()
+  })
+
+  it('should change the component state when close Sidebar', () => {
+    const { store } = renderComponent()
+
+    const button = screen.getByRole('button', { name: 'Icone de fechar' })
+
+    fireEvent.click(button)
+
+    expect(store.getState().sideBar.component).toEqual('cart')
   })
 })

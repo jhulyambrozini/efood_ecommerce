@@ -57,7 +57,6 @@ describe('<Form />', () => {
   })
 
   it('should render payment div when clicking "Continuar com o pagamento"', () => {
-    const handleClick = vi.fn()
     renderWithProvider(<Form />)
 
     const inputName = screen.getByRole('textbox', {
@@ -78,34 +77,26 @@ describe('<Form />', () => {
       name: 'Continuar com o pagamento'
     })
 
-    KeepWithPaymentButton.onclick = handleClick
-
     fireEvent.click(KeepWithPaymentButton)
 
-    expect(handleClick).toHaveBeenCalled()
-
-    expect(screen.getByTestId('payment')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Pagamento - Valor a pagar R$ 0,00' })
+    ).toBeInTheDocument()
   })
 
   it('should return to the cart when clicking "Voltar ao carrinho"', () => {
-    const handleClick = vi.fn()
     const { store } = renderWithProvider(<Form />)
 
     const backToCartButton = screen.getByRole('button', {
       name: 'Voltar ao carrinho'
     })
 
-    backToCartButton.onclick = handleClick
-
     fireEvent.click(backToCartButton)
-
-    expect(handleClick).toHaveBeenCalled()
 
     expect(store.getState().sideBar.component).toEqual('cart')
   })
 
   it('should render finishOrder component when form is submitted', async () => {
-    const handleClick = vi.fn()
     renderWithProvider(
       <MemoryRouter>
         <Form />
@@ -145,8 +136,6 @@ describe('<Form />', () => {
     const KeepWithPaymentButton = screen.getByRole('button', {
       name: 'Continuar com o pagamento'
     })
-
-    KeepWithPaymentButton.onclick = handleClick
 
     fireEvent.click(KeepWithPaymentButton)
 

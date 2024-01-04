@@ -1,21 +1,21 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Button /> > should match snapshot 1`] = `
+exports[`<Button /> > should render a primary button" 1`] = `
 <button
-  class="sc-dcJsrY bDWePn"
+  class="sc-dcJsrY bgvNbD"
   title="click me"
   type="button"
 >
-  button
+  button primary
 </button>
 `;
 
-exports[`<Button /> should match snapshot 1`] = `
+exports[`<Button /> > should render a secondary button" 1`] = `
 <button
   class="sc-dcJsrY bDWePn"
   title="click me"
   type="button"
 >
-  button
+  button secondary
 </button>
 `;

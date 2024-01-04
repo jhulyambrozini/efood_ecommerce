@@ -1,50 +1,14 @@
 import '@testing-library/jest-dom'
 import { fireEvent, screen } from '@testing-library/dom'
-import { vi } from 'vitest'
 
 import Cart from '..'
 import { renderWithProvider } from '../../../../utils/tests'
 
-const itemsCart = [
-  {
-    foto: 'img/img.png',
-    preco: 12.7,
-    id: 1,
-    nome: 'comida 1',
-    descricao: 'descrição 1',
-    porcao: '2 pessoas'
-  },
-  {
-    foto: 'img/img.png',
-    preco: 129,
-    id: 2,
-    nome: 'comida 2',
-    descricao: 'descrição 2',
-    porcao: '2 pessoas'
-  }
-]
-
-describe('<Cart />', () => {
-  it('should render without itens', () => {
-    renderWithProvider(<Cart itemsCart={[]} />)
-
-    expect(screen.getByTestId('paragraph')).toBeInTheDocument()
-  })
-
-  it('should render with 2 items in cart', () => {
-    renderWithProvider(<Cart itemsCart={itemsCart} />)
-
-    const heading1 = screen.getByRole('heading', { name: 'comida 1' })
-    const heading2 = screen.getByRole('heading', { name: 'comida 2' })
-    expect(heading1).toBeInTheDocument()
-    expect(heading2).toBeInTheDocument()
-  })
-
-  it('should call a function when clicking on the trash button', () => {
-    const handleRemove = vi.fn()
-    renderWithProvider(
-      <Cart
-        itemsCart={[
+const renderComponent = () => {
+  const { container, store } = renderWithProvider(<Cart />, {
+    preloadedState: {
+      cart: {
+        itemsCart: [
           {
             foto: 'img/img.png',
             preco: 12.7,
@@ -52,34 +16,65 @@ describe('<Cart />', () => {
             nome: 'comida 1',
             descricao: 'descrição 1',
             porcao: '2 pessoas'
+          },
+          {
+            foto: 'img/img.png',
+            preco: 129,
+            id: 2,
+            nome: 'comida 2',
+            descricao: 'descrição 2',
+            porcao: '2 pessoas'
           }
-        ]}
-      />
-    )
+        ]
+      }
+    }
+  })
+  return { container, store }
+}
 
-    const trashButton = screen.getByRole('button', {
+describe('<Cart />', () => {
+  it('should render without itens', () => {
+    const { container } = renderWithProvider(<Cart />, {
+      preloadedState: { cart: { itemsCart: [] } }
+    })
+
+    expect(screen.getByTestId('paragraph')).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
+  })
+
+  it('should render with 2 items in cart', () => {
+    const { container } = renderComponent()
+
+    const heading1 = screen.getByRole('heading', { name: 'comida 1' })
+    const heading2 = screen.getByRole('heading', { name: 'comida 2' })
+    expect(heading1).toBeInTheDocument()
+    expect(heading2).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
+  })
+
+  it('should remove an item of cart when clicking on the trash button', () => {
+    const { store } = renderComponent()
+
+    const trashButton = screen.getAllByRole('button', {
       name: 'icone de lixeira da cor rosa'
     })
 
-    trashButton.onclick = handleRemove
-    fireEvent.click(trashButton)
+    fireEvent.click(trashButton[0])
 
-    expect(handleRemove).toHaveBeenCalled()
+    expect(store.getState().cart.itemsCart.length).toEqual(1)
   })
 
   it('should call a function when clicking continue with delivery', () => {
-    const handleClick = vi.fn()
-    renderWithProvider(<Cart itemsCart={itemsCart} />)
+    const { store } = renderComponent()
 
     const keepWithDeliveryButton = screen.getByRole('button', {
       name: /Continuar com a entrega/i
     })
-    expect(keepWithDeliveryButton).toBeInTheDocument()
-
-    keepWithDeliveryButton.onclick = handleClick
 
     fireEvent.click(keepWithDeliveryButton)
 
-    expect(handleClick).toHaveBeenCalled()
+    expect(store.getState().sideBar.component).toBe('form')
   })
 })

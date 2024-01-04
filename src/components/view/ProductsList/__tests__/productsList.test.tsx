@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom'
 import { fireEvent, screen } from '@testing-library/dom'
-import { vi } from 'vitest'
 
 import ProductsList from '..'
 import { renderWithProvider } from '../../../../utils/tests'
@@ -41,8 +40,8 @@ describe('<ProductList />', () => {
 
     expect(items).toHaveLength(2)
   })
+
   it('should render a modal when clicking "Mais detalhes"', () => {
-    const handleClick = vi.fn()
     renderWithProvider(<ProductsList foods={props} />)
 
     const moreDetailsButton = screen.getAllByRole('button', {
@@ -50,38 +49,28 @@ describe('<ProductList />', () => {
     })[0]
     expect(moreDetailsButton).toBeInTheDocument()
 
-    moreDetailsButton.onclick = handleClick
     fireEvent.click(moreDetailsButton)
-
-    expect(handleClick).toHaveBeenCalled()
 
     expect(
       screen.getByRole('button', { name: 'Adicionar ao carrinho - R$ 12,70' })
     ).toBeInTheDocument()
   })
-  it('should call a function when clicking in "Adicionar ao carrinho"', () => {
-    const handleClick = vi.fn()
-    renderWithProvider(<ProductsList foods={props} />)
+
+  it('should add item to cart when clicking in "Adicionar ao carrinho"', () => {
+    const { store } = renderWithProvider(<ProductsList foods={props} />)
 
     const moreDetailsButton = screen.getAllByRole('button', {
       name: 'Mais detalhes'
     })[0]
 
-    moreDetailsButton.onclick = handleClick
     fireEvent.click(moreDetailsButton)
-
-    expect(handleClick).toHaveBeenCalledTimes(1)
 
     const addToCartButton = screen.getByRole('button', {
       name: 'Adicionar ao carrinho - R$ 12,70'
     })
 
-    expect(addToCartButton).toBeInTheDocument()
-
-    addToCartButton.onclick = handleClick
-
     fireEvent.click(addToCartButton)
 
-    expect(handleClick).toHaveBeenCalledTimes(2)
+    expect(store.getState().cart.itemsCart[0].nome).toBe('comida 1')
   })
 })

@@ -101,7 +101,7 @@ const Form = () => {
   }, [isSuccess, dispatch])
 
   return (
-    <FormContainer onSubmit={form.handleSubmit}>
+    <FormContainer onSubmit={form.handleSubmit} data-testid="form">
       {isSuccess && data ? (
         <FinishOrder orderId={data.orderId} />
       ) : isDeliveryOpen ? (

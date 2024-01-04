@@ -1,0 +1,93 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Cart /> > should render with 2 items in cart 1`] = `
+<div>
+  <ul>
+    <li
+      class="sc-gsFSXq enYCKw"
+    >
+      <img
+        alt="comida 1"
+        class="food-image"
+        src="img/img.png"
+      />
+      <div
+        class="sc-kAyceB fygJfL"
+      >
+        <h4>
+          comida 1
+        </h4>
+        <span>
+          R$ 12,70
+        </span>
+      </div>
+      <button
+        class="sc-eqUAAy sc-iGgWBj KzdVX euZauh"
+        title="Remover o item do carrinho"
+      >
+        <img
+          alt="icone de lixeira da cor rosa"
+          src="/src/assets/images/trash-icon.svg"
+        />
+      </button>
+    </li>
+    <li
+      class="sc-gsFSXq enYCKw"
+    >
+      <img
+        alt="comida 2"
+        class="food-image"
+        src="img/img.png"
+      />
+      <div
+        class="sc-kAyceB fygJfL"
+      >
+        <h4>
+          comida 2
+        </h4>
+        <span>
+          R$ 129,00
+        </span>
+      </div>
+      <button
+        class="sc-eqUAAy sc-iGgWBj KzdVX euZauh"
+        title="Remover o item do carrinho"
+      >
+        <img
+          alt="icone de lixeira da cor rosa"
+          src="/src/assets/images/trash-icon.svg"
+        />
+      </button>
+    </li>
+  </ul>
+  <div
+    class="sc-imWYAI iyRkcB"
+  >
+    <span>
+      Valor Total
+    </span>
+    <span>
+      R$ 141,70
+    </span>
+  </div>
+  <button
+    class="sc-dcJsrY bDWePn"
+    title="Continuar com a entrega"
+    type="button"
+  >
+    Continuar com a entrega
+  </button>
+</div>
+`;
+
+exports[`<Cart /> > should render without itens 1`] = `
+<div>
+  <p
+    class="empty-text"
+    data-testid="paragraph"
+    style="color: rgba(255, 255, 255, 1);"
+  >
+    O carrinho está vazio, dicione ao menos um item para continuar com a compra.
+  </p>
+</div>
+`;
