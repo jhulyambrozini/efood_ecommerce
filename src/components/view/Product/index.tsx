@@ -20,11 +20,13 @@ const Product = ({ food }: ProductProps) => {
     dispatch(setFood(food))
   }
 
+  const description = formatDescription(food.descricao)
+
   return (
     <ProductContainer>
       <Image src={food.foto} alt={food.nome} />
       <h3>{food.nome}</h3>
-      <p>{formatDescription(food.descricao)}</p>
+      <p>{description}</p>
       <Button
         type="button"
         title="Mais detalhes"
