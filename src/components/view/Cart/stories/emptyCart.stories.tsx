@@ -1,18 +1,20 @@
 import type { Meta } from '@storybook/react'
 
-import Loader from '.'
+import EmptyCart from '../EmptyCart'
 
 const meta = {
-  title: 'ui/Loader',
-  component: Loader,
+  title: 'view/Cart/EmptyCart',
+  component: EmptyCart,
   parameters: {
-    layout: 'centered'
+    backgrounds: {
+      default: 'dark'
+    }
   }
-} satisfies Meta<typeof Loader>
+} satisfies Meta<typeof EmptyCart>
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default meta
 
 export const Template = () => {
-  return <Loader />
+  return <EmptyCart />
 }

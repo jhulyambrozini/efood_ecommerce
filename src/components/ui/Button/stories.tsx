@@ -8,6 +8,9 @@ const meta = {
   parameters: {
     layout: 'centered'
   },
+  argTypes: {
+    onClick: { control: { disable: true } }
+  },
   tags: ['autodocs']
 } satisfies Meta<typeof Button>
 

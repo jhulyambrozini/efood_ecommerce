@@ -8,7 +8,7 @@ import Image from '../../../utils/Image'
 
 import { openModal, setFood } from '../../../store/reducers/modal'
 
-type ProductProps = {
+export type ProductProps = {
   food: Menu
 }
 
