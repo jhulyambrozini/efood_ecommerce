@@ -11,7 +11,7 @@ export const FieldSetInputMask = ({
   onBlur,
   onChange,
   value,
-  mask
+  mask, required
 }: FieldSetInputMaskProps) => (
   <InputMask
     name={id}
@@ -21,5 +21,6 @@ export const FieldSetInputMask = ({
     onChange={onChange}
     value={value}
     mask={mask}
+    aria-required={required}
   />
 )

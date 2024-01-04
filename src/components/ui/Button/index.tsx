@@ -1,7 +1,7 @@
 import { ButtonContainer } from './styles'
 
 export type ButtonProps = {
-  type: 'button' | 'submit'
+  type: 'button' | 'submit' | 'reset'
   background: 'primary' | 'secundary'
   label: string
   title: string

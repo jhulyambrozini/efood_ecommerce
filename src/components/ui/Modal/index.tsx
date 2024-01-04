@@ -29,7 +29,7 @@ const Modal = () => {
   return (
     <Style.Modal>
       <Style.ModalContainer>
-        <Image src={food.foto} alt={food.foto} />
+        <Image src={food.foto} alt={food.nome} />
         <Style.Infos>
           <h3>{food.nome}</h3>
           <p>{food.descricao}</p>

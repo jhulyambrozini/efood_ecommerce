@@ -21,7 +21,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
   const amount = formatPrice(calculeTotalPrice(itemsCart))
 
   return (
-    <div aria-label="pagamento">
+    <div aria-label="Formulário de pagamento">
       <div className="margin-bottom">
         <h3>Pagamento - Valor a pagar {amount}</h3>
 
@@ -33,6 +33,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
             onChange={form.handleChange}
             value={form.values.cardName}
             type="text"
+            required="true"
           />
           <FieldSet.ErrorMessage
             errorMessage={getMessageError(
@@ -53,6 +54,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
               value={form.values.cardNumber}
               mask="9999 9999 9999 9999"
               type="text"
+              required="true"
             />
             <FieldSet.ErrorMessage
               errorMessage={getMessageError(
@@ -72,6 +74,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
               value={form.values.cardCode}
               mask="999"
               type="text"
+              required="true"
             />
             <FieldSet.ErrorMessage
               errorMessage={getMessageError(
@@ -93,6 +96,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
               value={form.values.expiresMonth}
               mask="99"
               type="text"
+              required="true"
             />
             <FieldSet.ErrorMessage
               errorMessage={getMessageError(
@@ -112,6 +116,7 @@ const PaymentForm = ({ form }: PaymentFormProps) => {
               value={form.values.expiresYear}
               mask="99"
               type="text"
+              required="true"
             />
             <FieldSet.ErrorMessage
               errorMessage={getMessageError(

@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux'
 
 import Button from '../../ui/Button'
 
-import { FormContainer } from './styles'
-
 import { changeComponent, closeSideBar } from '../../../store/reducers/sideBar'
 import { clearCart } from '../../../store/reducers/cart'
 
@@ -23,7 +21,7 @@ const FinishOrder = ({ orderId }: FinishOrderProps) => {
     navigate('/')
   }
   return (
-    <FormContainer>
+    <>
       <h3>Pedido realizado - {orderId} </h3>
       <p>
         Estamos felizes em informar que seu pedido já está em processo de
@@ -52,7 +50,7 @@ const FinishOrder = ({ orderId }: FinishOrderProps) => {
         type="button"
         onClick={goToHome}
       />
-    </FormContainer>
+    </>
   )
 }
 

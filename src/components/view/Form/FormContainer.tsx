@@ -41,22 +41,22 @@ const Form = () => {
     validationSchema: Yup.object({
       name: Yup.string()
         .min(5, 'O nome precisa ter pelo menos 5 caracteres')
-        .required('O campo é obrigatório'),
-      adress: Yup.string().required('O campo é obrigatório'),
-      city: Yup.string().required('O campo é obrigatório'),
+        .required('O nome é obrigatório'),
+      adress: Yup.string().required('O endereço é obrigatório'),
+      city: Yup.string().required('O nome da cidade é obrigatório'),
       zipCode: Yup.string()
-        .min(14, 'O campo precisa ter no mínimo 14 caracteres')
-        .max(14, 'O campo precisa ter no máximo 14 caracteres')
-        .required('O campo é obrigatório'),
-      number: Yup.string().required('O campo é obrigatório'),
+        .min(14, 'O CPF precisa ter no mínimo 14 caracteres')
+        .max(14, 'O CPF pode ter no máximo 14 caracteres')
+        .required('O CPF é obrigatório'),
+      number: Yup.string().required('O número é obrigatório'),
 
       cardName: Yup.string()
-        .min(5, 'O nome precisa ter pelo menos 5 caracteres')
-        .required('O campo é obrigatório'),
-      cardNumber: Yup.string().required('O campo é obrigatório'),
-      cardCode: Yup.string().required('O campo é obrigatório'),
-      expiresMonth: Yup.string().required('O campo é obrigatório'),
-      expiresYear: Yup.string().required('O campo é obrigatório')
+        .min(5, 'O nome no cartão precisa ter pelo menos 5 caracteres')
+        .required('O nome no cartão é obrigatório'),
+      cardNumber: Yup.string().required('O número do cartão é obrigatório'),
+      cardCode: Yup.string().required('O CVV é obrigatório'),
+      expiresMonth: Yup.string().required('O mês de expirção é obrigatório'),
+      expiresYear: Yup.string().required('O ano de expiração é obrigatório')
     }),
     onSubmit: async (values) => {
       try {

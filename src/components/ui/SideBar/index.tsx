@@ -10,6 +10,7 @@ import closeIcon from '../../../assets/images/close.png'
 
 import { changeComponent, closeSideBar } from '../../../store/reducers/sideBar'
 import { RootState } from '../../../store'
+import { openFormDelivery } from '../../../store/reducers/formDelivery'
 
 const SideBar = () => {
   const dispatch = useDispatch()
@@ -24,6 +25,7 @@ const SideBar = () => {
     if (component === 'form') {
       dispatch(closeSideBar())
       dispatch(changeComponent('cart'))
+      dispatch(openFormDelivery())
     } else {
       dispatch(closeSideBar())
     }

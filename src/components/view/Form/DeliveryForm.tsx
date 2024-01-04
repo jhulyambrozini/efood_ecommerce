@@ -37,7 +37,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
   }
 
   return (
-    <div aria-label="entrega">
+    <div aria-label="Formulário de entrega">
       <div className="margin-bottom">
         <h3>Entrega</h3>
 
@@ -49,6 +49,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
             onChange={form.handleChange}
             value={form.values.name}
             type="text"
+            required="true"
           />
           <FieldSet.ErrorMessage
             errorMessage={getMessageError('name', form, form.errors.name)}
@@ -63,6 +64,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
             onChange={form.handleChange}
             value={form.values.adress}
             type="text"
+            required="true"
           />
           <FieldSet.ErrorMessage
             errorMessage={getMessageError('adress', form, form.errors.adress)}
@@ -77,6 +79,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
             onChange={form.handleChange}
             value={form.values.city}
             type="text"
+            required="true"
           />
           <FieldSet.ErrorMessage
             errorMessage={getMessageError('city', form, form.errors.city)}
@@ -93,6 +96,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
               value={form.values.zipCode}
               mask="999.999.999-99"
               type="text"
+              required="true"
             />
             <FieldSet.ErrorMessage
               errorMessage={getMessageError(
@@ -111,6 +115,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
               onChange={form.handleChange}
               value={form.values.number}
               type="number"
+              required="true"
             />
             <FieldSet.ErrorMessage
               errorMessage={getMessageError('number', form, form.errors.number)}
@@ -126,6 +131,7 @@ const DeliveryForm = ({ form }: DeliveryFormProps) => {
             onChange={form.handleChange}
             value={form.values.complement}
             type="text"
+            required="false"
           />
           <FieldSet.ErrorMessage
             errorMessage={getMessageError(

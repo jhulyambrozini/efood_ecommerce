@@ -6,6 +6,7 @@ export type FieldSetInputProps = {
   onChange?: ChangeEventHandler<HTMLInputElement>
   value?: string
   type?: string
+  required: 'true' | 'false'
 }
 
 export const FieldSetInput = ({
@@ -13,7 +14,8 @@ export const FieldSetInput = ({
   type,
   onBlur,
   onChange,
-  value
+  value,
+  required
 }: FieldSetInputProps) => (
   <input
     name={id}
@@ -22,5 +24,6 @@ export const FieldSetInput = ({
     onBlur={onBlur}
     onChange={onChange}
     value={value}
+    aria-required={required}
   />
 )
