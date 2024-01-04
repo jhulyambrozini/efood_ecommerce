@@ -27,7 +27,7 @@ export const WithInputNormal: Story = {
     children: (
       <>
         <FieldSet.Label id="name" label="Nome" />
-        <FieldSet.Input id="name" type="text" />
+        <FieldSet.Input required="true" id="name" type="text" />
       </>
     )
   }
@@ -39,7 +39,12 @@ export const WithInputMask: Story = {
     children: (
       <>
         <FieldSet.Label id="month" label="Mês" />
-        <FieldSet.InputMask id="month" type="number" mask="99" />
+        <FieldSet.InputMask
+          required="true"
+          id="month"
+          type="number"
+          mask="99"
+        />
       </>
     )
   }
@@ -51,7 +56,7 @@ export const WithErrorMessage: Story = {
     children: (
       <>
         <FieldSet.Label id="month" label="Mês" />
-        <FieldSet.Input id="month" type="number" />
+        <FieldSet.Input required="true" id="month" type="number" />
         <FieldSet.ErrorMessage errorMessage="campo obrigatório" />
       </>
     )
