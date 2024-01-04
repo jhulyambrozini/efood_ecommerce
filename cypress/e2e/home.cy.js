@@ -6,6 +6,6 @@ describe('Tests for Home', () => {
   })
 
   it('should render with 6 restaurants', () => {
-    cy.get('.sc-iJfdHH li').should('have.length', 6)
+    cy.get('.sc-hmdomO').should('have.length', 6)
   })
 })

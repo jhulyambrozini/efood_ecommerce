@@ -46,37 +46,53 @@ describe('Tests for Perfil', () => {
     )
   })
 
-  // it('should go to the form', () => {
-  //   const knowMorebutton = ':nth-child(1) > .sc-hmdomO > .sc-dcJsrY'
-  //   cy.get(knowMorebutton).click()
-  //   cy.get('.sc-fnOeiS.kvmMQT button').first().click()
-  //   cy.get('.sc-dIEoRj.fBZSNL button').click()
-  //   cy.get('.sc-ipMvLY > .sc-eDnVMP').click()
-  //   cy.get('form h3').should('have.text', 'Entrega')
-  // })
+  it('should go to the form', () => {
+    const knowMorebutton = ':nth-child(1) > .sc-hmdomO > .sc-dcJsrY'
+    cy.get(knowMorebutton).click()
 
-  // it('should fill out the entire form correctly', () => {
-  //   const knowMorebutton = ':nth-child(1) > .sc-hmdomO > .sc-dcJsrY'
-  //   cy.get(knowMorebutton).click()
-  //   cy.get('.sc-fnOeiS.kvmMQT button').first().click()
-  //   cy.get('.sc-dIEoRj.fBZSNL button').click()
-  //   cy.get('.sc-ipMvLY > .sc-eDnVMP').click()
-  //   cy.get('#name').type('ana julia')
-  //   cy.get('#adress').type('rua ali perto')
-  //   cy.get('#city').type('são paulo')
-  //   cy.get('#zipCode').type('123.456.789-99')
-  //   cy.get('#number').type('12')
+    const moreDetailsButton = ':nth-child(1) > .sc-dhKdcB > .sc-dcJsrY'
+    cy.get(moreDetailsButton).click()
 
-  //   cy.get('[title="Continuar com o pagamento"]').click()
+    const addTocartButton = '.sc-imWYAI > .sc-dcJsrY'
+    cy.get(addTocartButton).click()
 
-  //   cy.get('#cardName').type('ana julia')
-  //   cy.get('#cardNumber').type('9999 9999 9999 9999')
-  //   cy.get('#cardCode').type('123')
-  //   cy.get('#expiresMonth').type('12')
-  //   cy.get('#expiresYear').type('24')
+    const goToFormButton = ':nth-child(2) > .sc-dcJsrY'
 
-  //   cy.get('[title="Finalizar o pagamento"]').click()
+    cy.get(goToFormButton).click()
+    cy.get('form h3').should('have.text', 'Entrega')
+  })
 
-  //   cy.get('.sc-pqitP > .sc-eDnVMP').should('be.visible')
-  // })
+  it('should fill out the entire form correctly', () => {
+    const knowMorebutton = ':nth-child(1) > .sc-hmdomO > .sc-dcJsrY'
+    cy.get(knowMorebutton).click()
+    const moreDetailsButton = ':nth-child(1) > .sc-dhKdcB > .sc-dcJsrY'
+    cy.get(moreDetailsButton).click()
+
+    const addTocartButton = '.sc-imWYAI > .sc-dcJsrY'
+    cy.get(addTocartButton).click()
+
+    const goToFormButton = ':nth-child(2) > .sc-dcJsrY'
+
+    cy.get(goToFormButton).click()
+
+    cy.get('#name').type('ana julia')
+    cy.get('#adress').type('rua ali perto')
+    cy.get('#city').type('são paulo')
+    cy.get('#zipCode').type('123.456.789-99')
+    cy.get('#number').type('12')
+
+    cy.get('[title="Continuar com o pagamento"]').click()
+
+    cy.get('#cardName').type('ana julia')
+    cy.get('#cardNumber').type('9999 9999 9999 9999')
+    cy.get('#cardCode').type('123')
+    cy.get('#expiresMonth').type('12')
+    cy.get('#expiresYear').type('24')
+
+    cy.get('[title="Finalizar o pagamento"]').click()
+
+    const finishOrderButton = '[data-testid="form"] > .sc-dcJsrY'
+
+    cy.get(finishOrderButton).should('be.visible')
+  })
 })
